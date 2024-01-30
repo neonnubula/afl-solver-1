@@ -349,422 +349,165 @@ percentage_goals_greater_dayofweek = goals_greater_dayofweek / total_games_dayof
 
 print()
 print()
-print(
-    f"{input_name} results for disposal line of {input_disposals} and goals line of {input_goals}"
-)
+print(f"{input_name} results for disposal line of {input_disposals} and goals line of {input_goals}")
 print()
+
 # print results for DISPOSALS
 print("DISPOSALS")
+
 # print the all games results, rounded to 2 decimal points (:.2f)
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
 print("All Games Results")
-print(
-    f"Number of games less than {input_disposals} disposals: {disposals_less}")
-print()
-print(
-    f"Number of games greater than {input_disposals} disposals: {disposals_greater}"
-)
-print()
-print(
-    f"Percentage of games less than {input_disposals} disposals: {goal_less_perc *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of games greater than {input_disposals} disposals: {goal_greater_perc *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_disposals} disposals based on past performance: ${1/disp_less_perc:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_disposals} disposals based on past performance: ${1/disp_greater_perc:.2f}"
-)
+print(f"Number of games less than {input_disposals} disposals: {disposals_less}")
+print(f"Number of games greater than {input_disposals} disposals: {disposals_greater}")
+print(f"Percentage of games less than {input_disposals} disposals: {percentage_goals_less *100:.2f}%")
+print(f"Percentage of games greater than {input_disposals} disposals: {percentage_goals_greater *100:.2f}%")
+print(f"True odds for under {input_disposals} disposals based on past performance: ${1/percentage_disposals_less:.2f}")
+print(f"True odds for over {input_disposals} disposals based on past performance: ${1/percentage_disposals_greater:.2f}")
 print()
 print()
 
 # print the results, based on location input
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"{input_location} Games Results")
-print(
-    f"Number of {input_location} games less than {input_disposals} disposals: {disposals_less_location}"
-)
-print()
-print(
-    f"Number of {input_location} games greater than {input_disposals} disposals: {disposals_greater_location}"
-)
-print()
-print(
-    f"Percentage of {input_location} games less than {input_disposals} disposals: {disp_less_perc_location *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of {input_location} games greater than {input_disposals} disposals: {disp_greater_perc_location *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_disposals} disposals based on past {input_location} performance: ${1/disp_less_perc_location:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_disposals} disposals based on past {input_location} performance: ${1/disp_greater_perc_location:.2f}"
-)
+print(f"Number of {input_location} games less than {input_disposals} disposals: {disposals_less_location}")
+print(f"Number of {input_location} games greater than {input_disposals} disposals: {disposals_greater_location}")
+print(f"Percentage of {input_location} games less than {input_disposals} disposals: {disp_less_perc_location *100:.2f}%")
+print(f"Percentage of {input_location} games greater than {input_disposals} disposals: {disp_greater_perc_location *100:.2f}%")
+print(f"True odds for under {input_disposals} disposals based on past {input_location} performance: ${1/disp_less_perc_location:.2f}")
+print(f"True odds for over {input_disposals} disposals based on past {input_location} performance: ${1/disp_greater_perc_location:.2f}")
 print()
 print()
 
 # print the results, based on opposition
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"Against {input_opposition} Games Results")
-print(
-    f"Number of against {input_opposition} games less than {input_disposals} disposals: {disposals_less_opposition}"
-)
-print()
-print(
-    f"Number of against {input_opposition} games greater than {input_disposals} disposals: {disposals_greater_opposition}"
-)
-print()
-print(
-    f"Percentage of against {input_opposition} games less than {input_disposals} disposals: {disp_less_perc_opposition *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of against {input_opposition} games greater than {input_disposals} disposals: {disp_greater_perc_opposition *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_disposals} disposals based on past against {input_opposition} performance: ${1/disp_less_perc_opposition:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_disposals} disposals based on past against {input_opposition} performance: ${1/disp_greater_perc_opposition:.2f}"
-)
+print(f"Number of games against {input_opposition} less than {input_disposals} disposals: {disposals_less_opposition}")
+print(f"Number of games against {input_opposition} greater than {input_disposals} disposals: {disposals_greater_opposition}")
+print(f"Percentage of games against {input_opposition} less than {input_disposals} disposals: {percentage_disposals_less_opposition * 100:.2f}%")
+print(f"Percentage of games against {input_opposition} greater than {input_disposals} disposals: {percentage_disposals_greater_opposition * 100:.2f}%")
+print(f"True odds for under {input_disposals} disposals based on past against {input_opposition} performance: ${1 / percentage_disposals_less_opposition:.2f}")
+print(f"True odds for over {input_disposals} disposals based on past against {input_opposition} performance: ${1 / percentage_disposals_greater_opposition:.2f}")
 print()
 print()
 
 # print the results, based on venue
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"At {input_venue} Games Results")
-print(
-    f"Number of at {input_venue} games less than {input_disposals} disposals: {disposals_less_venue}"
-)
-print()
-print(
-    f"Number of at {input_venue} games greater than {input_disposals} disposals: {disposals_greater_venue}"
-)
-print()
-print(
-    f"Percentage of at {input_venue} games less than {input_disposals} disposals: {disp_less_perc_venue *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of at {input_venue} games greater than {input_disposals} disposals: {disp_greater_perc_venue *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_disposals} disposals based on past at {input_venue} performance: ${1/disp_less_perc_venue:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_disposals} disposals based on past at {input_venue} performance: ${1/disp_greater_perc_venue:.2f}"
-)
+print(f"Number of at {input_venue} games less than {input_disposals} disposals: {disposals_less_venue}")
+print(f"Number of at {input_venue} games greater than {input_disposals} disposals: {disposals_greater_venue}")
+print(f"Percentage of at {input_venue} games less than {input_disposals} disposals: {percentage_disposals_less_venue * 100:.2f}%")
+print(f"Percentage of at {input_venue} games greater than {input_disposals} disposals: {percentage_disposals_greater_venue * 100:.2f}%")
+print(f"True odds for under {input_disposals} disposals based on past at {input_venue} performance: ${1 / percentage_disposals_less_venue:.2f}")
+print(f"True odds for over {input_disposals} disposals based on past at {input_venue} performance: ${1 / percentage_disposals_greater_venue:.2f}")
 print()
 print()
 
 # print the results, based on 2023 season
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"2023 Season Games Results")
-print(
-    f"Number of 2023 games less than {input_disposals} disposals: {disposals_less_2023}"
-)
-print()
-print(
-    f"Number of 2023 games greater than {input_disposals} disposals: {disposals_greater_2023}"
-)
-print()
-print(
-    f"Percentage of 2023 games less than {input_disposals} disposals: {disp_less_perc_2023 *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of 2023 games greater than {input_disposals} disposals: {disp_greater_perc_2023 *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_disposals} disposals based 2023 performance: ${1/disp_less_perc_2023:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_disposals} disposals based on 2023 performance: ${1/disp_greater_perc_2023:.2f}"
-)
+print(f"Number of 2023 games less than {input_disposals} disposals: {disposals_less_2023}")
+print(f"Number of 2023 games greater than {input_disposals} disposals: {disposals_greater_2023}")
+print(f"Percentage of 2023 games less than {input_disposals} disposals: {percentage_disposals_less_2023 * 100:.2f}%")
+print(f"Percentage of 2023 games greater than {input_disposals} disposals: {percentage_disposals_greater_2023 * 100:.2f}%")
+print(f"True odds for under {input_disposals} disposals based on 2023 performance: ${1 / percentage_disposals_less_2023:.2f}")
+print(f"True odds for over {input_disposals} disposals based on 2023 performance: ${1 / percentage_disposals_greater_2023:.2f}")
 print()
 print()
 
 # print the results, based on time
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"{input_time} Games Results")
-print(
-    f"Number of {input_time} games less than {input_disposals} disposals: {disposals_less_time}"
-)
-print()
-print(
-    f"Number of {input_time} games greater than {input_disposals} disposals: {disposals_greater_time}"
-)
-print()
-print(
-    f"Percentage of {input_time} games less than {input_disposals} disposals: {disp_less_perc_time *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of {input_time} games greater than {input_disposals} disposals: {disp_greater_perc_time *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_disposals} disposals based {input_time} performance: ${1/disp_less_perc_time:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_disposals} disposals based on {input_time} performance: ${1/disp_greater_perc_time:.2f}"
-)
+print(f"Number of {input_time} games less than {input_disposals} disposals: {disposals_less_time}")
+print(f"Number of {input_time} games greater than {input_disposals} disposals: {disposals_greater_time}")
+print(f"Percentage of {input_time} games less than {input_disposals} disposals: {percentage_disposals_less_time * 100:.2f}%")
+print(f"Percentage of {input_time} games greater than {input_disposals} disposals: {percentage_disposals_greater_time * 100:.2f}%")
+print(f"True odds for under {input_disposals} disposals based {input_time} performance: ${1 / percentage_disposals_less_time:.2f}")
+print(f"True odds for over {input_disposals} disposals based on {input_time} performance: ${1 / percentage_disposals_greater_time:.2f}")
 print()
 print()
 
 # print the results, based on day of week
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"{input_dayofweek} Games Results")
-print(
-    f"Number of {input_dayofweek} games less than {input_disposals} disposals: {disposals_less_dayofweek}"
-)
-print()
-print(
-    f"Number of {input_dayofweek} games greater than {input_disposals} disposals: {disposals_greater_dayofweek}"
-)
-print()
-print(
-    f"Percentage of {input_dayofweek} games less than {input_disposals} disposals: {disp_less_perc_dayofweek *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of {input_dayofweek} games greater than {input_disposals} disposals: {disp_greater_perc_dayofweek *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_disposals} disposals based {input_dayofweek} performance: ${1/disp_less_perc_dayofweek:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_disposals} disposals based on {input_dayofweek} performance: ${1/disp_greater_perc_dayofweek:.2f}"
-)
+print(f"Number of {input_dayofweek} games less than {input_disposals} disposals: {disposals_less_dayofweek}")
+print(f"Number of {input_dayofweek} games greater than {input_disposals} disposals: {disposals_greater_dayofweek}")
+print(f"Percentage of {input_dayofweek} games less than {input_disposals} disposals: {percentage_disposals_less_dayofweek * 100:.2f}%")
+print(f"Percentage of {input_dayofweek} games greater than {input_disposals} disposals: {percentage_disposals_greater_dayofweek * 100:.2f}%")
+print(f"True odds for under {input_disposals} disposals based on {input_dayofweek} performance: ${1 / percentage_disposals_less_dayofweek:.2f}")
+print(f"True odds for over {input_disposals} disposals based on {input_dayofweek} performance: ${1 / percentage_disposals_greater_dayofweek:.2f}")
 print()
 print()
+
 
 # print results for GOALS
 print("GOALS")
-# print the full results, rounded to 2 decimal points (:.2f)
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
+# print the full games results, rounded to 2 decimal points (:.2f)
 print("All Games Results")
 print(f"Number of games less than {input_goals} goals: {goals_less}")
-print()
 print(f"Number of games greater than {input_goals} goals: {goals_greater}")
-print()
-print(
-    f"Percentage of games less than {input_goals} goals: {goal_less_perc *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of games greater than {input_goals} goals: {goal_greater_perc *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_goals} goals based on past performance: ${1/goal_less_perc:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_goals} goals based on past performance: ${1/goal_greater_perc:.2f}"
-)
+print(f"Percentage of games less than {input_goals} goals: {percentage_goals_less *100:.2f}%")
+print(f"Percentage of games greater than {input_goals} goals: {percentage_goals_greater *100:.2f}%")
+print(f"True odds for under {input_goals} goals based on past performance: ${1/percentage_goals_less:.2f}")
+print(f"True odds for over {input_goals} goals based on past performance: ${1/percentage_goals_greater:.2f}")
 print()
 print()
 
 # print the results, based on location input
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"{input_location} Games Results")
-print(
-    f"Number of {input_location} games less than {input_goals} goals: {goals_less_location}"
-)
-print()
-print(
-    f"Number of {input_location} games greater than {input_goals} goals: {goals_greater_location}"
-)
-print()
-print(
-    f"Percentage of {input_location} games less than {input_goals} goals: {goal_less_perc_location *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of {input_location} games greater than {input_goals} goals: {goal_greater_perc_location *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_goals} goals based on past {input_location} performance: ${1/goal_less_perc_location:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_goals} goals based on past {input_location} performance: ${1/goal_greater_perc_location:.2f}"
-)
+print(f"Number of {input_location} games less than {input_goals} goals: {goals_less_location}")
+print(f"Number of {input_location} games greater than {input_goals} goals: {goals_greater_location}")
+print(f"Percentage of {input_location} games less than {input_goals} goals: {percentage_goals_less_location *100:.2f}%")
+print(f"Percentage of {input_location} games greater than {input_goals} goals: {percentage_goals_greater_location *100:.2f}%")
+print(f"True odds for under {input_goals} goals based on past {input_location} performance: ${1/percentage_goals_less_location:.2f}")
+print(f"True odds for over {input_goals} goals based on past {input_location} performance: ${1/percentage_goals_greater_location:.2f}")
 print()
 print()
 
 # print the results, based on opposition
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"Against {input_opposition} Games Results")
-print(
-    f"Number of against {input_opposition} games less than {input_goals} goals: {goals_less_opposition}"
-)
-print()
-print(
-    f"Number of against {input_opposition} games greater than {input_goals} goals: {goals_greater_opposition}"
-)
-print()
-print(
-    f"Percentage of against {input_opposition} games less than {input_goals} goals: {goal_less_perc_opposition *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of against {input_opposition} games greater than {input_goals} goals: {goal_greater_perc_opposition *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_goals} goals based on past against {input_opposition} performance: ${1/goal_less_perc_opposition:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_goals} goals based on past against {input_opposition} performance: ${1/goal_greater_perc_opposition:.2f}"
-)
+print(f"Number of games against {input_opposition} less than {input_goals} goals: {goals_less_opposition}")
+print(f"Number of games against {input_opposition} greater than {input_goals} goals: {goals_greater_opposition}")
+print(f"Percentage of games against {input_opposition} less than {input_goals} goals: {percentage_goals_less_opposition * 100:.2f}%")
+print(f"Percentage of games against {input_opposition} greater than {input_goals} goals: {percentage_goals_greater_opposition * 100:.2f}%")
+print(f"True odds for under {input_goals} goals based on past against {input_opposition} performance: ${1 / percentage_goals_less_opposition:.2f}")
+print(f"True odds for over {input_goals} goals based on past against {input_opposition} performance: ${1 / percentage_goals_greater_opposition:.2f}")
 print()
 print()
 
 # print the results, based on venue
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"At {input_venue} Games Results")
-print(
-    f"Number of at {input_venue} games less than {input_goals} goals: {goals_less_venue}"
-)
-print()
-print(
-    f"Number of at {input_venue} games greater than {input_goals} goals: {goals_greater_venue}"
-)
-print()
-print(
-    f"Percentage of at {input_venue} games less than {input_goals} goals: {goal_less_perc_venue *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of at {input_venue} games greater than {input_goals} goals: {goal_greater_perc_venue *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_goals} goals based on past at {input_venue} performance: ${1/goal_less_perc_venue:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_goals} goals based on past at {input_venue} performance: ${1/goal_greater_perc_venue:.2f}"
-)
+print(f"Number of at {input_venue} games less than {input_goals} goals: {goals_less_venue}")
+print(f"Number of at {input_venue} games greater than {input_goals} goals: {goals_greater_venue}")
+print(f"Percentage of at {input_venue} games less than {input_goals} goals: {percentage_goals_less_venue * 100:.2f}%")
+print(f"Percentage of at {input_venue} games greater than {input_goals} goals: {percentage_goals_greater_venue * 100:.2f}%")
+print(f"True odds for under {input_goals} goals based on past at {input_venue} performance: ${1 / percentage_goals_less_venue:.2f}")
+print(f"True odds for over {input_goals} goals based on past at {input_venue} performance: ${1 / percentage_goals_greater_venue:.2f}")
 print()
 print()
 
 # print the results, based on 2023 season
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"2023 Season Games Results")
 print(f"Number of 2023 games less than {input_goals} goals: {goals_less_2023}")
-print()
-print(
-    f"Number of 2023 games greater than {input_goals} goals: {goals_greater_2023}"
-)
-print()
-print(
-    f"Percentage of 2023 games less than {input_goals} goals: {goal_less_perc_2023 *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of 2023 games greater than {input_goals} goals: {goal_greater_perc_2023 *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_goals} goals based 2023 performance: ${1/goal_less_perc_2023:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_goals} goals based on 2023 performance: ${1/goal_greater_perc_2023:.2f}"
-)
+print(f"Number of 2023 games greater than {input_goals} goals: {goals_greater_2023}")
+print(f"Percentage of 2023 games less than {input_goals} goals: {percentage_goals_less_2023 * 100:.2f}%")
+print(f"Percentage of 2023 games greater than {input_goals} goals: {percentage_goals_greater_2023 * 100:.2f}%")
+print(f"True odds for under {input_goals} goals based on 2023 performance: ${1 / percentage_goals_less_2023:.2f}")
+print(f"True odds for over {input_goals} goals based on 2023 performance: ${1 / percentage_goals_greater_2023:.2f}")
 print()
 print()
 
 # print the results, based on time
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"{input_time} Games Results")
-print(
-    f"Number of {input_time} games less than {input_goals} goals: {goals_less_time}"
-)
-print()
-print(
-    f"Number of {input_time} games greater than {input_goals} goals: {goals_greater_time}"
-)
-print()
-print(
-    f"Percentage of {input_time} games less than {input_goals} goals: {goal_less_perc_time *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of {input_time} games greater than {input_goals} goals: {goal_greater_perc_time *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_goals} goals based {input_time} performance: ${1/goal_less_perc_time:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_goals} goals based on {input_time} performance: ${1/goal_greater_perc_time:.2f}"
-)
+print(f"Number of {input_time} games less than {input_goals} goals: {goals_less_time}")
+print(f"Number of {input_time} games greater than {input_goals} goals: {goals_greater_time}")
+print(f"Percentage of {input_time} games less than {input_goals} goals: {percentage_goals_less_time * 100:.2f}%")
+print(f"Percentage of {input_time} games greater than {input_goals} goals: {percentage_goals_greater_time * 100:.2f}%")
+print(f"True odds for under {input_goals} goals based on past at night performance: ${1 / percentage_goals_less_time:.2f}")
+print(f"True odds for over {input_goals} goals based on past at night performance: ${1 / percentage_goals_greater_time:.2f}")
 print()
 print()
 
 # print the results, based on day of week
-# IMPORATNT - UPDATE PERCETNAGE VARIABLES
-
 print(f"{input_dayofweek} Games Results")
-print(
-    f"Number of {input_dayofweek} games less than {input_goals} goals: {goals_less_dayofweek}"
-)
-print()
-print(
-    f"Number of {input_dayofweek} games greater than {input_goals} goals: {goals_greater_dayofweek}"
-)
-print()
-print(
-    f"Percentage of {input_dayofweek} games less than {input_goals} goals: {goal_less_perc_dayofweek *100:.2f}%"
-)
-print()
-print(
-    f"Percentage of {input_dayofweek} games greater than {input_goals} goals: {goal_greater_perc_dayofweek *100:.2f}%"
-)
-print()
-print(
-    f"True odds for under {input_goals} goals based {input_dayofweek} performance: ${1/goal_less_perc_dayofweek:.2f}"
-)
-print()
-print(
-    f"True odds for over {input_goals} goals based on {input_dayofweek} performance: ${1/goal_greater_perc_dayofweek:.2f}"
-)
+print(f"Number of {input_dayofweek} games less than {input_goals} goals: {goals_less_dayofweek}")
+print(f"Number of {input_dayofweek} games greater than {input_goals} goals: {goals_greater_dayofweek}")
+print(f"Percentage of {input_dayofweek} games less than {input_goals} goals: {percentage_goals_less_dayofweek * 100:.2f}%")
+print(f"Percentage of {input_dayofweek} games greater than {input_goals} goals: {percentage_goals_greater_dayofweek * 100:.2f}%")
+print(f"True odds for under {input_goals} goals based on past at night performance: ${1 / percentage_goals_less_dayofweek:.2f}")
+print(f"True odds for over {input_goals} goals based on past at night performance: ${1 / percentage_goals_greater_dayofweek:.2f}")
 print()
 print()
