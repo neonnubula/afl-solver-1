@@ -5,7 +5,7 @@ input_name = input("Enter the player name: (john/david) ")
 print()
 input_di = float(input("What is the disposal line?: "))
 print()
-input_gl = float(input("What is the goal line?: "))
+input_gls = float(input("What is the goal line?: "))
 print()
 input_loc = input("Is the player at home or away?: (home/away) ")
 print()
@@ -51,7 +51,7 @@ def count_di_opp(value):
 
 #define the function for user input ven to count over and under of the user input vs di line
 def count_di_ven(value):
-  di_under_ven = df.loc[(df["ven"] == input_ven) & (df["name"] == input_name) & (df["season"] >= input_ssns) & (df["disposals"] < input_di), "disposals"].count()
+  di_under_ven = df.loc[(df["venue"] == input_ven) & (df["name"] == input_name) & (df["season"] >= input_ssns) & (df["disposals"] < input_di), "disposals"].count()
   di_over_ven = df.loc[(df["venue"] == input_ven) & (df["name"] == input_name) & (df["season"] >= input_ssns) & (df["disposals"] > input_di), "disposals"].count()
   return di_under_ven, di_over_ven
 
@@ -188,7 +188,7 @@ di_under_day, di_over_day = count_di_day(input_di)
 gls_under, gls_over = count_gls(input_gls)
 gls_under_loc, gls_over_loc = count_gls_loc(input_gls)
 gls_under_opp, gls_over_opp = count_gls_opp(input_gls)
-nder_ven, gls_over_ven = count_gls_ven(input_gls)
+gls_under_ven, gls_over_ven = count_gls_ven(input_gls)
 gls_under_2023, gls_over_2023 = count_gls_2023(input_gls)
 gls_under_time, gls_over_time = count_gls_time(input_gls)
 gls_under_day, gls_over_day = count_gls_day(input_gls)
@@ -198,7 +198,7 @@ di_over_gls_over, di_over_gls_under, di_under_gls_over, di_under_gls_under = cou
 di_over_gls_over_loc, di_over_gls_under_loc, di_under_gls_over_loc, di_under_gls_under_loc = count_di_gls_loc(input_di, input_gls)
 di_over_gls_over_opp, di_over_gls_under_opp, di_under_gls_over_opp, di_under_gls_under_opp = count_di_gls_opp(input_di, input_gls)
 di_over_gls_over_ven, di_over_gls_under_ven, di_under_gls_over_ven, di_under_gls_under_ven = count_di_gls_ven(input_di, input_gls)
-di_over_gls_over_2023, di_over_gls_under_2023, di_under_gls_over_2023, di_under_gls_under_2023 = count_di_gls_2023(input_di, input_gl
+di_over_gls_over_2023, di_over_gls_under_2023, di_under_gls_over_2023, di_under_gls_under_2023 = count_di_gls_2023(input_di, input_gls)
 di_over_gls_over_time, di_over_gls_under_time, di_under_gls_over_time, di_under_gls_under_time = count_di_gls_time(input_di, input_gls)
 di_over_gls_over_day, di_over_gls_under_day, di_under_gls_over_day, di_under_gls_under_day = count_di_gls_day(input_di, input_gls)
 
@@ -250,7 +250,7 @@ pc_di_under_day = di_under_day / tot_gms_day
 pc_di_over_day = di_over_day / tot_gms_day
 
 #gls
-r = gls_under / tot_gms
+pc_gls_under = gls_under / tot_gms
 pc_gls_over = gls_over / tot_gms
 pc_gls_under_loc = gls_under_loc / tot_gms_loc
 pc_gls_over_loc = gls_over_loc / tot_gms_loc
@@ -316,10 +316,10 @@ print()
 print(f"{input_loc} games Results")
 print(f"Number of {input_loc} games under {input_di} disposals: {di_under_loc}")
 print(f"Number of {input_loc} games over {input_di} disposals: {di_over_loc}")
-print(f"percentage of {input_loc} games under {input_di} disposals: {disp_under_perc_loc *100:.2f}%")
-print(f"percentage of {input_loc} games over {input_di} disposals: {disp_over_perc_loc *100:.2f}%")
-print(f"True odds for under {input_di} disposals on past {input_loc} performance: ${1/disp_under_perc_loc:.2f}")
-print(f"True odds for over {input_di} disposals on past {input_loc} performance: ${1/disp_over_perc_loc:.2f}")
+print(f"percentage of {input_loc} games under {input_di} disposals: {pc_di_under_loc *100:.2f}%")
+print(f"percentage of {input_loc} games over {input_di} disposals: {pc_di_over_loc *100:.2f}%")
+print(f"True odds for under {input_di} disposals on past {input_loc} performance: ${1/pc_di_under_loc:.2f}")
+print(f"True odds for over {input_di} disposals on past {input_loc} performance: ${1/pc_di_over_loc:.2f}")
 print()
 
 print(f"Against {input_opp} games Results")
@@ -449,7 +449,7 @@ print(f"percentage of games with disposals under {input_di} and goals over {inpu
 print(f"percentage of games with disposals under {input_di} and goals under {input_gls}: {pc_di_under_gls_under *100:.2f}%")
 print(f"True odds for games with disposals over {input_di} and goals over {input_gls} on past performance: ${1/pc_di_over_gls_over:.2f}")
 print(f"True odds for games with disposals over {input_di} and goals under {input_gls} on past performance: ${1/pc_di_over_gls_under:.2f}")
-print(f"True odds for games with disposals under {input_di} and goals over {input_gls} on past performance: ${1/pc_di_under_gls_over.2f}")
+print(f"True odds for games with disposals under {input_di} and goals over {input_gls} on past performance: ${1/pc_di_under_gls_over:.2f}")
 print(f"True odds for games with disposals under {input_di} and goals under {input_gls} on past performance: ${1/pc_di_under_gls_under:.2f}")
 print()
 
@@ -489,7 +489,7 @@ print(f"Number of games with disposals over {input_di} and goals under {input_gl
 print(f"Number of games with disposals under {input_di} and goals over {input_gls}: {di_under_gls_over_ven}")
 print(f"Number of games with disposals under {input_di} and goals under {input_gls}: {di_under_gls_under_ven}")
 print(f"percentage of games with disposals over {input_di} and goals over {input_gls}: {pc_di_over_gls_over_ven *100:.2f}%")
-print(f"percentage of games with disposals over {input_di} and goals under {aienput_gls}: {pc_di_over_gls_under_ven *100:.2f}%")
+print(f"percentage of games with disposals over {input_di} and goals under {input_gls}: {pc_di_over_gls_under_ven *100:.2f}%")
 print(f"percentage of games with disposals under {input_di} and goals over {input_gls}: {pc_di_under_gls_over_ven *100:.2f}%")
 print(f"percentage of games with disposals under {input_di} and goals under {input_gls}: {pc_di_under_gls_under_ven *100:.2f}%")
 print(f"True odds for games with disposals over {input_di} and goals over {input_gls} on past performance: ${1/pc_di_over_gls_over_ven:.2f}")
