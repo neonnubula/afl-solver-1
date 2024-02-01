@@ -215,80 +215,80 @@
 # # # dayofweek
 # # total_games_disposals_goals_dayofweek = disposals_greater_goals_greater_dayofweek + disposals_greater_goals_less_dayofweek + disposals_less_goals_greater_dayofweek + disposals_less_goals_less_dayofweek
 
-# # create the percentages
+# # create the pcs
 # #2 LEG COMBOS
 # # # all games
-# # percentage_disposals_greater_goals_greater = (disposals_greater_goals_greater /
+# # pc_disposals_greater_goals_greater = (disposals_greater_goals_greater /
 # #                                               total_games_disposals_goals)
-# # percentage_disposals_greater_goals_less = (disposals_greater_goals_less /
+# # pc_disposals_greater_goals_less = (disposals_greater_goals_less /
 # #                                            total_games_disposals_goals)
-# # percentage_disposals_less_goals_greater = (disposals_less_goals_greater /
+# # pc_disposals_less_goals_greater = (disposals_less_goals_greater /
 # #                                            total_games_disposals_goals)
-# # percentage_disposals_less_goals_less = (disposals_less_goals_less /
+# # pc_disposals_less_goals_less = (disposals_less_goals_less /
 # #                                         total_games_disposals_goals)
 # # # location
-# # percentage_disposals_greater_goals_greater_location = (
+# # pc_disposals_greater_goals_greater_location = (
 # #     disposals_greater_goals_greater_location /
 # #     total_games_disposals_goals_location)
-# # percentage_disposals_greater_goals_less_location = (
+# # pc_disposals_greater_goals_less_location = (
 # #     disposals_greater_goals_less_location /
 # #     total_games_disposals_goals_location)
-# # percentage_disposals_less_goals_greater_location = (
+# # pc_disposals_less_goals_greater_location = (
 # #     disposals_less_goals_greater_location /
 # #     total_games_disposals_goals_location)
-# # percentage_disposals_less_goals_less_location = (
+# # pc_disposals_less_goals_less_location = (
 # #     disposals_less_goals_less_location / total_games_disposals_goals_location)
 # # # opposition
-# # percentage_disposals_greater_goals_greater_opposition = (
+# # pc_disposals_greater_goals_greater_opposition = (
 # #     disposals_greater_goals_greater_opposition /
 # #     total_games_disposals_goals_opposition)
-# # percentage_disposals_greater_goals_less_opposition = (
+# # pc_disposals_greater_goals_less_opposition = (
 # #     disposals_greater_goals_less_opposition /
 # #     total_games_disposals_goals_opposition)
-# # percentage_disposals_less_goals_greater_opposition = (
+# # pc_disposals_less_goals_greater_opposition = (
 # #     disposals_less_goals_greater_opposition /
 # #     total_games_disposals_goals_opposition)
-# # percentage_disposals_less_goals_less_opposition = (
+# # pc_disposals_less_goals_less_opposition = (
 # #     disposals_less_goals_less_opposition /
 # #     total_games_disposals_goals_opposition)
 # # # venue
-# # percentage_disposals_greater_goals_greater_venue = (
+# # pc_disposals_greater_goals_greater_venue = (
 # #     disposals_greater_goals_greater_venue / total_games_disposals_goals_venue)
-# # percentage_disposals_greater_goals_less_venue = (
+# # pc_disposals_greater_goals_less_venue = (
 # #     disposals_greater_goals_less_venue / total_games_disposals_goals_venue)
-# # percentage_disposals_less_goals_greater_venue = (
+# # pc_disposals_less_goals_greater_venue = (
 # #     disposals_less_goals_greater_venue / total_games_disposals_goals_venue)
-# # percentage_disposals_less_goals_less_venue = (
+# # pc_disposals_less_goals_less_venue = (
 # #     disposals_less_goals_less_venue / total_games_disposals_goals_venue)
 # # # 2023 season
-# # percentage_disposals_greater_goals_greater_2023 = (
+# # pc_disposals_greater_goals_greater_2023 = (
 # #     disposals_greater_goals_greater_2023 / total_games_disposals_goals_2023)
-# # percentage_disposals_greater_goals_less_2023 = (
+# # pc_disposals_greater_goals_less_2023 = (
 # #     disposals_greater_goals_less_2023 / total_games_disposals_goals_2023)
-# # percentage_disposals_less_goals_greater_2023 = (
+# # pc_disposals_less_goals_greater_2023 = (
 # #     disposals_less_goals_greater_2023 / total_games_disposals_goals_2023)
-# # percentage_disposals_less_goals_less_2023 = (disposals_less_goals_less_2023 /
+# # pc_disposals_less_goals_less_2023 = (disposals_less_goals_less_2023 /
 # #                                              total_games_disposals_goals_2023)
 # # # time
-# # percentage_disposals_greater_goals_greater_time = (
+# # pc_disposals_greater_goals_greater_time = (
 # #     disposals_greater_goals_greater_time / total_games_disposals_goals_time)
-# # percentage_disposals_greater_goals_less_time = (
+# # pc_disposals_greater_goals_less_time = (
 # #     disposals_greater_goals_less_time / total_games_disposals_goals_time)
-# # percentage_disposals_less_goals_greater_time = (
+# # pc_disposals_less_goals_greater_time = (
 # #     disposals_less_goals_greater_time / total_games_disposals_goals_time)
-# # percentage_disposals_less_goals_less_time = (disposals_less_goals_less_time /
+# # pc_disposals_less_goals_less_time = (disposals_less_goals_less_time /
 # #                                              total_games_disposals_goals_time)
 # # # dayofweek
-# # percentage_disposals_greater_goals_greater_dayofweek = (
+# # pc_disposals_greater_goals_greater_dayofweek = (
 # #     disposals_greater_goals_greater_dayofweek /
 # #     total_games_disposals_goals_dayofweek)
-# # percentage_disposals_greater_goals_less_dayofweek = (
+# # pc_disposals_greater_goals_less_dayofweek = (
 # #     disposals_greater_goals_less_dayofweek /
 # #     total_games_disposals_goals_dayofweek)
-# # percentage_disposals_less_goals_greater_dayofweek = (
+# # pc_disposals_less_goals_greater_dayofweek = (
 # #     disposals_less_goals_greater_dayofweek /
 # #     total_games_disposals_goals_dayofweek)
-# # percentage_disposals_less_goals_less_dayofweek = (
+# # pc_disposals_less_goals_less_dayofweek = (
 # #     disposals_less_goals_less_dayofweek /
 # #     total_games_disposals_goals_dayofweek)
 
@@ -300,14 +300,14 @@
 # print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less}")
 # print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater}")
 # print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less}")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater *100:.2f}%")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less *100:.2f}%")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater:.2f}")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less:.2f}")
+# print(f"pc of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {pc_disposals_greater_goals_greater *100:.2f}%")
+# print(f"pc of games with disposals greater than {input_disposals} and goals less than {input_goals}: {pc_disposals_greater_goals_less *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals greater than {input_goals}: {pc_disposals_less_goals_greater *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals less than {input_goals}: {pc_disposals_less_goals_less *100:.2f}%")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_greater:.2f}")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_less:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_less_goals_greater.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_less_goals_less:.2f}")
 # print()
 # print()
 # # print the location results
@@ -316,14 +316,14 @@
 # print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_location}")
 # print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_location}")
 # print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_location}")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_location *100:.2f}%")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_location *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_location *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_location *100:.2f}%")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_location:.2f}")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_location:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_location:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_location:.2f}")
+# print(f"pc of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {pc_disposals_greater_goals_greater_location *100:.2f}%")
+# print(f"pc of games with disposals greater than {input_disposals} and goals less than {input_goals}: {pc_disposals_greater_goals_less_location *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals greater than {input_goals}: {pc_disposals_less_goals_greater_location *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals less than {input_goals}: {pc_disposals_less_goals_less_location *100:.2f}%")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_greater_location:.2f}")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_less_location:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_less_goals_greater_location:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_less_goals_less_location:.2f}")
 # print()
 # print()
 # # print the opposition results
@@ -332,14 +332,14 @@
 # print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_opposition}")
 # print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_opposition}")
 # print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_opposition}")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_opposition *100:.2f}%")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_opposition *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_opposition *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_opposition *100:.2f}%")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_opposition:.2f}")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_opposition:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_opposition:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_opposition:.2f}")
+# print(f"pc of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {pc_disposals_greater_goals_greater_opposition *100:.2f}%")
+# print(f"pc of games with disposals greater than {input_disposals} and goals less than {input_goals}: {pc_disposals_greater_goals_less_opposition *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals greater than {input_goals}: {pc_disposals_less_goals_greater_opposition *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals less than {input_goals}: {pc_disposals_less_goals_less_opposition *100:.2f}%")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_greater_opposition:.2f}")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_less_opposition:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_less_goals_greater_opposition:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_less_goals_less_opposition:.2f}")
 # print()
 # print()
 # # print the venue results
@@ -348,14 +348,14 @@
 # print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_venue}")
 # print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_venue}")
 # print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_venue}")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_venue *100:.2f}%")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_venue *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_venue *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_venue *100:.2f}%")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_venue:.2f}")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_venue:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_venue:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_venue:.2f}")
+# print(f"pc of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {pc_disposals_greater_goals_greater_venue *100:.2f}%")
+# print(f"pc of games with disposals greater than {input_disposals} and goals less than {input_goals}: {pc_disposals_greater_goals_less_venue *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals greater than {input_goals}: {pc_disposals_less_goals_greater_venue *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals less than {input_goals}: {pc_disposals_less_goals_less_venue *100:.2f}%")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_greater_venue:.2f}")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_less_venue:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_less_goals_greater_venue:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_less_goals_less_venue:.2f}")
 # print()
 # print()
 # # print the 2023 results
@@ -364,14 +364,14 @@
 # print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_2023}")
 # print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_2023}")
 # print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_2023}")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_2023 *100:.2f}%")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_2023 *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_2023 *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_2023 *100:.2f}%")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_2023:.2f}")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_2023:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_2023:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_2023:.2f}")
+# print(f"pc of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {pc_disposals_greater_goals_greater_2023 *100:.2f}%")
+# print(f"pc of games with disposals greater than {input_disposals} and goals less than {input_goals}: {pc_disposals_greater_goals_less_2023 *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals greater than {input_goals}: {pc_disposals_less_goals_greater_2023 *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals less than {input_goals}: {pc_disposals_less_goals_less_2023 *100:.2f}%")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_greater_2023:.2f}")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_less_2023:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_less_goals_greater_2023:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_less_goals_less_2023:.2f}")
 # print()
 # print()
 # # print the time results
@@ -380,14 +380,14 @@
 # print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_time}")
 # print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_time}")
 # print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_time}")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_time *100:.2f}%")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_time *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_time *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_time *100:.2f}%")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_time:.2f}")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_time:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_time:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_time:.2f}")
+# print(f"pc of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {pc_disposals_greater_goals_greater_time *100:.2f}%")
+# print(f"pc of games with disposals greater than {input_disposals} and goals less than {input_goals}: {pc_disposals_greater_goals_less_time *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals greater than {input_goals}: {pc_disposals_less_goals_greater_time *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals less than {input_goals}: {pc_disposals_less_goals_less_time *100:.2f}%")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_greater_time:.2f}")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_less_time:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_less_goals_greater_time:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_less_goals_less_time:.2f}")
 # print()
 # print()
 # # print the dayofweek results
@@ -396,13 +396,13 @@
 # print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_dayofweek}")
 # print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_dayofweek}")
 # print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_dayofweek}")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_dayofweek *100:.2f}%")
-# print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_dayofweek *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_dayofweek *100:.2f}%")
-# print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_dayofweek *100:.2f}%")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_dayofweek:.2f}")
-# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_dayofweek:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_dayofweek:.2f}")
-# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_dayofweek:.2f}")
+# print(f"pc of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {pc_disposals_greater_goals_greater_dayofweek *100:.2f}%")
+# print(f"pc of games with disposals greater than {input_disposals} and goals less than {input_goals}: {pc_disposals_greater_goals_less_dayofweek *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals greater than {input_goals}: {pc_disposals_less_goals_greater_dayofweek *100:.2f}%")
+# print(f"pc of games with disposals less than {input_disposals} and goals less than {input_goals}: {pc_disposals_less_goals_less_dayofweek *100:.2f}%")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_greater_dayofweek:.2f}")
+# print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_greater_goals_less_dayofweek:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/pc_disposals_less_goals_greater_dayofweek:.2f}")
+# print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/pc_disposals_less_goals_less_dayofweek:.2f}")
 # print()
 # print()

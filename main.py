@@ -3,34 +3,33 @@
 # required libraries
 import pandas as pd
 
-# get the input from the user
-# player name
+#User input
+#name
 input_name = input("Enter the player name: (john/david) ")
 print()
-# disposal line
-input_disposals = float(input("What is the disposal line?: "))
+#disposals
+input_di = float(input("What is the disposal line?: "))
 print()
-# goal line
-input_goals = float(input("What is the goal line?: "))
+#goal line
+input_gls = float(input("What is the gl line?: "))
 print()
-# location
-input_location = input("Is the player at home or away?: (home/away) ")
+#location
+input_loc = input("Is the player at home or away?: (home/away) ")
 print()
-# opposition
-input_opposition = input("Who is the opposition? ")
+#opposition
+input_opp = input("Who is the opp? ")
 print()
-# venue
-input_venue = input("What stadium is the game at? ")
+#ven
+input_ven = input("What stadium is the game at? ")
 print()
-# seasons for all results to be based off
-# games since and including seasons
-input_seasons = int(input("From what season do you want results? (ex: 2021) "))
+#ssns since
+input_ssns = int(input("From what ssns do you want results? (ex: 2021) "))
 print()
-# input for day or night game
+#time
 input_time = input("Is the game night or day? (night/day) ")
 print()
-# input for day of week
-input_dayofweek = input("What day of the week is the game on? (ex: monday) ")
+#day
+input_day = input("What day of the week is the game on? (ex: monday) ")
 print()
 
 # read the CSV data into a Dataframe
@@ -42,879 +41,877 @@ print()
 
 
 # functions to analyze the csv
-# DISPOSALS
-# define function to count greater than and less than of the user input vs disposal line
-def count_disposals(value):
-  disposals_less = df.loc[(df["season"] >= input_seasons) &
+# di
+# define function to count grtr than and less than of the user input vs disposal line
+def count_di(value):
+  di_less = df.loc[(df["ssns"] >= input_ssns) &
                           (df["name"] == input_name) &
-                          (df["disposals"] < input_disposals),
-                          "disposals"].count()
-  disposals_greater = df.loc[(df["season"] >= input_seasons) &
+                          (df["di"] < input_di),
+                          "di"].count()
+  di_grtr = df.loc[(df["ssns"] >= input_ssns) &
                              (df["name"] == input_name) &
-                             (df["disposals"] > input_disposals),
-                             "disposals"].count()
-  return disposals_less, disposals_greater
+                             (df["di"] > input_di),
+                             "di"].count()
+  return di_less, di_grtr
 
 
-# define function for user input location to count greater and less than of the user input vs disposal line
-def count_disposals_location(value):
-  disposals_less_location = df.loc[(df["location"] == input_location) &
+# define function for user input loc to count grtr and less than of the user input vs disposal line
+def count_di_loc(value):
+  di_less_loc = df.loc[(df["loc"] == input_loc) &
                                    (df["name"] == input_name) &
-                                   (df["season"] >= input_seasons) &
-                                   (df["disposals"] < input_disposals),
-                                   "disposals"].count()
-  disposals_greater_location = df.loc[(df["location"] == input_location) &
+                                   (df["ssns"] >= input_ssns) &
+                                   (df["di"] < input_di),
+                                   "di"].count()
+  di_grtr_loc = df.loc[(df["loc"] == input_loc) &
                                       (df["name"] == input_name) &
-                                      (df["season"] >= input_seasons) &
-                                      (df["disposals"] > input_disposals),
-                                      "disposals"].count()
-  return disposals_less_location, disposals_greater_location
+                                      (df["ssns"] >= input_ssns) &
+                                      (df["di"] > input_di),
+                                      "di"].count()
+  return di_less_loc, di_grtr_loc
 
 
-# define the function for user input opposition to count greater than and less than of the user input vs disposals line
-def count_disposals_opposition(value):
-  disposals_less_opposition = df.loc[(df["opposition"] == input_opposition) &
+# define the function for user input opp to count grtr than and less than of the user input vs di line
+def count_di_opp(value):
+  di_less_opp = df.loc[(df["opp"] == input_opp) &
                                      (df["name"] == input_name) &
-                                     (df["season"] >= input_seasons) &
-                                     (df["disposals"] < input_disposals),
-                                     "disposals"].count()
-  disposals_greater_opposition = df.loc[(df["opposition"] == input_opposition)
+                                     (df["ssns"] >= input_ssns) &
+                                     (df["di"] < input_di),
+                                     "di"].count()
+  di_grtr_opp = df.loc[(df["opp"] == input_opp)
                                         & (df["name"] == input_name) &
-                                        (df["season"] >= input_seasons) &
-                                        (df["disposals"] > input_disposals),
-                                        "disposals"].count()
-  return disposals_less_opposition, disposals_greater_opposition
+                                        (df["ssns"] >= input_ssns) &
+                                        (df["di"] > input_di),
+                                        "di"].count()
+  return di_less_opp, di_grtr_opp
 
 
-# define the function for user input venue to count greater than and less than of the user input vs disposals line
-def count_disposals_venue(value):
-  disposals_less_venue = df.loc[(df["venue"] == input_venue) &
+# define the function for user input ven to count grtr than and less than of the user input vs di line
+def count_di_ven(value):
+  di_less_ven = df.loc[(df["ven"] == input_ven) &
                                 (df["name"] == input_name) &
-                                (df["season"] >= input_seasons) &
-                                (df["disposals"] < input_disposals),
-                                "disposals"].count()
-  disposals_greater_venue = df.loc[(df["venue"] == input_venue) &
+                                (df["ssns"] >= input_ssns) &
+                                (df["di"] < input_di),
+                                "di"].count()
+  di_grtr_ven = df.loc[(df["ven"] == input_ven) &
                                    (df["name"] == input_name) &
-                                   (df["season"] >= input_seasons) &
-                                   (df["disposals"] > input_disposals),
-                                   "disposals"].count()
-  return disposals_less_venue, disposals_greater_venue
+                                   (df["ssns"] >= input_ssns) &
+                                   (df["di"] > input_di),
+                                   "di"].count()
+  return di_less_ven, di_grtr_ven
 
 
-# define the function for user input 2023 season to count greater than and less than of the user input vs disposals line
-def count_disposals_2023(value):
-  disposals_less_2023 = df.loc[(df["season"] == 2023) &
+# define the function for user input 2023 ssns to count grtr than and less than of the user input vs di line
+def count_di_2023(value):
+  di_less_2023 = df.loc[(df["ssns"] == 2023) &
                                (df["name"] == input_name) &
-                               (df["disposals"] < input_disposals),
-                               "disposals"].count()
-  disposals_greater_2023 = df.loc[(df["season"] == 2023) &
+                               (df["di"] < input_di),
+                               "di"].count()
+  di_grtr_2023 = df.loc[(df["ssns"] == 2023) &
                                   (df["name"] == input_name) &
-                                  (df["disposals"] > input_disposals),
-                                  "disposals"].count()
-  return disposals_less_2023, disposals_greater_2023
+                                  (df["di"] > input_di),
+                                  "di"].count()
+  return di_less_2023, di_grtr_2023
 
 
-# define the function for user input time to count greater than and less than of the user input vs disposals line
-def count_disposals_time(value):
-  disposals_less_time = df.loc[(df["time"] == input_time) &
+# define the function for user input time to count grtr than and less than of the user input vs di line
+def count_di_time(value):
+  di_less_time = df.loc[(df["time"] == input_time) &
                                (df["name"] == input_name) &
-                               (df["season"] >= input_seasons) &
-                               (df["disposals"] < input_disposals),
-                               "disposals"].count()
-  disposals_greater_time = df.loc[(df["time"] == input_time) &
+                               (df["ssns"] >= input_ssns) &
+                               (df["di"] < input_di),
+                               "di"].count()
+  di_grtr_time = df.loc[(df["time"] == input_time) &
                                   (df["name"] == input_name) &
-                                  (df["season"] >= input_seasons) &
-                                  (df["disposals"] > input_disposals),
-                                  "disposals"].count()
-  return disposals_less_time, disposals_greater_time
+                                  (df["ssns"] >= input_ssns) &
+                                  (df["di"] > input_di),
+                                  "di"].count()
+  return di_less_time, di_grtr_time
 
 
-# define the function for user input day of week to count greater than and less than of the user input vs disposals line
-def count_disposals_dayofweek(value):
-  disposals_less_dayofweek = df.loc[(df["dayofweek"] == input_dayofweek) &
+# define the function for user input day of week to count grtr than and less than of the user input vs di line
+def count_di_day(value):
+  di_less_day = df.loc[(df["day"] == input_day) &
                                     (df["name"] == input_name) &
-                                    (df["season"] >= input_seasons) &
-                                    (df["disposals"] < input_disposals),
-                                    "disposals"].count()
-  disposals_greater_dayofweek = df.loc[(df["dayofweek"] == input_dayofweek) &
+                                    (df["ssns"] >= input_ssns) &
+                                    (df["di"] < input_di),
+                                    "di"].count()
+  di_grtr_day = df.loc[(df["day"] == input_day) &
                                        (df["name"] == input_name) &
-                                       (df["season"] >= input_seasons) &
-                                       (df["disposals"] > input_disposals),
-                                       "disposals"].count()
-  return disposals_less_dayofweek, disposals_greater_dayofweek
+                                       (df["ssns"] >= input_ssns) &
+                                       (df["di"] > input_di),
+                                       "di"].count()
+  return di_less_day, di_grtr_day
 
 
-# GOALS
-# define function to count greater than and less than of the user input vs goal line
-def count_goals(value):
-  goals_less = df.loc[(df["season"] >= input_seasons) &
-                      (df["goals"] < input_goals), "goals"].count()
-  goals_greater = df.loc[(df["season"] >= input_seasons) &
-                         (df["goals"] > input_goals), "goals"].count()
-  return goals_less, goals_greater
+# glS
+# define function to count grtr than and less than of the user input vs gl line
+def count_gls(value):
+  gls_less = df.loc[(df["ssns"] >= input_ssns) &
+                      (df["gls"] < input_gls), "gls"].count()
+  gls_grtr = df.loc[(df["ssns"] >= input_ssns) &
+                         (df["gls"] > input_gls), "gls"].count()
+  return gls_less, gls_grtr
 
 
-# define function for user input location to count greater and less than of the user input vs goal line
-def count_goals_location(value):
-  goals_less_location = df.loc[(df["location"] == input_location) &
-                               (df["season"] >= input_seasons) &
-                               (df["goals"] < input_goals), "goals"].count()
-  goals_greater_location = df.loc[(df["location"] == input_location) &
-                                  (df["season"] >= input_seasons) &
-                                  (df["goals"] > input_goals),
-                                  "goals"].count()
-  return goals_less_location, goals_greater_location
+# define function for user input loc to count grtr and less than of the user input vs gl line
+def count_gls_loc(value):
+  gls_less_loc = df.loc[(df["loc"] == input_loc) &
+                               (df["ssns"] >= input_ssns) &
+                               (df["gls"] < input_gls), "gls"].count()
+  gls_grtr_loc = df.loc[(df["loc"] == input_loc) &
+                                  (df["ssns"] >= input_ssns) &
+                                  (df["gls"] > input_gls),
+                                  "gls"].count()
+  return gls_less_loc, gls_grtr_loc
 
 
-# define the function for user input opposition to count greater than and less than of the user input vs goals line
-def count_goals_opposition(value):
-  goals_less_opposition = df.loc[(df["opposition"] == input_opposition) &
-                                 (df["season"] >= input_seasons) &
-                                 (df["goals"] < input_goals), "goals"].count()
-  goals_greater_opposition = df.loc[(df["opposition"] == input_opposition) &
-                                    (df["season"] >= input_seasons) &
-                                    (df["goals"] > input_goals),
-                                    "goals"].count()
-  return goals_less_opposition, goals_greater_opposition
+# define the function for user input opp to count grtr than and less than of the user input vs gls line
+def count_gls_opp(value):
+  gls_less_opp = df.loc[(df["opp"] == input_opp) &
+                                 (df["ssns"] >= input_ssns) &
+                                 (df["gls"] < input_gls), "gls"].count()
+  gls_grtr_opp = df.loc[(df["opp"] == input_opp) &
+                                    (df["ssns"] >= input_ssns) &
+                                    (df["gls"] > input_gls),
+                                    "gls"].count()
+  return gls_less_opp, gls_grtr_opp
 
 
-# define the function for user input venue to count greater than and less than of the user input vs goals line
-def count_goals_venue(value):
-  goals_less_venue = df.loc[(df["venue"] == input_venue) &
-                            (df["season"] >= input_seasons) &
-                            (df["goals"] < input_goals), "goals"].count()
-  goals_greater_venue = df.loc[(df["venue"] == input_venue) &
-                               (df["season"] >= input_seasons) &
-                               (df["goals"] > input_goals), "goals"].count()
-  return goals_less_venue, goals_greater_venue
+# define the function for user input ven to count grtr than and less than of the user input vs gls line
+def count_gls_ven(value):
+  gls_less_ven = df.loc[(df["ven"] == input_ven) &
+                            (df["ssns"] >= input_ssns) &
+                            (df["gls"] < input_gls), "gls"].count()
+  gls_grtr_ven = df.loc[(df["ven"] == input_ven) &
+                               (df["ssns"] >= input_ssns) &
+                               (df["gls"] > input_gls), "gls"].count()
+  return gls_less_ven, gls_grtr_ven
 
 
-# define the function for user input 2023 season to count greater than and less than of the user input vs goals line
-def count_goals_2023(value):
-  goals_less_2023 = df.loc[(df["season"] == 2023) &
-                           (df["goals"] < input_goals), "goals"].count()
-  goals_greater_2023 = df.loc[(df["season"] == 2023) &
-                              (df["goals"] > input_goals), "goals"].count()
-  return goals_less_2023, goals_greater_2023
+# define the function for user input 2023 ssns to count grtr than and less than of the user input vs gls line
+def count_gls_2023(value):
+  gls_less_2023 = df.loc[(df["ssns"] == 2023) &
+                           (df["gls"] < input_gls), "gls"].count()
+  gls_grtr_2023 = df.loc[(df["ssns"] == 2023) &
+                              (df["gls"] > input_gls), "gls"].count()
+  return gls_less_2023, gls_grtr_2023
 
 
-# define the function for user input time to count greater than and less than of the user input vs goals line
-def count_goals_time(value):
-  goals_less_time = df.loc[(df["time"] == input_time) &
-                           (df["season"] >= input_seasons) &
-                           (df["goals"] < input_goals), "goals"].count()
-  goals_greater_time = df.loc[(df["time"] == input_time) &
-                              (df["season"] >= input_seasons) &
-                              (df["goals"] > input_goals), "goals"].count()
-  return goals_less_time, goals_greater_time
+# define the function for user input time to count grtr than and less than of the user input vs gls line
+def count_gls_time(value):
+  gls_less_time = df.loc[(df["time"] == input_time) &
+                           (df["ssns"] >= input_ssns) &
+                           (df["gls"] < input_gls), "gls"].count()
+  gls_grtr_time = df.loc[(df["time"] == input_time) &
+                              (df["ssns"] >= input_ssns) &
+                              (df["gls"] > input_gls), "gls"].count()
+  return gls_less_time, gls_grtr_time
 
 
-# define the function for user input day of week to count greater than and less than of the user input vs goals line
-def count_goals_dayofweek(value):
-  goals_less_dayofweek = df.loc[(df["dayofweek"] == input_dayofweek) &
-                                (df["season"] >= input_seasons) &
-                                (df["goals"] < input_goals), "goals"].count()
-  goals_greater_dayofweek = df.loc[(df["dayofweek"] == input_dayofweek) &
-                                   (df["season"] >= input_seasons) &
-                                   (df["goals"] > input_goals),
-                                   "goals"].count()
-  return goals_less_dayofweek, goals_greater_dayofweek
+# define the function for user input day of week to count grtr than and less than of the user input vs gls line
+def count_gls_day(value):
+  gls_less_day = df.loc[(df["day"] == input_day) &
+                                (df["ssns"] >= input_ssns) &
+                                (df["gls"] < input_gls), "gls"].count()
+  gls_grtr_day = df.loc[(df["day"] == input_day) &
+                                   (df["ssns"] >= input_ssns) &
+                                   (df["gls"] > input_gls),
+                                   "gls"].count()
+  return gls_less_day, gls_grtr_day
 
 
 # 2 LEG COMBOS
-# define function to count greater than and less than of the user input vs combo of disposal & goal lines.
-def count_disposals_goals(disposals, goals):
-  disposals_greater_goals_greater = df.loc[(df["season"] >= input_seasons) &
+# define function to count grtr than and less than of the user input vs combo of disposal & gl lines.
+def count_di_gls(di, gls):
+  di_grtr_gls_grtr = df.loc[(df["ssns"] >= input_ssns) &
                                            (df["name"] == input_name) &
-                                           (df["goals"] > input_goals) &
-                                           (df["disposals"] > input_disposals),
-                                           "disposals"].count()
-  disposals_greater_goals_less = df.loc[(df["season"] >= input_seasons) &
+                                           (df["gls"] > input_gls) &
+                                           (df["di"] > input_di),
+                                           "di"].count()
+  di_grtr_gls_less = df.loc[(df["ssns"] >= input_ssns) &
                                         (df["name"] == input_name) &
-                                        (df["goals"] < input_goals) &
-                                        (df["disposals"] > input_disposals),
-                                        "disposals"].count()
-  disposals_less_goals_greater = df.loc[(df["season"] >= input_seasons) &
+                                        (df["gls"] < input_gls) &
+                                        (df["di"] > input_di),
+                                        "di"].count()
+  di_less_gls_grtr = df.loc[(df["ssns"] >= input_ssns) &
                                         (df["name"] == input_name) &
-                                        (df["goals"] > input_goals) &
-                                        (df["disposals"] < input_disposals),
-                                        "disposals"].count()
-  disposals_less_goals_less = df.loc[(df["season"] >= input_seasons) &
+                                        (df["gls"] > input_gls) &
+                                        (df["di"] < input_di),
+                                        "di"].count()
+  di_less_gls_less = df.loc[(df["ssns"] >= input_ssns) &
                                      (df["name"] == input_name) &
-                                     (df["goals"] < input_goals) &
-                                     (df["disposals"] < input_disposals),
-                                     "disposals"].count()
-  return disposals_greater_goals_greater, disposals_greater_goals_less, disposals_less_goals_greater, disposals_less_goals_less
+                                     (df["gls"] < input_gls) &
+                                     (df["di"] < input_di),
+                                     "di"].count()
+  return di_grtr_gls_grtr, di_grtr_gls_less, di_less_gls_grtr, di_less_gls_less
 
 
-# define function for user input location to count greater and less than of the user input vs disposal line
-def count_disposals_goals_location(disposals, goals):
-  disposals_greater_goals_greater_location = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["location"] == input_location) & (df["goals"] > input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_greater_goals_less_location = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["location"] == input_location) & (df["goals"] < input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_less_goals_greater_location = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["location"] == input_location) & (df["goals"] > input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  disposals_less_goals_less_location = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["location"] == input_location) & (df["goals"] < input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  return disposals_greater_goals_greater_location, disposals_greater_goals_less_location, disposals_less_goals_greater_location, disposals_less_goals_less_location
-  # disposals_less_location = df.loc[(df["location"] == input_location) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] < input_disposals), "disposals"].count()
-  # disposals_greater_location = df.loc[(df["location"] == input_location) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] > input_disposals), "disposals"].count()
-  # return disposals_less_location, disposals_greater_location
+# define function for user input loc to count grtr and less than of the user input vs disposal line
+def count_di_gls_loc(di, gls):
+  di_grtr_gls_grtr_loc = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["loc"] == input_loc) & (df["gls"] > input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_grtr_gls_less_loc = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["loc"] == input_loc) & (df["gls"] < input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_less_gls_grtr_loc = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["loc"] == input_loc) & (df["gls"] > input_gls) &
+      (df["di"] < input_di), "di"].count()
+  di_less_gls_less_loc = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["loc"] == input_loc) & (df["gls"] < input_gls) &
+      (df["di"] < input_di), "di"].count()
+  return di_grtr_gls_grtr_loc, di_grtr_gls_less_loc, di_less_gls_grtr_loc, di_less_gls_less_loc
+  # di_less_loc = df.loc[(df["loc"] == input_loc) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] < input_di), "di"].count()
+  # di_grtr_loc = df.loc[(df["loc"] == input_loc) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] > input_di), "di"].count()
+  # return di_less_loc, di_grtr_loc
 
 
-# define the function for user input opposition to count greater than and less than of the user input vs disposals line
-def count_disposals_goals_opposition(disposals, goals):
-  disposals_greater_goals_greater_opposition = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["opposition"] == input_opposition) & (df["goals"] > input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_greater_goals_less_opposition = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["opposition"] == input_opposition) & (df["goals"] < input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_less_goals_greater_opposition = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["opposition"] == input_opposition) & (df["goals"] > input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  disposals_less_goals_less_opposition = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["opposition"] == input_opposition) & (df["goals"] < input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  return disposals_greater_goals_greater_opposition, disposals_greater_goals_less_opposition, disposals_less_goals_greater_opposition, disposals_less_goals_less_opposition
-  # disposals_less_opposition = df.loc[(df["opposition"] == input_opposition) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] < input_disposals), "disposals"].count()
-  # disposals_greater_opposition = df.loc[(df["opposition"] == input_opposition) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] > input_disposals), "disposals"].count()
-  # return disposals_less_opposition, disposals_greater_opposition
+# define the function for user input opp to count grtr than and less than of the user input vs di line
+def count_di_gls_opp(di, gls):
+  di_grtr_gls_grtr_opp = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["opp"] == input_opp) & (df["gls"] > input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_grtr_gls_less_opp = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["opp"] == input_opp) & (df["gls"] < input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_less_gls_grtr_opp = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["opp"] == input_opp) & (df["gls"] > input_gls) &
+      (df["di"] < input_di), "di"].count()
+  di_less_gls_less_opp = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["opp"] == input_opp) & (df["gls"] < input_gls) &
+      (df["di"] < input_di), "di"].count()
+  return di_grtr_gls_grtr_opp, di_grtr_gls_less_opp, di_less_gls_grtr_opp, di_less_gls_less_opp
+  # di_less_opp = df.loc[(df["opp"] == input_opp) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] < input_di), "di"].count()
+  # di_grtr_opp = df.loc[(df["opp"] == input_opp) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] > input_di), "di"].count()
+  # return di_less_opp, di_grtr_opp
 
 
-# define the function for user input venue to count greater than and less than of the user input vs disposals line
-def count_disposals_goals_venue(disposals, goals):
-  disposals_greater_goals_greater_venue = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["venue"] == input_venue) & (df["goals"] > input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_greater_goals_less_venue = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["venue"] == input_venue) & (df["goals"] < input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_less_goals_greater_venue = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["venue"] == input_venue) & (df["goals"] > input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  disposals_less_goals_less_venue = df.loc[(df["season"] >= input_seasons) &
+# define the function for user input ven to count grtr than and less than of the user input vs di line
+def count_di_gls_ven(di, gls):
+  di_grtr_gls_grtr_ven = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["ven"] == input_ven) & (df["gls"] > input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_grtr_gls_less_ven = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["ven"] == input_ven) & (df["gls"] < input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_less_gls_grtr_ven = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["ven"] == input_ven) & (df["gls"] > input_gls) &
+      (df["di"] < input_di), "di"].count()
+  di_less_gls_less_ven = df.loc[(df["ssns"] >= input_ssns) &
                                            (df["name"] == input_name) &
-                                           (df["venue"] == input_venue) &
-                                           (df["goals"] < input_goals) &
-                                           (df["disposals"] < input_disposals),
-                                           "disposals"].count()
-  return disposals_greater_goals_greater_venue, disposals_greater_goals_less_venue, disposals_less_goals_greater_venue, disposals_less_goals_less_venue
-  # disposals_less_venue = df.loc[(df["venue"] == input_venue) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] < input_disposals), "disposals"].count()
-  # disposals_greater_venue = df.loc[(df["venue"] == input_venue) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] > input_disposals), "disposals"].count()
-  # return disposals_less_venue, disposals_greater_venue
+                                           (df["ven"] == input_ven) &
+                                           (df["gls"] < input_gls) &
+                                           (df["di"] < input_di),
+                                           "di"].count()
+  return di_grtr_gls_grtr_ven, di_grtr_gls_less_ven, di_less_gls_grtr_ven, di_less_gls_less_ven
+  # di_less_ven = df.loc[(df["ven"] == input_ven) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] < input_di), "di"].count()
+  # di_grtr_ven = df.loc[(df["ven"] == input_ven) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] > input_di), "di"].count()
+  # return di_less_ven, di_grtr_ven
 
 
-# define the function for user input 2023 season to count greater than and less than of the user input vs disposals line
-def count_disposals_goals_2023(disposals, goals):
-  disposals_greater_goals_greater_2023 = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["season"] == 2023) & (df["goals"] > input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_greater_goals_less_2023 = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["season"] == 2023) & (df["goals"] < input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_less_goals_greater_2023 = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["season"] == 2023) & (df["goals"] > input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  disposals_less_goals_less_2023 = df.loc[(df["season"] >= input_seasons) &
+# define the function for user input 2023 ssns to count grtr than and less than of the user input vs di line
+def count_di_gls_2023(di, gls):
+  di_grtr_gls_grtr_2023 = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["ssns"] == 2023) & (df["gls"] > input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_grtr_gls_less_2023 = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["ssns"] == 2023) & (df["gls"] < input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_less_gls_grtr_2023 = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["ssns"] == 2023) & (df["gls"] > input_gls) &
+      (df["di"] < input_di), "di"].count()
+  di_less_gls_less_2023 = df.loc[(df["ssns"] >= input_ssns) &
                                           (df["name"] == input_name) &
-                                          (df["season"] == 2023) &
-                                          (df["goals"] < input_goals) &
-                                          (df["disposals"] < input_disposals),
-                                          "disposals"].count()
-  return disposals_greater_goals_greater_2023, disposals_greater_goals_less_2023, disposals_less_goals_greater_2023, disposals_less_goals_less_2023
-  # disposals_less_2023 = df.loc[(df["season"] == 2023) & (df["name"] == input_name) & (df["disposals"] < input_disposals), "disposals"].count()
-  # disposals_greater_2023 = df.loc[(df["season"] == 2023) & (df["name"] == input_name) & (df["disposals"] > input_disposals), "disposals"].count()
-  # return disposals_less_2023, disposals_greater_2023
+                                          (df["ssns"] == 2023) &
+                                          (df["gls"] < input_gls) &
+                                          (df["di"] < input_di),
+                                          "di"].count()
+  return di_grtr_gls_grtr_2023, di_grtr_gls_less_2023, di_less_gls_grtr_2023, di_less_gls_less_2023
+  # di_less_2023 = df.loc[(df["ssns"] == 2023) & (df["name"] == input_name) & (df["di"] < input_di), "di"].count()
+  # di_grtr_2023 = df.loc[(df["ssns"] == 2023) & (df["name"] == input_name) & (df["di"] > input_di), "di"].count()
+  # return di_less_2023, di_grtr_2023
 
 
-# define the function for user input time to count greater than and less than of the user input vs disposals line
-def count_disposals_goals_time(disposals, goals):
-  disposals_greater_goals_greater_time = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["time"] == input_time) & (df["goals"] > input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_greater_goals_less_time = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["time"] == input_time) & (df["goals"] < input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_less_goals_greater_time = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["time"] == input_time) & (df["goals"] > input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  disposals_less_goals_less_time = df.loc[(df["season"] >= input_seasons) &
+# define the function for user input time to count grtr than and less than of the user input vs di line
+def count_di_gls_time(di, gls):
+  di_grtr_gls_grtr_time = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["time"] == input_time) & (df["gls"] > input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_grtr_gls_less_time = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["time"] == input_time) & (df["gls"] < input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_less_gls_grtr_time = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["time"] == input_time) & (df["gls"] > input_gls) &
+      (df["di"] < input_di), "di"].count()
+  di_less_gls_less_time = df.loc[(df["ssns"] >= input_ssns) &
                                           (df["name"] == input_name) &
                                           (df["time"] == input_time) &
-                                          (df["goals"] < input_goals) &
-                                          (df["disposals"] < input_disposals),
-                                          "disposals"].count()
-  return disposals_greater_goals_greater_time, disposals_greater_goals_less_time, disposals_less_goals_greater_time, disposals_less_goals_less_time
-  # disposals_less_time = df.loc[(df["time"] == input_time) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] < input_disposals), "disposals"].count()
-  # disposals_greater_time = df.loc[(df["time"] == input_time) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] > input_disposals), "disposals"].count()
-  # return disposals_less_time, disposals_greater_time
+                                          (df["gls"] < input_gls) &
+                                          (df["di"] < input_di),
+                                          "di"].count()
+  return di_grtr_gls_grtr_time, di_grtr_gls_less_time, di_less_gls_grtr_time, di_less_gls_less_time
+  # di_less_time = df.loc[(df["time"] == input_time) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] < input_di), "di"].count()
+  # di_grtr_time = df.loc[(df["time"] == input_time) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] > input_di), "di"].count()
+  # return di_less_time, di_grtr_time
 
 
-# define the function for user input day of week to count greater than and less than of the user input vs disposals line
-def count_disposals_goals_dayofweek(disposals, goals):
-  disposals_greater_goals_greater_dayofweek = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["dayofweek"] == input_dayofweek) & (df["goals"] > input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_greater_goals_less_dayofweek = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["dayofweek"] == input_dayofweek) & (df["goals"] < input_goals) &
-      (df["disposals"] > input_disposals), "disposals"].count()
-  disposals_less_goals_greater_dayofweek = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["dayofweek"] == input_dayofweek) & (df["goals"] > input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  disposals_less_goals_less_dayofweek = df.loc[
-      (df["season"] >= input_seasons) & (df["name"] == input_name) &
-      (df["dayofweek"] == input_dayofweek) & (df["goals"] < input_goals) &
-      (df["disposals"] < input_disposals), "disposals"].count()
-  return disposals_greater_goals_greater_dayofweek, disposals_greater_goals_less_dayofweek, disposals_less_goals_greater_dayofweek, disposals_less_goals_less_dayofweek
-  # disposals_less_dayofweek = df.loc[(df["dayofweek"] == input_dayofweek) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] < input_disposals), "disposals"].count()
-  # disposals_greater_dayofweek = df.loc[(df["dayofweek"] == input_dayofweek) & (df["name"] == input_name) & (df["season"] >= input_seasons) & (df["disposals"] > input_disposals), "disposals"].count()
-  # return disposals_less_dayofweek, disposals_greater_dayofweek
+# define the function for user input day of week to count grtr than and less than of the user input vs di line
+def count_di_gls_day(di, gls):
+  di_grtr_gls_grtr_day = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["day"] == input_day) & (df["gls"] > input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_grtr_gls_less_day = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["day"] == input_day) & (df["gls"] < input_gls) &
+      (df["di"] > input_di), "di"].count()
+  di_less_gls_grtr_day = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["day"] == input_day) & (df["gls"] > input_gls) &
+      (df["di"] < input_di), "di"].count()
+  di_less_gls_less_day = df.loc[
+      (df["ssns"] >= input_ssns) & (df["name"] == input_name) &
+      (df["day"] == input_day) & (df["gls"] < input_gls) &
+      (df["di"] < input_di), "di"].count()
+  return di_grtr_gls_grtr_day, di_grtr_gls_less_day, di_less_gls_grtr_day, di_less_gls_less_day
+  # di_less_day = df.loc[(df["day"] == input_day) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] < input_di), "di"].count()
+  # di_grtr_day = df.loc[(df["day"] == input_day) & (df["name"] == input_name) & (df["ssns"] >= input_ssns) & (df["di"] > input_di), "di"].count()
+  # return di_less_day, di_grtr_day
 
 
 # run the function with the user input vs the data frame of the test data
-# DISPOSALS
-# all games
-disposals_less, disposals_greater = count_disposals(input_disposals)
-# location
-disposals_less_location, disposals_greater_location = count_disposals_location(
-    input_disposals)
-# opposition
-disposals_less_opposition, disposals_greater_opposition = count_disposals_opposition(
-    input_disposals)
-# venue
-disposals_less_venue, disposals_greater_venue = count_disposals_venue(
-    input_disposals)
-# 2023 season
-disposals_less_2023, disposals_greater_2023 = count_disposals_2023(
-    input_disposals)
+# di
+# all gms
+di_less, di_grtr = count_di(input_di)
+# loc
+di_less_loc, di_grtr_loc = count_di_loc(
+    input_di)
+# opp
+di_less_opp, di_grtr_opp = count_di_opp(
+    input_di)
+# ven
+di_less_ven, di_grtr_ven = count_di_ven(
+    input_di)
+# 2023 ssns
+di_less_2023, di_grtr_2023 = count_di_2023(
+    input_di)
 #  time
-disposals_less_time, disposals_greater_time = count_disposals_time(
-    input_disposals)
-# dayofweek
-disposals_less_dayofweek, disposals_greater_dayofweek = count_disposals_dayofweek(
-    input_disposals)
+di_less_time, di_grtr_time = count_di_time(
+    input_di)
+# day
+di_less_day, di_grtr_day = count_di_day(
+    input_di)
 
-# GOALS
-# all games
-goals_less, goals_greater = count_goals(input_goals)
-# location
-goals_less_location, goals_greater_location = count_goals_location(input_goals)
-# opposition
-goals_less_opposition, goals_greater_opposition = count_goals_opposition(
-    input_goals)
-# venue
-goals_less_venue, goals_greater_venue = count_goals_venue(input_goals)
-# 2023 season
-goals_less_2023, goals_greater_2023 = count_goals_2023(input_goals)
+# glS
+# all gms
+gls_less, gls_grtr = count_gls(input_gls)
+# loc
+gls_less_loc, gls_grtr_loc = count_gls_loc(input_gls)
+# opp
+gls_less_opp, gls_grtr_opp = count_gls_opp(
+    input_gls)
+# ven
+gls_less_ven, gls_grtr_ven = count_gls_ven(input_gls)
+# 2023 ssns
+gls_less_2023, gls_grtr_2023 = count_gls_2023(input_gls)
 #  time
-goals_less_time, goals_greater_time = count_goals_time(input_goals)
-# dayofweek
-goals_less_dayofweek, goals_greater_dayofweek = count_goals_dayofweek(
-    input_goals)
+gls_less_time, gls_grtr_time = count_gls_time(input_gls)
+# day
+gls_less_day, gls_grtr_day = count_gls_day(
+    input_gls)
 
 # 2 LEG COMBOS
-# all games
-disposals_greater_goals_greater, disposals_greater_goals_less, disposals_less_goals_greater, disposals_less_goals_less = count_disposals_goals(
-    input_disposals, input_goals)
-# location
-disposals_greater_goals_greater_location, disposals_greater_goals_less_location, disposals_less_goals_greater_location, disposals_less_goals_less_location = count_disposals_goals_location(
-    input_disposals, input_goals)
-# opposition
-disposals_greater_goals_greater_opposition, disposals_greater_goals_less_opposition, disposals_less_goals_greater_opposition, disposals_less_goals_less_opposition = count_disposals_goals_opposition(
-    input_disposals, input_goals)
-# venue
-disposals_greater_goals_greater_venue, disposals_greater_goals_less_venue, disposals_less_goals_greater_venue, disposals_less_goals_less_venue = count_disposals_goals_venue(
-    input_disposals, input_goals)
-# 2023 season
-disposals_greater_goals_greater_2023, disposals_greater_goals_less_2023, disposals_less_goals_greater_2023, disposals_less_goals_less_2023 = count_disposals_goals_2023(
-    input_disposals, input_goals)
+# all gms
+di_grtr_gls_grtr, di_grtr_gls_less, di_less_gls_grtr, di_less_gls_less = count_di_gls(
+    input_di, input_gls)
+# loc
+di_grtr_gls_grtr_loc, di_grtr_gls_less_loc, di_less_gls_grtr_loc, di_less_gls_less_loc = count_di_gls_loc(
+    input_di, input_gls)
+# opp
+di_grtr_gls_grtr_opp, di_grtr_gls_less_opp, di_less_gls_grtr_opp, di_less_gls_less_opp = count_di_gls_opp(
+    input_di, input_gls)
+# ven
+di_grtr_gls_grtr_ven, di_grtr_gls_less_ven, di_less_gls_grtr_ven, di_less_gls_less_ven = count_di_gls_ven(
+    input_di, input_gls)
+# 2023 ssns
+di_grtr_gls_grtr_2023, di_grtr_gls_less_2023, di_less_gls_grtr_2023, di_less_gls_less_2023 = count_di_gls_2023(
+    input_di, input_gls)
 #  time
-disposals_greater_goals_greater_time, disposals_greater_goals_less_time, disposals_less_goals_greater_time, disposals_less_goals_less_time = count_disposals_goals_time(
-    input_disposals, input_goals)
-# dayofweek
-disposals_greater_goals_greater_dayofweek, disposals_greater_goals_less_dayofweek, disposals_less_goals_greater_dayofweek, disposals_less_goals_less_dayofweek = count_disposals_goals_dayofweek(
-    input_disposals, input_goals)
+di_grtr_gls_grtr_time, di_grtr_gls_less_time, di_less_gls_grtr_time, di_less_gls_less_time = count_di_gls_time(
+    input_di, input_gls)
+# day
+di_grtr_gls_grtr_day, di_grtr_gls_less_day, di_less_gls_grtr_day, di_less_gls_less_day = count_di_gls_day(
+    input_di, input_gls)
 
-# give the total games for each paramter a name
-# DISPOSALS
-# all games
-total_games = disposals_less + disposals_greater
-# location
-total_games_location = disposals_less_location + disposals_greater_location
-# opposition
-total_games_opposition = disposals_less_opposition + disposals_greater_opposition
-# venue
-total_games_venue = disposals_less_venue + disposals_greater_venue
-# 2023 season
-total_games_2023 = disposals_less_2023 + disposals_greater_2023
-# time games
-total_games_time = disposals_less_time + disposals_greater_time
-# dayofweek
-total_games_dayofweek = disposals_less_dayofweek + disposals_greater_dayofweek
+# give the tot gms for each paramter a name
+# di
+# all gms
+tot_gms = di_less + di_grtr
+# loc
+tot_gms_loc = di_less_loc + di_grtr_loc
+# opp
+tot_gms_opp = di_less_opp + di_grtr_opp
+# ven
+tot_gms_ven = di_less_ven + di_grtr_ven
+# 2023 ssns
+tot_gms_2023 = di_less_2023 + di_grtr_2023
+# time gms
+tot_gms_time = di_less_time + di_grtr_time
+# day
+tot_gms_day = di_less_day + di_grtr_day
 
-# GOALS
-# all games
-total_games = goals_less + goals_greater
-# location
-total_games_location = goals_less_location + goals_greater_location
-# opposition
-total_games_opposition = goals_less_opposition + goals_greater_opposition
-# venue
-total_games_venue = goals_less_venue + goals_greater_venue
-# 2023 season
-total_games_2023 = goals_less_2023 + goals_greater_2023
-# time games
-total_games_time = goals_less_time + goals_greater_time
-# dayofweek
-total_games_dayofweek = goals_less_dayofweek + goals_greater_dayofweek
+# glS
+# all gms
+tot_gms = gls_less + gls_grtr
+# loc
+tot_gms_loc = gls_less_loc + gls_grtr_loc
+# opp
+tot_gms_opp = gls_less_opp + gls_grtr_opp
+# ven
+tot_gms_ven = gls_less_ven + gls_grtr_ven
+# 2023 ssns
+tot_gms_2023 = gls_less_2023 + gls_grtr_2023
+# time gms
+tot_gms_time = gls_less_time + gls_grtr_time
+# day
+tot_gms_day = gls_less_day + gls_grtr_day
 
 #2 LEG COMBOS
-# all games
-total_games_disposals_goals = disposals_greater_goals_greater + disposals_greater_goals_less + disposals_less_goals_greater + disposals_less_goals_less
-# location
-total_games_disposals_goals_location = disposals_greater_goals_greater_location + disposals_greater_goals_less_location + disposals_less_goals_greater_location + disposals_less_goals_less_location
-# opposition
-total_games_disposals_goals_opposition = disposals_greater_goals_greater_opposition + disposals_greater_goals_less_opposition + disposals_less_goals_greater_opposition + disposals_less_goals_less_opposition
-# venue
-total_games_disposals_goals_venue = disposals_greater_goals_greater_venue + disposals_greater_goals_less_venue + disposals_less_goals_greater_venue + disposals_less_goals_less_venue
-# 2023 season
-total_games_disposals_goals_2023 = disposals_greater_goals_greater_2023 + disposals_greater_goals_less_2023 + disposals_less_goals_greater_2023 + disposals_less_goals_less_2023
+# all gms
+tot_gms_di_gls = di_grtr_gls_grtr + di_grtr_gls_less + di_less_gls_grtr + di_less_gls_less
+# loc
+tot_gms_di_gls_loc = di_grtr_gls_grtr_loc + di_grtr_gls_less_loc + di_less_gls_grtr_loc + di_less_gls_less_loc
+# opp
+tot_gms_di_gls_opp = di_grtr_gls_grtr_opp + di_grtr_gls_less_opp + di_less_gls_grtr_opp + di_less_gls_less_opp
+# ven
+tot_gms_di_gls_ven = di_grtr_gls_grtr_ven + di_grtr_gls_less_ven + di_less_gls_grtr_ven + di_less_gls_less_ven
+# 2023 ssns
+tot_gms_di_gls_2023 = di_grtr_gls_grtr_2023 + di_grtr_gls_less_2023 + di_less_gls_grtr_2023 + di_less_gls_less_2023
 #  time
-total_games_disposals_goals_time = disposals_greater_goals_greater_time + disposals_greater_goals_less_time + disposals_less_goals_greater_time + disposals_less_goals_less_time
-# dayofweek
-total_games_disposals_goals_dayofweek = disposals_greater_goals_greater_dayofweek + disposals_greater_goals_less_dayofweek + disposals_less_goals_greater_dayofweek + disposals_less_goals_less_dayofweek
+tot_gms_di_gls_time = di_grtr_gls_grtr_time + di_grtr_gls_less_time + di_less_gls_grtr_time + di_less_gls_less_time
+# day
+tot_gms_di_gls_day = di_grtr_gls_grtr_day + di_grtr_gls_less_day + di_less_gls_grtr_day + di_less_gls_less_day
 
-# create variables for the percentages of each parameter
-# DISPOSALS
-# all games
-percentage_disposals_less = disposals_less / total_games
-percentage_disposals_greater = disposals_greater / total_games
-# location
-percentage_disposals_less_location = disposals_less_location / total_games_location
-percentage_disposals_greater_location = disposals_greater_location / total_games_location
-# opposition
-percentage_disposals_less_opposition = disposals_less_opposition / total_games_opposition
-percentage_disposals_greater_opposition = disposals_greater_opposition / total_games_opposition
-# venue
-percentage_disposals_less_venue = disposals_less_venue / total_games_venue
-percentage_disposals_greater_venue = disposals_greater_venue / total_games_venue
-# 2023 season
-percentage_disposals_less_2023 = disposals_less_2023 / total_games_2023
-percentage_disposals_greater_2023 = disposals_greater_2023 / total_games_2023
+# create variables for the pcs of each parameter
+# di
+# all gms
+pc_di_less = di_less / tot_gms
+pc_di_grtr = di_grtr / tot_gms
+# loc
+pc_di_less_loc = di_less_loc / tot_gms_loc
+pc_di_grtr_loc = di_grtr_loc / tot_gms_loc
+# opp
+pc_di_less_opp = di_less_opp / tot_gms_opp
+pc_di_grtr_opp = di_grtr_opp / tot_gms_opp
+# ven
+pc_di_less_ven = di_less_ven / tot_gms_ven
+pc_di_grtr_ven = di_grtr_ven / tot_gms_ven
+# 2023 ssns
+pc_di_less_2023 = di_less_2023 / tot_gms_2023
+pc_di_grtr_2023 = di_grtr_2023 / tot_gms_2023
 # time
-percentage_disposals_less_time = disposals_less_time / total_games_time
-percentage_disposals_greater_time = disposals_greater_time / total_games_time
-# dayofweek
-percentage_disposals_less_dayofweek = disposals_less_dayofweek / total_games_dayofweek
-percentage_disposals_greater_dayofweek = disposals_greater_dayofweek / total_games_dayofweek
+pc_di_less_time = di_less_time / tot_gms_time
+pc_di_grtr_time = di_grtr_time / tot_gms_time
+# day
+pc_di_less_day = di_less_day / tot_gms_day
+pc_di_grtr_day = di_grtr_day / tot_gms_day
 
-# GOALS
-# all games
-percentage_goals_less = goals_less / total_games
-percentage_goals_greater = goals_greater / total_games
-# location
-percentage_goals_less_location = goals_less_location / total_games_location
-percentage_goals_greater_location = goals_greater_location / total_games_location
-# opposition
-percentage_goals_less_opposition = goals_less_opposition / total_games_opposition
-percentage_goals_greater_opposition = goals_greater_opposition / total_games_opposition
-# venue
-percentage_goals_less_venue = goals_less_venue / total_games_venue
-percentage_goals_greater_venue = goals_greater_venue / total_games_venue
-# 2023 season
-percentage_goals_less_2023 = goals_less_2023 / total_games_2023
-percentage_goals_greater_2023 = goals_greater_2023 / total_games_2023
+# glS
+# all gms
+pc_gls_less = gls_less / tot_gms
+pc_gls_grtr = gls_grtr / tot_gms
+# loc
+pc_gls_less_loc = gls_less_loc / tot_gms_loc
+pc_gls_grtr_loc = gls_grtr_loc / tot_gms_loc
+# opp
+pc_gls_less_opp = gls_less_opp / tot_gms_opp
+pc_gls_grtr_opp = gls_grtr_opp / tot_gms_opp
+# ven
+pc_gls_less_ven = gls_less_ven / tot_gms_ven
+pc_gls_grtr_ven = gls_grtr_ven / tot_gms_ven
+# 2023 ssns
+pc_gls_less_2023 = gls_less_2023 / tot_gms_2023
+pc_gls_grtr_2023 = gls_grtr_2023 / tot_gms_2023
 # time
-percentage_goals_less_time = goals_less_time / total_games_time
-percentage_goals_greater_time = goals_greater_time / total_games_time
-# dayofweek
-percentage_goals_less_dayofweek = goals_less_dayofweek / total_games_dayofweek
-percentage_goals_greater_dayofweek = goals_greater_dayofweek / total_games_dayofweek
+pc_gls_less_time = gls_less_time / tot_gms_time
+pc_gls_grtr_time = gls_grtr_time / tot_gms_time
+# day
+pc_gls_less_day = gls_less_day / tot_gms_day
+pc_gls_grtr_day = gls_grtr_day / tot_gms_day
 
 #2 LEG COMBOS
-# all games
-percentage_disposals_greater_goals_greater = (disposals_greater_goals_greater /
-                                              total_games_disposals_goals)
-percentage_disposals_greater_goals_less = (disposals_greater_goals_less /
-                                           total_games_disposals_goals)
-percentage_disposals_less_goals_greater = (disposals_less_goals_greater /
-                                           total_games_disposals_goals)
-percentage_disposals_less_goals_less = (disposals_less_goals_less /
-                                        total_games_disposals_goals)
-# location
-percentage_disposals_greater_goals_greater_location = (
-    disposals_greater_goals_greater_location /
-    total_games_disposals_goals_location)
-percentage_disposals_greater_goals_less_location = (
-    disposals_greater_goals_less_location /
-    total_games_disposals_goals_location)
-percentage_disposals_less_goals_greater_location = (
-    disposals_less_goals_greater_location /
-    total_games_disposals_goals_location)
-percentage_disposals_less_goals_less_location = (
-    disposals_less_goals_less_location / total_games_disposals_goals_location)
-# opposition
-percentage_disposals_greater_goals_greater_opposition = (
-    disposals_greater_goals_greater_opposition /
-    total_games_disposals_goals_opposition)
-percentage_disposals_greater_goals_less_opposition = (
-    disposals_greater_goals_less_opposition /
-    total_games_disposals_goals_opposition)
-percentage_disposals_less_goals_greater_opposition = (
-    disposals_less_goals_greater_opposition /
-    total_games_disposals_goals_opposition)
-percentage_disposals_less_goals_less_opposition = (
-    disposals_less_goals_less_opposition /
-    total_games_disposals_goals_opposition)
-# venue
-percentage_disposals_greater_goals_greater_venue = (
-    disposals_greater_goals_greater_venue / total_games_disposals_goals_venue)
-percentage_disposals_greater_goals_less_venue = (
-    disposals_greater_goals_less_venue / total_games_disposals_goals_venue)
-percentage_disposals_less_goals_greater_venue = (
-    disposals_less_goals_greater_venue / total_games_disposals_goals_venue)
-percentage_disposals_less_goals_less_venue = (
-    disposals_less_goals_less_venue / total_games_disposals_goals_venue)
-# 2023 season
-percentage_disposals_greater_goals_greater_2023 = (
-    disposals_greater_goals_greater_2023 / total_games_disposals_goals_2023)
-percentage_disposals_greater_goals_less_2023 = (
-    disposals_greater_goals_less_2023 / total_games_disposals_goals_2023)
-percentage_disposals_less_goals_greater_2023 = (
-    disposals_less_goals_greater_2023 / total_games_disposals_goals_2023)
-percentage_disposals_less_goals_less_2023 = (disposals_less_goals_less_2023 /
-                                             total_games_disposals_goals_2023)
+# all gms
+pc_di_grtr_gls_grtr = (di_grtr_gls_grtr /
+                                              tot_gms_di_gls)
+pc_di_grtr_gls_less = (di_grtr_gls_less /
+                                           tot_gms_di_gls)
+pc_di_less_gls_grtr = (di_less_gls_grtr /
+                                           tot_gms_di_gls)
+pc_di_less_gls_less = (di_less_gls_less /
+                                        tot_gms_di_gls)
+# loc
+pc_di_grtr_gls_grtr_loc = (
+    di_grtr_gls_grtr_loc /
+    tot_gms_di_gls_loc)
+pc_di_grtr_gls_less_loc = (
+    di_grtr_gls_less_loc /
+    tot_gms_di_gls_loc)
+pc_di_less_gls_grtr_loc = (
+    di_less_gls_grtr_loc /
+    tot_gms_di_gls_loc)
+pc_di_less_gls_less_loc = (
+    di_less_gls_less_loc / tot_gms_di_gls_loc)
+# opp
+pc_di_grtr_gls_grtr_opp = (
+    di_grtr_gls_grtr_opp /
+    tot_gms_di_gls_opp)
+pc_di_grtr_gls_less_opp = (
+    di_grtr_gls_less_opp /
+    tot_gms_di_gls_opp)
+pc_di_less_gls_grtr_opp = (
+    di_less_gls_grtr_opp /
+    tot_gms_di_gls_opp)
+pc_di_less_gls_less_opp = (
+    di_less_gls_less_opp /
+    tot_gms_di_gls_opp)
+# ven
+pc_di_grtr_gls_grtr_ven = (
+    di_grtr_gls_grtr_ven / tot_gms_di_gls_ven)
+pc_di_grtr_gls_less_ven = (
+    di_grtr_gls_less_ven / tot_gms_di_gls_ven)
+pc_di_less_gls_grtr_ven = (
+    di_less_gls_grtr_ven / tot_gms_di_gls_ven)
+pc_di_less_gls_less_ven = (
+    di_less_gls_less_ven / tot_gms_di_gls_ven)
+# 2023 ssns
+pc_di_grtr_gls_grtr_2023 = (
+    di_grtr_gls_grtr_2023 / tot_gms_di_gls_2023)
+pc_di_grtr_gls_less_2023 = (
+    di_grtr_gls_less_2023 / tot_gms_di_gls_2023)
+pc_di_less_gls_grtr_2023 = (
+    di_less_gls_grtr_2023 / tot_gms_di_gls_2023)
+pc_di_less_gls_less_2023 = (di_less_gls_less_2023 /
+                                             tot_gms_di_gls_2023)
 # time
-percentage_disposals_greater_goals_greater_time = (
-    disposals_greater_goals_greater_time / total_games_disposals_goals_time)
-percentage_disposals_greater_goals_less_time = (
-    disposals_greater_goals_less_time / total_games_disposals_goals_time)
-percentage_disposals_less_goals_greater_time = (
-    disposals_less_goals_greater_time / total_games_disposals_goals_time)
-percentage_disposals_less_goals_less_time = (disposals_less_goals_less_time /
-                                             total_games_disposals_goals_time)
-# dayofweek
-percentage_disposals_greater_goals_greater_dayofweek = (
-    disposals_greater_goals_greater_dayofweek /
-    total_games_disposals_goals_dayofweek)
-percentage_disposals_greater_goals_less_dayofweek = (
-    disposals_greater_goals_less_dayofweek /
-    total_games_disposals_goals_dayofweek)
-percentage_disposals_less_goals_greater_dayofweek = (
-    disposals_less_goals_greater_dayofweek /
-    total_games_disposals_goals_dayofweek)
-percentage_disposals_less_goals_less_dayofweek = (
-    disposals_less_goals_less_dayofweek /
-    total_games_disposals_goals_dayofweek)
+pc_di_grtr_gls_grtr_time = (
+    di_grtr_gls_grtr_time / tot_gms_di_gls_time)
+pc_di_grtr_gls_less_time = (
+    di_grtr_gls_less_time / tot_gms_di_gls_time)
+pc_di_less_gls_grtr_time = (
+    di_less_gls_grtr_time / tot_gms_di_gls_time)
+pc_di_less_gls_less_time = (di_less_gls_less_time /
+                                             tot_gms_di_gls_time)
+# day
+pc_di_grtr_gls_grtr_day = (
+    di_grtr_gls_grtr_day /
+    tot_gms_di_gls_day)
+pc_di_grtr_gls_less_day = (
+    di_grtr_gls_less_day /
+    tot_gms_di_gls_day)
+pc_di_less_gls_grtr_day = (
+    di_less_gls_grtr_day /
+    tot_gms_di_gls_day)
+pc_di_less_gls_less_day = (
+    di_less_gls_less_day /
+    tot_gms_di_gls_day)
 
 print()
 print()
-print(f"{input_name} results for disposal line of {input_disposals} and goals line of {input_goals}")
+print(f"{input_name} results for disposal line of {input_di} and gls line of {input_gls}")
 print()
 
-# print results for DISPOSALS
-print("DISPOSALS")
+# print results for di
+print("di")
 
-# print the all games results, rounded to 2 decimal points (:.2f)
-print("All Games Results")
-print(f"Number of games less than {input_disposals} disposals: {disposals_less}")
-print(f"Number of games greater than {input_disposals} disposals: {disposals_greater}")
-print(f"Percentage of games less than {input_disposals} disposals: {percentage_goals_less *100:.2f}%")
-print(f"Percentage of games greater than {input_disposals} disposals: {percentage_goals_greater *100:.2f}%")
-print(f"True odds for under {input_disposals} disposals based on past performance: ${1/percentage_disposals_less:.2f}")
-print(f"True odds for over {input_disposals} disposals based on past performance: ${1/percentage_disposals_greater:.2f}")
-print()
-print()
-
-# print the results, based on location input
-print(f"{input_location} Games Results")
-print(f"Number of {input_location} games less than {input_disposals} disposals: {disposals_less_location}")
-print(f"Number of {input_location} games greater than {input_disposals} disposals: {disposals_greater_location}")
-print(f"Percentage of {input_location} games less than {input_disposals} disposals: {disp_less_perc_location *100:.2f}%")
-print(f"Percentage of {input_location} games greater than {input_disposals} disposals: {disp_greater_perc_location *100:.2f}%")
-print(f"True odds for under {input_disposals} disposals based on past {input_location} performance: ${1/disp_less_perc_location:.2f}")
-print(f"True odds for over {input_disposals} disposals based on past {input_location} performance: ${1/disp_greater_perc_location:.2f}")
+# print the all gms results, rounded to 2 decimal points (:.2f)
+print("All gms Results")
+print(f"Number of gms less than {input_di} di: {di_less}")
+print(f"Number of gms grtr than {input_di} di: {di_grtr}")
+print(f"pc of gms less than {input_di} di: {pc_gls_less *100:.2f}%")
+print(f"pc of gms grtr than {input_di} di: {pc_gls_grtr *100:.2f}%")
+print(f"True odds for under {input_di} di based on past performance: ${1/pc_di_less:.2f}")
+print(f"True odds for over {input_di} di based on past performance: ${1/pc_di_grtr:.2f}")
 print()
 print()
 
-# print the results, based on opposition
-print(f"Against {input_opposition} Games Results")
-print(f"Number of games against {input_opposition} less than {input_disposals} disposals: {disposals_less_opposition}")
-print(f"Number of games against {input_opposition} greater than {input_disposals} disposals: {disposals_greater_opposition}")
-print(f"Percentage of games against {input_opposition} less than {input_disposals} disposals: {percentage_disposals_less_opposition * 100:.2f}%")
-print(f"Percentage of games against {input_opposition} greater than {input_disposals} disposals: {percentage_disposals_greater_opposition * 100:.2f}%")
-print(f"True odds for under {input_disposals} disposals based on past against {input_opposition} performance: ${1 / percentage_disposals_less_opposition:.2f}")
-print(f"True odds for over {input_disposals} disposals based on past against {input_opposition} performance: ${1 / percentage_disposals_greater_opposition:.2f}")
+# print the results, based on loc input
+print(f"{input_loc} gms Results")
+print(f"Number of {input_loc} gms less than {input_di} di: {di_less_loc}")
+print(f"Number of {input_loc} gms grtr than {input_di} di: {di_grtr_loc}")
+print(f"pc of {input_loc} gms less than {input_di} di: {disp_less_perc_loc *100:.2f}%")
+print(f"pc of {input_loc} gms grtr than {input_di} di: {disp_grtr_perc_loc *100:.2f}%")
+print(f"True odds for under {input_di} di based on past {input_loc} performance: ${1/disp_less_perc_loc:.2f}")
+print(f"True odds for over {input_di} di based on past {input_loc} performance: ${1/disp_grtr_perc_loc:.2f}")
 print()
 print()
 
-# print the results, based on venue
-print(f"At {input_venue} Games Results")
-print(f"Number of at {input_venue} games less than {input_disposals} disposals: {disposals_less_venue}")
-print(f"Number of at {input_venue} games greater than {input_disposals} disposals: {disposals_greater_venue}")
-print(f"Percentage of at {input_venue} games less than {input_disposals} disposals: {percentage_disposals_less_venue * 100:.2f}%")
-print(f"Percentage of at {input_venue} games greater than {input_disposals} disposals: {percentage_disposals_greater_venue * 100:.2f}%")
-print(f"True odds for under {input_disposals} disposals based on past at {input_venue} performance: ${1 / percentage_disposals_less_venue:.2f}")
-print(f"True odds for over {input_disposals} disposals based on past at {input_venue} performance: ${1 / percentage_disposals_greater_venue:.2f}")
+# print the results, based on opp
+print(f"Against {input_opp} gms Results")
+print(f"Number of gms against {input_opp} less than {input_di} di: {di_less_opp}")
+print(f"Number of gms against {input_opp} grtr than {input_di} di: {di_grtr_opp}")
+print(f"pc of gms against {input_opp} less than {input_di} di: {pc_di_less_opp * 100:.2f}%")
+print(f"pc of gms against {input_opp} grtr than {input_di} di: {pc_di_grtr_opp * 100:.2f}%")
+print(f"True odds for under {input_di} di based on past against {input_opp} performance: ${1 / pc_di_less_opp:.2f}")
+print(f"True odds for over {input_di} di based on past against {input_opp} performance: ${1 / pc_di_grtr_opp:.2f}")
 print()
 print()
 
-# print the results, based on 2023 season
-print(f"2023 Season Games Results")
-print(f"Number of 2023 games less than {input_disposals} disposals: {disposals_less_2023}")
-print(f"Number of 2023 games greater than {input_disposals} disposals: {disposals_greater_2023}")
-print(f"Percentage of 2023 games less than {input_disposals} disposals: {percentage_disposals_less_2023 * 100:.2f}%")
-print(f"Percentage of 2023 games greater than {input_disposals} disposals: {percentage_disposals_greater_2023 * 100:.2f}%")
-print(f"True odds for under {input_disposals} disposals based on 2023 performance: ${1 / percentage_disposals_less_2023:.2f}")
-print(f"True odds for over {input_disposals} disposals based on 2023 performance: ${1 / percentage_disposals_greater_2023:.2f}")
+# print the results, based on ven
+print(f"At {input_ven} gms Results")
+print(f"Number of at {input_ven} gms less than {input_di} di: {di_less_ven}")
+print(f"Number of at {input_ven} gms grtr than {input_di} di: {di_grtr_ven}")
+print(f"pc of at {input_ven} gms less than {input_di} di: {pc_di_less_ven * 100:.2f}%")
+print(f"pc of at {input_ven} gms grtr than {input_di} di: {pc_di_grtr_ven * 100:.2f}%")
+print(f"True odds for under {input_di} di based on past at {input_ven} performance: ${1 / pc_di_less_ven:.2f}")
+print(f"True odds for over {input_di} di based on past at {input_ven} performance: ${1 / pc_di_grtr_ven:.2f}")
+print()
+print()
+
+# print the results, based on 2023 ssns
+print(f"2023 ssns gms Results")
+print(f"Number of 2023 gms less than {input_di} di: {di_less_2023}")
+print(f"Number of 2023 gms grtr than {input_di} di: {di_grtr_2023}")
+print(f"pc of 2023 gms less than {input_di} di: {pc_di_less_2023 * 100:.2f}%")
+print(f"pc of 2023 gms grtr than {input_di} di: {pc_di_grtr_2023 * 100:.2f}%")
+print(f"True odds for under {input_di} di based on 2023 performance: ${1 / pc_di_less_2023:.2f}")
+print(f"True odds for over {input_di} di based on 2023 performance: ${1 / pc_di_grtr_2023:.2f}")
 print()
 print()
 
 # print the results, based on time
-print(f"{input_time} Games Results")
-print(f"Number of {input_time} games less than {input_disposals} disposals: {disposals_less_time}")
-print(f"Number of {input_time} games greater than {input_disposals} disposals: {disposals_greater_time}")
-print(f"Percentage of {input_time} games less than {input_disposals} disposals: {percentage_disposals_less_time * 100:.2f}%")
-print(f"Percentage of {input_time} games greater than {input_disposals} disposals: {percentage_disposals_greater_time * 100:.2f}%")
-print(f"True odds for under {input_disposals} disposals based {input_time} performance: ${1 / percentage_disposals_less_time:.2f}")
-print(f"True odds for over {input_disposals} disposals based on {input_time} performance: ${1 / percentage_disposals_greater_time:.2f}")
+print(f"{input_time} gms Results")
+print(f"Number of {input_time} gms less than {input_di} di: {di_less_time}")
+print(f"Number of {input_time} gms grtr than {input_di} di: {di_grtr_time}")
+print(f"pc of {input_time} gms less than {input_di} di: {pc_di_less_time * 100:.2f}%")
+print(f"pc of {input_time} gms grtr than {input_di} di: {pc_di_grtr_time * 100:.2f}%")
+print(f"True odds for under {input_di} di based {input_time} performance: ${1 / pc_di_less_time:.2f}")
+print(f"True odds for over {input_di} di based on {input_time} performance: ${1 / pc_di_grtr_time:.2f}")
 print()
 print()
 
 # print the results, based on day of week
-print(f"{input_dayofweek} Games Results")
-print(f"Number of {input_dayofweek} games less than {input_disposals} disposals: {disposals_less_dayofweek}")
-print(f"Number of {input_dayofweek} games greater than {input_disposals} disposals: {disposals_greater_dayofweek}")
-print(f"Percentage of {input_dayofweek} games less than {input_disposals} disposals: {percentage_disposals_less_dayofweek * 100:.2f}%")
-print(f"Percentage of {input_dayofweek} games greater than {input_disposals} disposals: {percentage_disposals_greater_dayofweek * 100:.2f}%")
-print(f"True odds for under {input_disposals} disposals based on {input_dayofweek} performance: ${1 / percentage_disposals_less_dayofweek:.2f}")
-print(f"True odds for over {input_disposals} disposals based on {input_dayofweek} performance: ${1 / percentage_disposals_greater_dayofweek:.2f}")
+print(f"{input_day} gms Results")
+print(f"Number of {input_day} gms less than {input_di} di: {di_less_day}")
+print(f"Number of {input_day} gms grtr than {input_di} di: {di_grtr_day}")
+print(f"pc of {input_day} gms less than {input_di} di: {pc_di_less_day * 100:.2f}%")
+print(f"pc of {input_day} gms grtr than {input_di} di: {pc_di_grtr_day * 100:.2f}%")
+print(f"True odds for under {input_di} di based on {input_day} performance: ${1 / pc_di_less_day:.2f}")
+print(f"True odds for over {input_di} di based on {input_day} performance: ${1 / pc_di_grtr_day:.2f}")
 print()
 print()
 
 
-# print results for GOALS
-print("GOALS")
-# print the full games results, rounded to 2 decimal points (:.2f)
-print("All Games Results")
-print(f"Number of games less than {input_goals} goals: {goals_less}")
-print(f"Number of games greater than {input_goals} goals: {goals_greater}")
-print(f"Percentage of games less than {input_goals} goals: {percentage_goals_less *100:.2f}%")
-print(f"Percentage of games greater than {input_goals} goals: {percentage_goals_greater *100:.2f}%")
-print(f"True odds for under {input_goals} goals based on past performance: ${1/percentage_goals_less:.2f}")
-print(f"True odds for over {input_goals} goals based on past performance: ${1/percentage_goals_greater:.2f}")
+# print results for glS
+print("glS")
+# print the full gms results, rounded to 2 decimal points (:.2f)
+print("All gms Results")
+print(f"Number of gms less than {input_gls} gls: {gls_less}")
+print(f"Number of gms grtr than {input_gls} gls: {gls_grtr}")
+print(f"pc of gms less than {input_gls} gls: {pc_gls_less *100:.2f}%")
+print(f"pc of gms grtr than {input_gls} gls: {pc_gls_grtr *100:.2f}%")
+print(f"True odds for under {input_gls} gls based on past performance: ${1/pc_gls_less:.2f}")
+print(f"True odds for over {input_gls} gls based on past performance: ${1/pc_gls_grtr:.2f}")
 print()
 print()
 
-# print the results, based on location input
-print(f"{input_location} Games Results")
-print(f"Number of {input_location} games less than {input_goals} goals: {goals_less_location}")
-print(f"Number of {input_location} games greater than {input_goals} goals: {goals_greater_location}")
-print(f"Percentage of {input_location} games less than {input_goals} goals: {percentage_goals_less_location *100:.2f}%")
-print(f"Percentage of {input_location} games greater than {input_goals} goals: {percentage_goals_greater_location *100:.2f}%")
-print(f"True odds for under {input_goals} goals based on past {input_location} performance: ${1/percentage_goals_less_location:.2f}")
-print(f"True odds for over {input_goals} goals based on past {input_location} performance: ${1/percentage_goals_greater_location:.2f}")
+# print the results, based on loc input
+print(f"{input_loc} gms Results")
+print(f"Number of {input_loc} gms less than {input_gls} gls: {gls_less_loc}")
+print(f"Number of {input_loc} gms grtr than {input_gls} gls: {gls_grtr_loc}")
+print(f"pc of {input_loc} gms less than {input_gls} gls: {pc_gls_less_loc *100:.2f}%")
+print(f"pc of {input_loc} gms grtr than {input_gls} gls: {pc_gls_grtr_loc *100:.2f}%")
+print(f"True odds for under {input_gls} gls based on past {input_loc} performance: ${1/pc_gls_less_loc:.2f}")
+print(f"True odds for over {input_gls} gls based on past {input_loc} performance: ${1/pc_gls_grtr_loc:.2f}")
 print()
 print()
 
-# print the results, based on opposition
-print(f"Against {input_opposition} Games Results")
-print(f"Number of games against {input_opposition} less than {input_goals} goals: {goals_less_opposition}")
-print(f"Number of games against {input_opposition} greater than {input_goals} goals: {goals_greater_opposition}")
-print(f"Percentage of games against {input_opposition} less than {input_goals} goals: {percentage_goals_less_opposition * 100:.2f}%")
-print(f"Percentage of games against {input_opposition} greater than {input_goals} goals: {percentage_goals_greater_opposition * 100:.2f}%")
-print(f"True odds for under {input_goals} goals based on past against {input_opposition} performance: ${1 / percentage_goals_less_opposition:.2f}")
-print(f"True odds for over {input_goals} goals based on past against {input_opposition} performance: ${1 / percentage_goals_greater_opposition:.2f}")
+# print the results, based on opp
+print(f"Against {input_opp} gms Results")
+print(f"Number of gms against {input_opp} less than {input_gls} gls: {gls_less_opp}")
+print(f"Number of gms against {input_opp} grtr than {input_gls} gls: {gls_grtr_opp}")
+print(f"pc of gms against {input_opp} less than {input_gls} gls: {pc_gls_less_opp * 100:.2f}%")
+print(f"pc of gms against {input_opp} grtr than {input_gls} gls: {pc_gls_grtr_opp * 100:.2f}%")
+print(f"True odds for under {input_gls} gls based on past against {input_opp} performance: ${1 / pc_gls_less_opp:.2f}")
+print(f"True odds for over {input_gls} gls based on past against {input_opp} performance: ${1 / pc_gls_grtr_opp:.2f}")
 print()
 print()
 
-# print the results, based on venue
-print(f"At {input_venue} Games Results")
-print(f"Number of at {input_venue} games less than {input_goals} goals: {goals_less_venue}")
-print(f"Number of at {input_venue} games greater than {input_goals} goals: {goals_greater_venue}")
-print(f"Percentage of at {input_venue} games less than {input_goals} goals: {percentage_goals_less_venue * 100:.2f}%")
-print(f"Percentage of at {input_venue} games greater than {input_goals} goals: {percentage_goals_greater_venue * 100:.2f}%")
-print(f"True odds for under {input_goals} goals based on past at {input_venue} performance: ${1 / percentage_goals_less_venue:.2f}")
-print(f"True odds for over {input_goals} goals based on past at {input_venue} performance: ${1 / percentage_goals_greater_venue:.2f}")
+# print the results, based on ven
+print(f"At {input_ven} gms Results")
+print(f"Number of at {input_ven} gms less than {input_gls} gls: {gls_less_ven}")
+print(f"Number of at {input_ven} gms grtr than {input_gls} gls: {gls_grtr_ven}")
+print(f"pc of at {input_ven} gms less than {input_gls} gls: {pc_gls_less_ven * 100:.2f}%")
+print(f"pc of at {input_ven} gms grtr than {input_gls} gls: {pc_gls_grtr_ven * 100:.2f}%")
+print(f"True odds for under {input_gls} gls based on past at {input_ven} performance: ${1 / pc_gls_less_ven:.2f}")
+print(f"True odds for over {input_gls} gls based on past at {input_ven} performance: ${1 / pc_gls_grtr_ven:.2f}")
 print()
 print()
 
-# print the results, based on 2023 season
-print(f"2023 Season Games Results")
-print(f"Number of 2023 games less than {input_goals} goals: {goals_less_2023}")
-print(f"Number of 2023 games greater than {input_goals} goals: {goals_greater_2023}")
-print(f"Percentage of 2023 games less than {input_goals} goals: {percentage_goals_less_2023 * 100:.2f}%")
-print(f"Percentage of 2023 games greater than {input_goals} goals: {percentage_goals_greater_2023 * 100:.2f}%")
-print(f"True odds for under {input_goals} goals based on 2023 performance: ${1 / percentage_goals_less_2023:.2f}")
-print(f"True odds for over {input_goals} goals based on 2023 performance: ${1 / percentage_goals_greater_2023:.2f}")
+# print the results, based on 2023 ssns
+print(f"2023 ssns gms Results")
+print(f"Number of 2023 gms less than {input_gls} gls: {gls_less_2023}")
+print(f"Number of 2023 gms grtr than {input_gls} gls: {gls_grtr_2023}")
+print(f"pc of 2023 gms less than {input_gls} gls: {pc_gls_less_2023 * 100:.2f}%")
+print(f"pc of 2023 gms grtr than {input_gls} gls: {pc_gls_grtr_2023 * 100:.2f}%")
+print(f"True odds for under {input_gls} gls based on 2023 performance: ${1 / pc_gls_less_2023:.2f}")
+print(f"True odds for over {input_gls} gls based on 2023 performance: ${1 / pc_gls_grtr_2023:.2f}")
 print()
 print()
 
 # print the results, based on time
-print(f"{input_time} Games Results")
-print(f"Number of {input_time} games less than {input_goals} goals: {goals_less_time}")
-print(f"Number of {input_time} games greater than {input_goals} goals: {goals_greater_time}")
-print(f"Percentage of {input_time} games less than {input_goals} goals: {percentage_goals_less_time * 100:.2f}%")
-print(f"Percentage of {input_time} games greater than {input_goals} goals: {percentage_goals_greater_time * 100:.2f}%")
-print(f"True odds for under {input_goals} goals based on past at night performance: ${1 / percentage_goals_less_time:.2f}")
-print(f"True odds for over {input_goals} goals based on past at night performance: ${1 / percentage_goals_greater_time:.2f}")
+print(f"{input_time} gms Results")
+print(f"Number of {input_time} gms less than {input_gls} gls: {gls_less_time}")
+print(f"Number of {input_time} gms grtr than {input_gls} gls: {gls_grtr_time}")
+print(f"pc of {input_time} gms less than {input_gls} gls: {pc_gls_less_time * 100:.2f}%")
+print(f"pc of {input_time} gms grtr than {input_gls} gls: {pc_gls_grtr_time * 100:.2f}%")
+print(f"True odds for under {input_gls} gls based on past at night performance: ${1 / pc_gls_less_time:.2f}")
+print(f"True odds for over {input_gls} gls based on past at night performance: ${1 / pc_gls_grtr_time:.2f}")
 print()
 print()
 
 # print the results, based on day of week
-print(f"{input_dayofweek} Games Results")
-print(f"Number of {input_dayofweek} games less than {input_goals} goals: {goals_less_dayofweek}")
-print(f"Number of {input_dayofweek} games greater than {input_goals} goals: {goals_greater_dayofweek}")
-print(f"Percentage of {input_dayofweek} games less than {input_goals} goals: {percentage_goals_less_dayofweek * 100:.2f}%")
-print(f"Percentage of {input_dayofweek} games greater than {input_goals} goals: {percentage_goals_greater_dayofweek * 100:.2f}%")
-print(f"True odds for under {input_goals} goals based on past at night performance: ${1 / percentage_goals_less_dayofweek:.2f}")
-print(f"True odds for over {input_goals} goals based on past at night performance: ${1 / percentage_goals_greater_dayofweek:.2f}")
+print(f"{input_day} gms Results")
+print(f"Number of {input_day} gms less than {input_gls} gls: {gls_less_day}")
+print(f"Number of {input_day} gms grtr than {input_gls} gls: {gls_grtr_day}")
+print(f"pc of {input_day} gms less than {input_gls} gls: {pc_gls_less_day * 100:.2f}%")
+print(f"pc of {input_day} gms grtr than {input_gls} gls: {pc_gls_grtr_day * 100:.2f}%")
+print(f"True odds for under {input_gls} gls based on past at night performance: ${1 / pc_gls_less_day:.2f}")
+print(f"True odds for over {input_gls} gls based on past at night performance: ${1 / pc_gls_grtr_day:.2f}")
 print()
 print()
 
 # print results based on 2 LEG COMBOS
 print("2 LEG COMBO RESULTS")
-# print the all games results
-print("All Games Results")
-print(f"Number of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {disposals_greater_goals_greater}")
-print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less}")
-print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater}")
-print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less}")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater *100:.2f}%")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less *100:.2f}%")
-print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater:.2f}")
-print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less:.2f}")
+# print the all gms results
+print("All gms Results")
+print(f"Number of gms with di grtr than {input_di} and gls grtr than {input_gls}: {di_grtr_gls_grtr}")
+print(f"Number of gms with di grtr than {input_di} and gls less than {input_gls}: {di_grtr_gls_less}")
+print(f"Number of gms with di less than {input_di} and gls grtr than {input_gls}: {di_less_gls_grtr}")
+print(f"Number of gms with di less than {input_di} and gls less than {input_gls}: {di_grtr_gls_less}")
+print(f"pc of gms with di grtr than {input_di} and gls grtr than {input_gls}: {pc_di_grtr_gls_grtr *100:.2f}%")
+print(f"pc of gms with di grtr than {input_di} and gls less than {input_gls}: {pc_di_grtr_gls_less *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls grtr than {input_gls}: {pc_di_less_gls_grtr *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls less than {input_gls}: {pc_di_less_gls_less *100:.2f}%")
+print(f"True odds for gms with di grtr than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_grtr_gls_grtr:.2f}")
+print(f"True odds for gms with di grtr than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_grtr_gls_less:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_less_gls_grtr.2f}")
+print(f"True odds for gms with di less than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_less_gls_less:.2f}")
+print()
+print()
+# print the loc results
+print("loc Results")
+print(f"Number of gms with di grtr than {input_di} and gls grtr than {input_gls}: {di_grtr_gls_grtr_loc}")
+print(f"Number of gms with di grtr than {input_di} and gls less than {input_gls}: {di_grtr_gls_less_loc}")
+print(f"Number of gms with di less than {input_di} and gls grtr than {input_gls}: {di_less_gls_grtr_loc}")
+print(f"Number of gms with di less than {input_di} and gls less than {input_gls}: {di_less_gls_less_loc}")
+print(f"pc of gms with di grtr than {input_di} and gls grtr than {input_gls}: {pc_di_grtr_gls_grtr_loc *100:.2f}%")
+print(f"pc of gms with di grtr than {input_di} and gls less than {input_gls}: {pc_di_grtr_gls_less_loc *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls grtr than {input_gls}: {pc_di_less_gls_grtr_loc *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls less than {input_gls}: {pc_di_less_gls_less_loc *100:.2f}%")
+print(f"True odds for gms with di grtr than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_grtr_gls_grtr_loc:.2f}")
+print(f"True odds for gms with di grtr than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_grtr_gls_less_loc:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_less_gls_grtr_loc:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_less_gls_less_loc:.2f}")
+print()
+print()
+# print the opp results
+print("opp Results")
+print(f"Number of gms with di grtr than {input_di} and gls grtr than {input_gls}: {di_grtr_gls_grtr_opp}")
+print(f"Number of gms with di grtr than {input_di} and gls less than {input_gls}: {di_grtr_gls_less_opp}")
+print(f"Number of gms with di less than {input_di} and gls grtr than {input_gls}: {di_less_gls_grtr_opp}")
+print(f"Number of gms with di less than {input_di} and gls less than {input_gls}: {di_less_gls_less_opp}")
+print(f"pc of gms with di grtr than {input_di} and gls grtr than {input_gls}: {pc_di_grtr_gls_grtr_opp *100:.2f}%")
+print(f"pc of gms with di grtr than {input_di} and gls less than {input_gls}: {pc_di_grtr_gls_less_opp *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls grtr than {input_gls}: {pc_di_less_gls_grtr_opp *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls less than {input_gls}: {pc_di_less_gls_less_opp *100:.2f}%")
+print(f"True odds for gms with di grtr than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_grtr_gls_grtr_opp:.2f}")
+print(f"True odds for gms with di grtr than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_grtr_gls_less_opp:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_less_gls_grtr_opp:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_less_gls_less_opp:.2f}")
 print()
 print()
 
-# print the location results
-print("Location Results")
-print(f"Number of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {disposals_greater_goals_greater_location}")
-print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_location}")
-print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_location}")
-print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_location}")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_location *100:.2f}%")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_location *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_location *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_location *100:.2f}%")
-print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_location:.2f}")
-print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_location:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_location:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_location:.2f}")
-print()
-print()
-
-# print the opposition results
-print("Opposition Results")
-print(f"Number of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {disposals_greater_goals_greater_opposition}")
-print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_opposition}")
-print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_opposition}")
-print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_opposition}")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_opposition *100:.2f}%")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_opposition *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_opposition *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_opposition *100:.2f}%")
-print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_opposition:.2f}")
-print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_opposition:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_opposition:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_opposition:.2f}")
-print()
-print()
-
-# print the venue results
-print("Venue Results")
-print(f"Number of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {disposals_greater_goals_greater_venue}")
-print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_venue}")
-print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_venue}")
-print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_venue}")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_venue *100:.2f}%")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_venue *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_venue *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_venue *100:.2f}%")
-print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_venue:.2f}")
-print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_venue:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_venue:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_venue:.2f}")
+# print the ven results
+print("ven Results")
+print(f"Number of gms with di grtr than {input_di} and gls grtr than {input_gls}: {di_grtr_gls_grtr_ven}")
+print(f"Number of gms with di grtr than {input_di} and gls less than {input_gls}: {di_grtr_gls_less_ven}")
+print(f"Number of gms with di less than {input_di} and gls grtr than {input_gls}: {di_less_gls_grtr_ven}")
+print(f"Number of gms with di less than {input_di} and gls less than {input_gls}: {di_less_gls_less_ven}")
+print(f"pc of gms with di grtr than {input_di} and gls grtr than {input_gls}: {pc_di_grtr_gls_grtr_ven *100:.2f}%")
+print(f"pc of gms with di grtr than {input_di} and gls less than {input_gls}: {pc_di_grtr_gls_less_ven *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls grtr than {input_gls}: {pc_di_less_gls_grtr_ven *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls less than {input_gls}: {pc_di_less_gls_less_ven *100:.2f}%")
+print(f"True odds for gms with di grtr than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_grtr_gls_grtr_ven:.2f}")
+print(f"True odds for gms with di grtr than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_grtr_gls_less_ven:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_less_gls_grtr_ven:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_less_gls_less_ven:.2f}")
 print()
 print()
 
 # print the 2023 results
 print("2023 Results")
-print(f"Number of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {disposals_greater_goals_greater_2023}")
-print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_2023}")
-print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_2023}")
-print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_2023}")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_2023 *100:.2f}%")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_2023 *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_2023 *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_2023 *100:.2f}%")
-print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_2023:.2f}")
-print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_2023:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_2023:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_2023:.2f}")
+print(f"Number of gms with di grtr than {input_di} and gls grtr than {input_gls}: {di_grtr_gls_grtr_2023}")
+print(f"Number of gms with di grtr than {input_di} and gls less than {input_gls}: {di_grtr_gls_less_2023}")
+print(f"Number of gms with di less than {input_di} and gls grtr than {input_gls}: {di_less_gls_grtr_2023}")
+print(f"Number of gms with di less than {input_di} and gls less than {input_gls}: {di_less_gls_less_2023}")
+print(f"pc of gms with di grtr than {input_di} and gls grtr than {input_gls}: {pc_di_grtr_gls_grtr_2023 *100:.2f}%")
+print(f"pc of gms with di grtr than {input_di} and gls less than {input_gls}: {pc_di_grtr_gls_less_2023 *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls grtr than {input_gls}: {pc_di_less_gls_grtr_2023 *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls less than {input_gls}: {pc_di_less_gls_less_2023 *100:.2f}%")
+print(f"True odds for gms with di grtr than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_grtr_gls_grtr_2023:.2f}")
+print(f"True odds for gms with di grtr than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_grtr_gls_less_2023:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_less_gls_grtr_2023:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_less_gls_less_2023:.2f}")
 print()
 print()
 
 # print the time results
 print("Time Results")
-print(f"Number of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {disposals_greater_goals_greater_time}")
-print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_time}")
-print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_time}")
-print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_time}")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_time *100:.2f}%")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_time *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_time *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_time *100:.2f}%")
-print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_time:.2f}")
-print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_time:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_time:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_time:.2f}")
+print(f"Number of gms with di grtr than {input_di} and gls grtr than {input_gls}: {di_grtr_gls_grtr_time}")
+print(f"Number of gms with di grtr than {input_di} and gls less than {input_gls}: {di_grtr_gls_less_time}")
+print(f"Number of gms with di less than {input_di} and gls grtr than {input_gls}: {di_less_gls_grtr_time}")
+print(f"Number of gms with di less than {input_di} and gls less than {input_gls}: {di_less_gls_less_time}")
+print(f"pc of gms with di grtr than {input_di} and gls grtr than {input_gls}: {pc_di_grtr_gls_grtr_time *100:.2f}%")
+print(f"pc of gms with di grtr than {input_di} and gls less than {input_gls}: {pc_di_grtr_gls_less_time *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls grtr than {input_gls}: {pc_di_less_gls_grtr_time *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls less than {input_gls}: {pc_di_less_gls_less_time *100:.2f}%")
+print(f"True odds for gms with di grtr than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_grtr_gls_grtr_time:.2f}")
+print(f"True odds for gms with di grtr than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_grtr_gls_less_time:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_less_gls_grtr_time:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_less_gls_less_time:.2f}")
 print()
 print()
 
-# print the dayofweek results
+# print the day results
 print("Day of Week Results")
-print(f"Number of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {disposals_greater_goals_greater_dayofweek}")
-print(f"Number of games with disposals greater than {input_disposals} and goals less than {input_goals}: {disposals_greater_goals_less_dayofweek}")
-print(f"Number of games with disposals less than {input_disposals} and goals greater than {input_goals}: {disposals_less_goals_greater_dayofweek}")
-print(f"Number of games with disposals less than {input_disposals} and goals less than {input_goals}: {disposals_less_goals_less_dayofweek}")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_greater_goals_greater_dayofweek *100:.2f}%")
-print(f"Percentage of games with disposals greater than {input_disposals} and goals less than {input_goals}: {percentage_disposals_greater_goals_less_dayofweek *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals greater than {input_goals}: {percentage_disposals_less_goals_greater_dayofweek *100:.2f}%")
-print(f"Percentage of games with disposals less than {input_disposals} and goals less than {input_goals}: {percentage_disposals_less_goals_less_dayofweek *100:.2f}%")
-print(f"True odds for games with disposals greater than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_greater_dayofweek:.2f}")
-print(f"True odds for games with disposals greater than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_greater_goals_less_dayofweek:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals greater than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_greater_dayofweek:.2f}")
-print(f"True odds for games with disposals less than {input_disposals} and goals less than {input_goals} based on past performance: ${1/percentage_disposals_less_goals_less_dayofweek:.2f}")
+print(f"Number of gms with di grtr than {input_di} and gls grtr than {input_gls}: {di_grtr_gls_grtr_day}")
+print(f"Number of gms with di grtr than {input_di} and gls less than {input_gls}: {di_grtr_gls_less_day}")
+print(f"Number of gms with di less than {input_di} and gls grtr than {input_gls}: {di_less_gls_grtr_day}")
+print(f"Number of gms with di less than {input_di} and gls less than {input_gls}: {di_less_gls_less_day}")
+print(f"pc of gms with di grtr than {input_di} and gls grtr than {input_gls}: {pc_di_grtr_gls_grtr_day *100:.2f}%")
+print(f"pc of gms with di grtr than {input_di} and gls less than {input_gls}: {pc_di_grtr_gls_less_day *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls grtr than {input_gls}: {pc_di_less_gls_grtr_day *100:.2f}%")
+print(f"pc of gms with di less than {input_di} and gls less than {input_gls}: {pc_di_less_gls_less_day *100:.2f}%")
+print(f"True odds for gms with di grtr than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_grtr_gls_grtr_day:.2f}")
+print(f"True odds for gms with di grtr than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_grtr_gls_less_day:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls grtr than {input_gls} based on past performance: ${1/pc_di_less_gls_grtr_day:.2f}")
+print(f"True odds for gms with di less than {input_di} and gls less than {input_gls} based on past performance: ${1/pc_di_less_gls_less_day:.2f}")
 print()
 print()
