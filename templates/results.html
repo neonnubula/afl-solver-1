@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results Summary</title>
+</head>
+<body>
+    <h1>Summary Results</h1>
+    {% for section_title, content in summary.items() %}
+        <h2>{{ section_title }}</h2>
+        <p>{{ content }}</p>
+    {% endfor %}
+</body>
+</html>

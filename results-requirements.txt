@@ -1,0 +1,94 @@
+The code in 
+app.py
+ from the Flask application creates a web interface for users to submit form data. The submitted data is then used to analyze a CSV dataset by comparing the input against the records in the dataset. Functions are defined to perform various statistical analysis based on the user inputs, such as counting the number of times disposals or goals were over or under certain values.
+
+Once the form is submitted and the analysis is done, the results are stored in various local variables within the perform_analysis() function. However, as it stands, the results of this analysis are not automatically connected to the HTML template 
+results.html
+.
+
+To make these variables accessible in 
+results.html
+, you need to pass the analysis results to the template using Flask's render_template() function. This is typically done within the route that handles the form submission.
+
+Here’s a simple breakdown of how to pass the variables:
+
+Collect the results of the analysis in a format that can be passed to the template (such as a dictionary).
+In the POST request section of the route where the form is processed, instead of returning a string like "Form submitted successfully," you should call render_template().
+Pass the collected results as keyword arguments to render_template(). This will make the results available inside the 
+results.html
+ template under the names you have assigned to them.
+For example:
+
+Python
+
+Copy
+
+Insert
+return render_template('results.html', disposals=disposals_data, goals=goals_data, combo_results=combo_results_data)
+In the example above, disposals_data, goals_data, and combo_results_data should be the dictionaries containing the relevant results from the analysis.
+
+In the 
+results.html
+ template, you can access these passed variables using Jinja2 template syntax (as is already present in the template). The templating engine will replace placeholders like {{ disposals }} with the actual values passed from 
+app.py
+ before sending the HTML to the user's browser.
+
+To connect the results from 
+app.py
+, the perform_analysis function would need to return the results and then these results could be included in the call to render_template.
+
+To display the analysis variables on the 
+results.html
+ web page, we'll use the template rendering feature of Flask along with Jinja2 templating syntax. Jinja2 allows us to use placeholders for variables that will be replaced with actual values when the template is rendered.
+
+Here's the step-by-step explanation:
+
+Route Function: In 
+app.py
+, the route function handling submission (probably index() in this context or a different function if added) should render the 
+results.html
+ template while passing it the variables containing the calculated results.
+Passing Variables to Template: When you call render_template('results.html', ...), you would pass keyword arguments where the key is the name you’ll use in the HTML template, and the value is the actual data you want to display.
+Using Jinja2 Template Variables: Inside 
+results.html
+, you use {{ variable_name }} syntax to output a variable. For example, if we wanted to display the player's name, we would include {{ player_name }} in the HTML, where player_name is a variable passed from Flask.
+Using For Loops in Templates: To display lists or dictionaries of variables, we would utilize Jinja2's {% for ... %} ... {% endfor %} construct. This allows us to loop over items in a list or key-value pairs in a dictionary.
+Format and Calculations: Filters like |round(2) can be applied to format numbers. This particular filter rounds the number to two decimal places. Calculations can also be done directly in the template if needed.
+Conditional Statements: Using {% if ... %} ... {% endif %} in the HTML template allows us to conditionally render parts of the template only if certain conditions are true.
+In the 
+results.html
+ provided, it looks like the variables are organized into dictionaries such as disposals, goals, and combo_results with each entry containing a count, percentage, and true_odds.
+
+Here's a hypothetical example of how perform_analysis() in 
+app.py
+ might render a template with these variables:
+
+Python
+
+Copy
+
+Insert
+@app.route('/results')
+def results():
+    # Suppose perform_analysis() populates a dictionary `analysis_results`
+    # with all the necessary data that's structured similarly to how
+    # the results.html template expects it to be organized.
+    player_name = input_name
+    disposals = {
+        "total": {"over": di_over, "under": di_under, "pc_over": pc_di_over, "pc_under": pc_di_under},
+        # ... more disposals categories ...
+    }
+    goals = {
+        # ... similarly structured ...
+    }
+    combo_results = {
+        # ... combined disposals and goals data ...
+    }
+
+    # This calls the results.html template, passing in the structured data.
+    return render_template('results.html', player_name=player_name, disposals=disposals, goals=goals, combo_results=combo_results)
+In this example, player_name, disposals, goals, and combo_results are the variables being passed to the 
+results.html
+ template. These variables could then be accessed using the matching placeholder syntax in the HTML template as seen in 
+results.html
+.

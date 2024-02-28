@@ -1,44 +1,39 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Player Statistics Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Analysis Input Form</title>
 </head>
 <body>
+    <h1>Player Analysis Form</h1>
+    <form action="/" method="POST">
+        <label for="player_name">Player Name:</label>
+        <input type="text" id="player_name" name="player_name" required><br><br>
 
-  <h1>Player Statistics</h1>
+        <label for="disposal_line">Disposal Line:</label>
+        <input type="number" step="0.1" id="disposal_line" name="disposal_line" required><br><br>
 
-  <form action="/" method="post">
-    <label for="player_name">Player Name:</label>
-    <input type="text" id="player_name" name="player_name" required><br><br>
+        <label for="goal_line">Goal Line:</label>
+        <input type="number" step="0.1" id="goal_line" name="goal_line" required><br><br>
 
-    <label for="disposal_line">Disposal Line:</label>
-    <input type="number" id="disposal_line" name="disposal_line" step="any" required><br><br>
+        <label for="location">Location:</label>
+        <select id="location" name="location" required>
+            <option value="home">home</option>
+            <option value="away">away</option>
+        </select><br><br>
 
-    <label for="goal_line">Goal Line:</label>
-    <input type="number" id="goal_line" name="goal_line" step="any" required><br><br>
+        <label for="opposition">Opposition:</label>
+        <input type="text" id="opposition" name="opposition" required><br><br>
 
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location"><br><br>
+        <label for="venue">Venue:</label>
+        <input type="text" id="venue" name="venue" required><br><br>
 
-    <label for="opposition">Opposition:</label>
-    <input type="text" id="opposition" name="opposition"><br><br>
+        <label for="season">Season:</label>
+        <input type="number" id="season" name="season" required min="2000"><br><br>
 
-    <label for="venue">Venue:</label>
-    <input type="text" id="venue" name="venue"><br><br>
-
-    <label for="season">Season:</label>
-    <input type="number" id="season" name="season" min="2000" required><br><br>
-
-    <label for="time">Time:</label>
-    <input type="text" id="time" name="time"><br><br>
-
-    <label for="day_of_week">Day of Week:</label>
-    <input type="text" id="day_of_week" name="day_of_week"><br><br>
-
-    <input type="submit" value="Submit">
-  </form>
-
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
-
