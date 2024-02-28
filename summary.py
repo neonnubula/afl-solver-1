@@ -47,7 +47,7 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di, input_
         f"True odds for under {input_di} disposals on 2023 performance: {1 / percentages['pc_di_under_2023'] if percentages['pc_di_under_2023'] else 0:.2f}/n"
         f"True odds for over {input_di} disposals on 2023 performance: {1 / percentages['pc_di_over_2023'] if percentages['pc_di_over_2023'] else 0:.2f}/n"
       ),
-      'goalsIntro' : f"\nGoals\n\n",
+      'goalsIntro' : "\nGoals\n\n",
       'goalsAll': (
         "All games Results\n"
         f"Number of games under {input_gls} goals: {gamesHit['gls_under']}\n"
@@ -169,3 +169,4 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di, input_
         f"True odds for 2023 season games with disposals under {input_di} and goals under {input_gls} on past performance: {1 / percentages['pc_di_under_gls_under_2023'] if percentages['pc_di_under_gls_under_2023'] else 0:.2f}\n"
       )
   }
+  return summary

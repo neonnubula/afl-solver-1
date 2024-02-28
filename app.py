@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from solver import solver
+from summary import generate_summary
 
 # Import solver from the solver.py file
 
@@ -20,7 +21,7 @@ def index():
 
         # Process data
         gamesHit, totals, percentages = solver(input_name, input_di, input_gls, input_loc, input_opp, input_ven, input_ssns)
-        summary = prep_summary(gamesHit, totals, percentages, input_name, input_di, input_gls, input_loc, input_opp, input_ven)
+        summary = generate_summary(gamesHit, totals, percentages, input_name, input_di, input_gls, input_loc, input_opp, input_ven,input_ssns)
 
         # Return results template with summary
         return render_template('results.html', summary=summary)
