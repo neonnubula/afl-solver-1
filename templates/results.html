@@ -8,7 +8,7 @@
     <h1>Summary Results</h1>
     {% for section_title, content in summary.items() %}
         <h2>{{ section_title }}</h2>
-        <p>{{ content }}</p>
+        <p>{{ content|safe }}</p>
     {% endfor %}
 </body>
 </html>
