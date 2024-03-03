@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 from solver import solver
 from summary import generate_summary
 
+app = Flask(__name__)
+
 # Import solver from the solver.py file
 
 
