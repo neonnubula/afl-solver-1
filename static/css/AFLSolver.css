@@ -1,0 +1,45 @@
+body {
+    padding-top: 0px;
+}
+
+header {
+    background-position: 100% 100%;
+    position: relative;
+    background-color: #000E28;
+}
+
+.HAlignCentre {
+    text-align: center;
+}
+
+.NotToday {
+    color: #FF0000;
+    font-size: 48px;
+}
+
+.NotTodayImg {
+    height: 600px;
+    width: 900px;
+    align-content: center;
+}
+
+.StandardHeader {
+    color: #44A2BC;
+    font-size: 36px;
+}
+
+.TitleBlue {
+    color: #9AC4CF;
+    font-size: 96px;
+}
+
+.TitleWhite {
+    color: #FFFFFF;
+    font-size: 96px;
+}
+
+.VAlignCentre {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
