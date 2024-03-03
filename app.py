@@ -39,6 +39,7 @@ def results():
         summary = generate_summary(gamesHit, totals, percentages, input_name, input_di, input_gls, input_loc, input_opp, input_ven,input_ssns)
 
         # Return results template with summary
+        print("Debug - Summary being passed to template:", summary)
         return render_template('results.html', summary=summary)
     else:
         return render_template('Error.html')

@@ -2,7 +2,7 @@ import pandas as pd
 
 def solver(input_name, input_di, input_gls, input_loc, input_opp, input_ven, input_ssns):
   # Read the CSV data into a DataFrame
-  df = pd.read_csv('test-data.csv')
+  df = pd.read_csv('real-data.csv')
   
   gamesHit = { # each diciontary entry counts the amount of games that stat correlated with the user input
     'di_under' : df.loc[(df["season"] >= input_ssns) & (df["name"] == input_name) & (df["disposals"] < input_di), "disposals"].count(),
@@ -15,16 +15,16 @@ def solver(input_name, input_di, input_gls, input_loc, input_opp, input_ven, inp
     'di_over_ven' : df.loc[(df["venue"] == input_ven) & (df["name"] == input_name) & (df["season"] >= input_ssns) & (df["disposals"] > input_di), "disposals"].count(),
     'di_under_2023' : df.loc[(df["season"] == 2023) & (df["name"] == input_name) & (df["disposals"] < input_di), "disposals"].count(),
     'di_over_2023' : df.loc[(df["season"] == 2023) & (df["name"] == input_name) & (df["disposals"] > input_di), "disposals"].count(),
-    'gls_under' : df.loc[(df["season"] >= input_ssns) & (df["goals"] < input_gls), "goals"].count(),
-    'gls_over' : df.loc[(df["season"] >= input_ssns) & (df["goals"] > input_gls), "goals"].count(),
-    'gls_under_loc' : df.loc[(df["location"] == input_loc) & (df["season"] >= input_ssns) & (df["goals"] < input_gls), "goals"].count(),
-    'gls_over_loc' : df.loc[(df["location"] == input_loc) & (df["season"] >= input_ssns) & (df["goals"] > input_gls), "goals"].count(),
-    'gls_under_opp' : df.loc[(df["opposition"] == input_opp) & (df["season"] >= input_ssns) & (df["goals"] < input_gls), "goals"].count(),
-    'gls_over_opp' : df.loc[(df["opposition"] == input_opp) & (df["season"] >= input_ssns) & (df["goals"] > input_gls), "goals"].count(),
-    'gls_under_ven' : df.loc[(df["venue"] == input_ven) & (df["season"] >= input_ssns) & (df["goals"] < input_gls), "goals"].count(),
-    'gls_over_ven' : df.loc[(df["venue"] == input_ven) & (df["season"] >= input_ssns) & (df["goals"] > input_gls), "goals"].count(),
-    'gls_under_2023' : df.loc[(df["season"] == 2023) & (df["goals"] < input_gls), "goals"].count(),
-    'gls_over_2023' : df.loc[(df["season"] == 2023) & (df["goals"] > input_gls), "goals"].count(),
+    'gls_under' : df.loc[(df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] < input_gls), "goals"].count(),
+    'gls_over' : df.loc[(df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] > input_gls), "goals"].count(),
+    'gls_under_loc' : df.loc[(df["location"] == input_loc) & (df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] < input_gls), "goals"].count(),
+    'gls_over_loc' : df.loc[(df["location"] == input_loc) & (df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] > input_gls), "goals"].count(),
+    'gls_under_opp' : df.loc[(df["opposition"] == input_opp) & (df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] < input_gls), "goals"].count(),
+    'gls_over_opp' : df.loc[(df["opposition"] == input_opp) & (df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] > input_gls), "goals"].count(),
+    'gls_under_ven' : df.loc[(df["venue"] == input_ven) & (df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] < input_gls), "goals"].count(),
+    'gls_over_ven' : df.loc[(df["venue"] == input_ven) & (df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] > input_gls), "goals"].count(),
+    'gls_under_2023' : df.loc[(df["season"] == 2023) & (df["name"] == input_name) & (df["goals"] < input_gls), "goals"].count(),
+    'gls_over_2023' : df.loc[(df["season"] == 2023) & (df["name"] == input_name) & (df["goals"] > input_gls), "goals"].count(),
     'di_over_gls_over' : df.loc[(df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] > input_gls) & (df["disposals"] > input_di), "disposals"].count(),
     'di_over_gls_under' : df.loc[(df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
     'di_under_gls_over' : df.loc[(df["season"] >= input_ssns) & (df["name"] == input_name) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
