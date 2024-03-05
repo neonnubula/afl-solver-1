@@ -1,0 +1,178 @@
+body {
+    padding-top: 0px;
+}
+
+header {
+    background-position: 100% 100%;
+    position: relative;
+    background-color: #000E28;
+}
+
+.colWithoutPadding {
+    padding: 0px;
+}
+
+.FormControlRow {
+    padding-bottom: 20px;
+}
+
+.FormHeader {
+    color: #000E28;
+    font-size: 40px;
+    margin: 0px;
+    padding: 5px;
+}
+
+.FormLabel {
+    color: #000E28;
+    font-size: 18px;
+}
+
+.FormPanel {
+    background-color: #A2D1DE;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-color: #44A2BC;
+    border-style: solid;
+    border-width: 5px;
+    padding-top: 10px;
+}
+
+.FormPanelSubmit {
+    background-color: #44A2BC;
+    border-color: #000E28;
+    border-radius:15px;
+    border-style: solid;
+    border-width: 5px;
+    color: #000E28;
+    font-size: 18px;
+    font-weight:bold;
+    padding: 10px;
+}
+
+.FormPanelSelect {
+    border-color: #000E28;
+    border-radius: 8px;
+    border-style: groove;
+    border-width: 2px;
+    color: #000E28;
+    font-size: 18px;
+    height: 31px;
+    width: 100%;
+}
+
+.FormPanelTextBox {
+    border-color: #000E28;
+    border-radius: 8px;
+    border-style: groove;
+    border-width: 2px;
+    color: #000E28;
+    font-size: 18px;
+    width: 100%;
+}
+
+.FormPanelTitle {
+    background-color: #44A2BC;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.GraphPanel{
+    background-color: #A2D1DE;
+    border-radius: 30px;
+    border-color: #44A2BC;
+    border-style: solid;
+    border-width: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.HAlignCentre {
+    text-align: center;
+}
+
+.MarginRow {
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.NotToday {
+    color: #FF0000;
+    font-size: 48px;
+}
+
+.NotTodayImg {
+    height: 600px;
+    width: 900px;
+    align-content: center;
+}
+
+.PaddinglLeft {
+    padding-left: 30px;
+}
+
+.PaddingRight {
+    padding-right: 30px;
+}
+
+.ResultsLabel1 {
+    background-color: #A3D1DF;
+    color: #000E28;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.ResultsLabel2 {
+    background-color: #75BACF;
+    color: #000E28;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.ResultsPanel {
+    background-color: #A2D1DE;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-color: #44A2BC;
+    border-style: solid;
+    border-width: 5px;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+.ResultsStats1 {
+    background-color: #FFFFFF;
+    color: #000E28;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.ResultsStats2 {
+    background-color: #D1E8EF;
+    color: #000E28;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.ResultsHeader {
+    color: #000E28;
+    font-size: 20px;
+    margin: 0px;
+    padding: 5px;
+}
+
+.TitleBlue {
+    color: #9AC4CF;
+    font-size: 96px;
+}
+
+.TitleWhite {
+    color: #FFFFFF;
+    font-size: 96px;
+}
+
+.VAlignCentre {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

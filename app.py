@@ -1,17 +1,30 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from solver import solver
 from summary import generate_summary
+from csrf import CSRFProtect, generate_csrf
 
+csrf = CSRFProtect()
 app = Flask(__name__)
+app.secret_key = 'AfLsOlVeRsEcReTkEy'
+csrf.init_app(app)
 
-# Import solver from the solver.py file
+@app.route('/')
+def home():
+    session['anti_crf_token'] = generate_csrf(app.secret_key)
+    return render_template('layout.html')
 
+@app.route('/analysisform', methods = ['POST'])
+def analysisform():
+    if request.form.get('csrf_token') == session['anti_crf_token']:
+        session['anti_crf_token'] = generate_csrf(app.secret_key)
+        return render_template('index.html')
+    else:
+        return render_template('Error.html')
 
-app = Flask(__name__)
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
+@app.route('/results', methods = ['POST'])
+def results():
+    if request.form.get('csrf_token') == session['anti_crf_token']:
+        session['anti_crf_token'] = generate_csrf(app.secret_key)
         # Extract form data
         input_name = request.form.get('player_name')
         input_di = float(request.form.get('disposal_line'))
@@ -28,39 +41,16 @@ def index():
         # Return results template with summary
         print("Debug - Summary being passed to template:", summary)
         return render_template('results.html', summary=summary)
+    else:
+        return render_template('Error.html')
 
-    # Show input form by default
-    return render_template('index.html')
+@app.route('/error', methods = ['GET'])
+def error():
+    return render_template('Error.html')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('ErrorPage.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080, host='0.0.0.0')
-
-
-
-# dictionary within dictionary style?
-
-# @app.route('/', methods=['GET', 'POST'])
-# def index():
-#     if request.method == 'POST':
-#         # Process form submission...
-
-#         gamesHit, totals, percentages = solver(input_name, input_di, input_gls, input_loc, input_opp, input_ven, input_ssns)
-
-#         # Prepare the data dictionary
-#         data = {
-#             'gamesHit': gamesHit, 
-#             'totals': totals, 
-#             'percentages': percentages,
-#             'input_name': input_name,
-#             'input_di': input_di,
-#             'input_gls': input_gls,
-#             'input_loc': input_loc,
-#             'input_opp': input_opp,
-#             'input_ven': input_ven,
-#             'input_ssns': input_ssns
-#         }
-
-#         summary = generate_summary(data)
-#         return render_template('results.html', summary=summary)
-
-#     return render_template('index.html')

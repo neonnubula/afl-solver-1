@@ -1,14 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Results Summary</title>
-</head>
-<body>
-    <h1>Summary Results</h1>
-    {% for section_title, content in summary.items() %}
-        <h2>{{ section_title }}</h2>
-        <p>{{ content|safe }}</p>
-    {% endfor %}
-</body>
-</html>
+{% for item in summary %}
+    {% if item[1] == 'Heading' %}
+<div class="row">
+    <div class="col-md-12 HAlignCentre">
+        <h1>{{ item[0] }}</h1>
+    </div>
+</div>
+    {% elif item[1] == 'Graph' %}
+        {% for graph in item[0] %}
+            {% set indexMod2 = loop.index % 2 %}
+            {% if indexMod2 == 1 %}
+<div class="row MarginRow">
+    <div class="col-md-6 PaddingRight">
+        <div class="row">
+            <div class="col-md-12 GraphPanel">
+                <img src='{{graph}}' />
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-md-6 PaddingLeft">
+        <div class="row">
+            <div class="col-md-12 GraphPanel">
+                <img src='{{graph}}' />
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+            {% endif %}
+        {% endfor %}
+        {% set indexMod2 = item[2]|length % 2 %}
+        {% if indexMod2 == 1 %}
+    <div class="col-md-6 GraphPanel"></div>
+</div>
+<br />
+        {% endif %}
+    {% else %}
+<div class="row MarginRow">
+    <div class="col-md-12 FormPanelTitle HAlignCentre">
+        <h1 class="ResultsHeader">{{ item[0] }}</h1>
+    </div>
+</div>
+        {% if item[1] == 'Statement' %}
+<div class="row MarginRow">
+    <div class="col-md-12 ResultsPanel HAlignCentre">
+        {{ item[2] }}
+    </div>
+</div>
+        {% elif item[1] == 'Stats' %}
+<div class="row MarginRow">
+    <div class="col-md-12 ResultsPanel">
+            {% for stats in item[2] %}
+                {% set indexMod4 = loop.index % 4 %}
+                {% set indexMod2 = indexMod4 % 2 %}
+                {% if indexMod2 == 1 %}
+        <div class="row">
+                {% endif %}
+                {% if indexMod4 == 0 or indexMod4 == 3 %}
+            <div class="col-md-4 ResultsLabel2">
+                {{ stats[0] }}
+            </div>
+            <div class="col-md-2 ResultsStats2">
+                {{ stats[1] }}
+            </div>
+                {% else %}
+            <div class="col-md-4 ResultsLabel1">
+                {{ stats[0] }}
+            </div>
+            <div class="col-md-2 ResultsStats1">
+                {{ stats[1] }}
+            </div>
+                {% endif %}
+                {% if indexMod2 == 0 %}
+        </div>
+                {% endif %}
+            {% endfor %}
+            {% set indexMod4 = item[2]|length % 4 %}
+            {% set indexMod2 = indexMod4 % 2 %}
+            {% if indexMod2 == 1 %}
+                {% if indexMod4 == 3 %}
+            <div class="col-md-4 ResultsLabel2">
+                {{ stats[0] }}
+            </div>
+            <div class="col-md-2 ResultsStats2">
+                {{ stats[1] }}
+            </div>
+                {% else %}
+            <div class="col-md-4 ResultsLabel1">
+                {{ stats[0] }}
+            </div>
+            <div class="col-md-2 ResultsStats1">
+                {{ stats[1] }}
+            </div>
+                {% endif %}
+        </div>
+            {% endif %}
+    </div>
+</div>
+        {% endif %}
+    {% endif %}
+<br />
+{% endfor %}
+<div class="row MarginRow">
+    <div class="col-md-12 colWithoutPadding">
+        <button class="FormPanelSubmit" id="btnSubmit" onclick="SubmitForm(this, ReturnHome)">Home &raquo;</button>
+    </div>
+</div>
+<form name="ReturnHome" id="ReturnHome" action="/analysisform" method="POST">
+    {% include 'csrfTokenField.html' %}
+</form>
+{% include 'SubmitForm.html' %}
