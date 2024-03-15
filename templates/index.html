@@ -26,7 +26,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <input class="FormPanelTextBox" type="text" id="player_name" name="player_name" list="player_names" oninput="$.GetDatalistId($(this), $('#player_id'))" required />
+                            <input class="FormPanelTextBox" type="text" id="player_name" name="player_name" list="player_names" oninput="$.GetDatalistId($(this), $('#player_id'))" required placeholder="Type or select the player you want to search"/>
                         </div>
                         <div class="col-md-3">
                             <select class="FormPanelSelect" id="disposal_line" name="disposal_line" required>
@@ -44,7 +44,7 @@
                                 <option value="11.5">11.5</option>
                                 <option value="12.5">12.5</option>
                                 <option value="13.5">13.5</option>
-                                <option value="14.5" selected>14.5</option>
+                                <option value="14.5">14.5</option>
                                 <option value="15.5">15.5</option>
                                 <option value="16.5">16.5</option>
                                 <option value="17.5">17.5</option>
@@ -54,7 +54,7 @@
                                 <option value="21.5">21.5</option>
                                 <option value="22.5">22.5</option>
                                 <option value="23.5">23.5</option>
-                                <option value="24.5">24.5</option>
+                                <option value="24.5"selected >24.5</option>
                                 <option value="25.5">25.5</option>
                                 <option value="26.5">26.5</option>
                                 <option value="27.5">27.5</option>
@@ -88,8 +88,8 @@
                         </div>
                         <div class="col-md-3">
                             <select class="FormPanelSelect" id="goal_line" name="goal_line" required>
-                                <option value="0.5">0.5</option>
-                                <option value="1.5" selected>1.5</option>
+                                <option value="0.5" selected >0.5</option>
+                                <option value="1.5">1.5</option>
                                 <option value="2.5">2.5</option>
                                 <option value="3.5">3.5</option>
                                 <option value="4.5">4.5</option>
@@ -105,15 +105,15 @@
                         <div class="col-md-6">
                             <label class="FormLabel" for="opposition">Opposition:</label>
                         </div>
-                        <div class="col-md-6">
-                            <label class="FormLabel" for="season">Games from Season:</label>
+                        <div class="col-md-3">
+                            <label class="FormLabel" for="season">Games since Season:</label>
                         </div>
                     </div>
                     <div class="row FormControlRow">
                         <div class="col-md-6">
                             <select class="FormPanelSelect" id="opposition" name="opposition" required>
                                 <option value="Adelaide">Adelaide Crows</option>
-                                <option value="Brisbane">Brisbane Lions</option>
+                                <option value="Brisbane" selected >Brisbane Lions</option>
                                 <option value="Carlton">Carlton Blues</option>
                                 <option value="Collingwood">Collingwood Magpies</option>
                                 <option value="Essendon">Essendon Bombers</option>
@@ -133,7 +133,7 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <input class="FormPanelTextBox" type="text" list="seasons" id="season" name="season" required />
+                            <input class="FormPanelTextBox" type="text" list="seasons" id="season" name="season" required placeholder="Selected the season you want to start the search from until now"/>
                         </div>
                     </div>
                     <div class="row">
@@ -146,7 +146,7 @@
                     </div>
                     <div class="row FormControlRow">
                         <div class="col-md-6">
-                            <input class="FormPanelTextBox" type="text" list="venues" id="venue" name="venue" required placeholder="MCG" />
+                            <input class="FormPanelTextBox" type="text" list="venues" id="venue" name="venue" required placeholder="Select the stadium you want to search" />
                         </div>
                         <div class="col-md-6">
                             <select class="FormPanelSelect" id="location" name="location" required>
