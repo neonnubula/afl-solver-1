@@ -13,14 +13,14 @@ csrf.init_app(app)
 @app.route('/')
 def home():
     session['anti_crf_token'] = generate_csrf(app.secret_key)
-    return render_template('layout.html', player_list=get_csv_option_list('player-list.csv'))
+    return render_template('layout.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'))
 
 
 @app.route('/analysisform', methods = ['POST'])
 def analysisform():
     if request.form.get('csrf_token') == session['anti_crf_token']:
         session['anti_crf_token'] = generate_csrf(app.secret_key)
-        return render_template('index.html', player_list=get_csv_option_list('player-list.csv'))
+        return render_template('index.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'))
     else:
         return render_template('Error.html')
 
@@ -36,10 +36,11 @@ def results():
         input_loc = request.form.get('location')
         input_opp = request.form.get('opposition')
         input_ven = request.form.get('venue')
+        input_venue_id = int(request.form.get('venue_id'))
         input_ssns = int(request.form.get('season'))
 
         # Process data
-        gamesHit, totals, percentages = solver(input_id, input_di, input_gls, input_loc, input_opp, input_ven, input_ssns)
+        gamesHit, totals, percentages = solver(input_id, input_di, input_gls, input_loc, input_opp, input_venue_id, input_ssns)
         summary = generate_summary(gamesHit, totals, percentages, input_name, input_di, input_gls, input_loc, input_opp, input_ven,input_ssns)
 
         # Return results template with summary
