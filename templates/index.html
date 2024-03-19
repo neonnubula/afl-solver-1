@@ -1,3 +1,4 @@
+{% from "DataList.html" import data_list %}
 <script src="/static/scripts/GetDatalistId.js"></script>
 <br />
 <div class="row">
@@ -219,5 +220,5 @@
 </datalist>
 
 <datalist id="player_names">
-    {% include 'PlayerListOption.html' %}
+    {{ data_list(player_list)  }}
 </datalist>

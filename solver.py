@@ -1,6 +1,6 @@
 import pandas as pd
 
-def solver(input_id, input_name, input_di, input_gls, input_loc, input_opp, input_ven, input_ssns):
+def solver(input_id, input_di, input_gls, input_loc, input_opp, input_ven, input_ssns):
   # Read the CSV data into a DataFrame
   df = pd.read_csv('real-data.csv')
   
