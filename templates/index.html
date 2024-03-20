@@ -1,4 +1,5 @@
 {% from "DataList.html" import data_list %}
+{% from "SelectOptionList.html" import select_option_list %}
 <script src="/static/scripts/GetDatalistId.js"></script>
 <br />
 <div class="row">
@@ -33,74 +34,12 @@
                         </div>
                         <div class="col-md-3">
                             <select class="FormPanelSelect" id="disposal_line" name="disposal_line" required>
-                                <option value="0.5">0.5</option>
-                                <option value="1.5">1.5</option>
-                                <option value="2.5">2.5</option>
-                                <option value="3.5">3.5</option>
-                                <option value="4.5">4.5</option>
-                                <option value="5.5">5.5</option>
-                                <option value="6.5">6.5</option>
-                                <option value="7.5">7.5</option>
-                                <option value="8.5">8.5</option>
-                                <option value="9.5">9.5</option>
-                                <option value="10.5">10.5</option>
-                                <option value="11.5">11.5</option>
-                                <option value="12.5">12.5</option>
-                                <option value="13.5">13.5</option>
-                                <option value="14.5">14.5</option>
-                                <option value="15.5">15.5</option>
-                                <option value="16.5">16.5</option>
-                                <option value="17.5">17.5</option>
-                                <option value="18.5">18.5</option>
-                                <option value="19.5">19.5</option>
-                                <option value="20.5">20.5</option>
-                                <option value="21.5">21.5</option>
-                                <option value="22.5">22.5</option>
-                                <option value="23.5">23.5</option>
-                                <option value="24.5" selected>24.5</option>
-                                <option value="25.5">25.5</option>
-                                <option value="26.5">26.5</option>
-                                <option value="27.5">27.5</option>
-                                <option value="28.5">28.5</option>
-                                <option value="29.5">29.5</option>
-                                <option value="30.5">30.5</option>
-                                <option value="31.5">31.5</option>
-                                <option value="32.5">32.5</option>
-                                <option value="33.5">33.5</option>
-                                <option value="34.5">34.5</option>
-                                <option value="35.5">35.5</option>
-                                <option value="36.5">36.5</option>
-                                <option value="37.5">37.5</option>
-                                <option value="38.5">38.5</option>
-                                <option value="39.5">39.5</option>
-                                <option value="40.5">40.5</option>
-                                <option value="41.5">41.5</option>
-                                <option value="42.5">42.5</option>
-                                <option value="43.5">43.5</option>
-                                <option value="44.5">44.5</option>
-                                <option value="45.5">45.5</option>
-                                <option value="46.5">46.5</option>
-                                <option value="47.5">47.5</option>
-                                <option value="48.5">48.5</option>
-                                <option value="49.5">49.5</option>
-                                <option value="50.5">50.5</option>
-                                <option value="51.5">51.5</option>
-                                <option value="52.5">52.5</option>
-                                <option value="53.5">53.5</option>
+                                {{ select_option_list(disposals_list) }}
                             </select>
                         </div>
                         <div class="col-md-3">
                             <select class="FormPanelSelect" id="goal_line" name="goal_line" required>
-                                <option value="0.5" selected>0.5</option>
-                                <option value="1.5">1.5</option>
-                                <option value="2.5">2.5</option>
-                                <option value="3.5">3.5</option>
-                                <option value="4.5">4.5</option>
-                                <option value="5.5">5.5</option>
-                                <option value="6.5">6.5</option>
-                                <option value="7.5">7.5</option>
-                                <option value="8.5">8.5</option>
-                                <option value="9.5">9.5</option>
+                                {{ select_option_list(goals_list) }}
                             </select><br><br>
                         </div>
                     </div>
@@ -155,25 +94,7 @@
 </div>
 
 <datalist id="seasons">
-    <option value="2024">2024</option>
-    <option value="2023">2023</option>
-    <option value="2022">2022</option>
-    <option value="2021">2021</option>
-    <option value="2020">2020</option>
-    <option value="2019">2019</option>
-    <option value="2018">2018</option>
-    <option value="2017">2017</option>
-    <option value="2016">2016</option>
-    <option value="2015">2015</option>
-    <option value="2014">2014</option>
-    <option value="2013">2013</option>
-    <option value="2012">2012</option>
-    <option value="2011">2011</option>
-    <option value="2010">2010</option>
-    <option value="2009">2009</option>
-    <option value="2008">2008</option>
-    <option value="2007">2007</option>
-    <option value="2006">2006</option>
+    {{ select_option_list(season_list) }}
 </datalist>
 
 <datalist id="venues">
