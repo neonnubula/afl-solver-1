@@ -16,14 +16,14 @@ def home():
     if session.get('graph_filename_increment') == None:
         session['graph_filename_increment'] = 0
     session['anti_crf_token'] = generate_csrf(app.secret_key)
-    return render_template('layout.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0))
+    return render_template('layout.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0), home_away_list=[['Home', '1'], ['Away', '2']])
 
 
 @app.route('/analysisform', methods = ['POST'])
 def analysisform():
     if request.form.get('csrf_token') == session['anti_crf_token']:
         session['anti_crf_token'] = generate_csrf(app.secret_key)
-        return render_template('index.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0))
+        return render_template('index.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0), home_away_list=[['Home', '1'], ['Away', '2']])
     else:
         return render_template('Error.html')
 
@@ -37,6 +37,7 @@ def results():
         input_di = float(request.form.get('disposal_line'))
         input_gls = float(request.form.get('goal_line'))
         input_loc = request.form.get('location')
+        input_loc_id = int(request.form.get('location_id'))
         input_opp = request.form.get('opposition')
         input_opp_id = int(request.form.get('opposition_id'))
         input_ven = request.form.get('venue')
@@ -44,7 +45,7 @@ def results():
         input_ssns = int(request.form.get('season'))
 
         # Process data
-        gamesHit, totals, percentages = solver(input_id, input_di, input_gls, input_loc, input_opp_id, input_venue_id, input_ssns)
+        gamesHit, totals, percentages = solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venue_id, input_ssns)
         summary = generate_summary(gamesHit, totals, percentages, input_name, input_di, input_gls, input_loc, input_opp, input_ven,input_ssns)
 
         # Return results template with summary

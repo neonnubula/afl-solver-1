@@ -17,6 +17,7 @@
                     <input type="hidden" id="player_id" name="player_id" />
                     <input type="hidden" id="venue_id" name="venue_id" />
                     <input type="hidden" id="opposition" name="opposition" />
+                    <input type="hidden" id="location" name="location" />
                     <div class="row">
                         <div class="col-md-6">
                             <label class="FormLabel" for="player_name">Player Name:</label>
@@ -74,9 +75,8 @@
                             <input class="FormPanelTextBox" type="text" list="venues" id="venue" name="venue" oninput="$.GetDatalistId($(this), $('#venue_id'))" required placeholder="Select the stadium you want to search" />
                         </div>
                         <div class="col-md-6">
-                            <select class="FormPanelSelect" id="location" name="location" required>
-                                <option value="home">Home</option>
-                                <option value="away">Away</option>
+                            <select class="FormPanelSelect" id="location_id" name="location_id" onchange="$.GetSelectedOptionText($(this), $('#location'))" required>
+                                {{ select_option_list(home_away_list) }}
                             </select><br><br>
                         </div>
                     </div>

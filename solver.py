@@ -1,14 +1,14 @@
 import pandas as pd
 
-def solver(input_id, input_di, input_gls, input_loc, input_opp_id, input_venue_id, input_ssns):
+def solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venue_id, input_ssns):
   # Read the CSV data into a DataFrame
   df = pd.read_csv('real-data.csv')
   
   gamesHit = { # each diciontary entry counts the amount of games that stat correlated with the user input
     'di_under' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["disposals"] < input_di), "disposals"].count(),
     'di_over' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["disposals"] > input_di), "disposals"].count(),
-    'di_under_loc' : df.loc[(df["location"] == input_loc) &(df["playerid"] == input_id) &(df["season"] >= input_ssns) &(df["disposals"] < input_di),"disposals"].count(),
-    'di_over_loc' : df.loc[(df["location"] == input_loc) &(df["playerid"] == input_id) &(df["season"] >= input_ssns) &(df["disposals"] > input_di),"disposals"].count(),
+    'di_under_loc' : df.loc[(df["locationid"] == input_loc_id) &(df["playerid"] == input_id) &(df["season"] >= input_ssns) &(df["disposals"] < input_di),"disposals"].count(),
+    'di_over_loc' : df.loc[(df["locationid"] == input_loc_id) &(df["playerid"] == input_id) &(df["season"] >= input_ssns) &(df["disposals"] > input_di),"disposals"].count(),
     'di_under_opp' : df.loc[(df["oppositionid"] == input_opp_id) &(df["playerid"] == input_id) &(df["season"] >= input_ssns) &(df["disposals"] < input_di),"disposals"].count(),
     'di_over_opp' : df.loc[(df["oppositionid"] == input_opp_id) & (df["playerid"] == input_id) & (df["season"] >= input_ssns) & (df["disposals"] > input_di), "disposals"].count(),
     'di_under_ven' : df.loc[(df["venueid"] == input_venue_id) & (df["playerid"] == input_id) & (df["season"] >= input_ssns) & (df["disposals"] < input_di), "disposals"].count(),
@@ -17,8 +17,8 @@ def solver(input_id, input_di, input_gls, input_loc, input_opp_id, input_venue_i
     'di_over_2023' : df.loc[(df["season"] == 2023) & (df["playerid"] == input_id) & (df["disposals"] > input_di), "disposals"].count(),
     'gls_under' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
     'gls_over' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
-    'gls_under_loc' : df.loc[(df["location"] == input_loc) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
-    'gls_over_loc' : df.loc[(df["location"] == input_loc) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
+    'gls_under_loc' : df.loc[(df["locationid"] == input_loc_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
+    'gls_over_loc' : df.loc[(df["locationid"] == input_loc_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
     'gls_under_opp' : df.loc[(df["oppositionid"] == input_opp_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
     'gls_over_opp' : df.loc[(df["oppositionid"] == input_opp_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
     'gls_under_ven' : df.loc[(df["venueid"] == input_venue_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
@@ -29,10 +29,10 @@ def solver(input_id, input_di, input_gls, input_loc, input_opp_id, input_venue_i
     'di_over_gls_under' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
     'di_under_gls_over' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
     'di_under_gls_under' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls) & (df["disposals"] < input_di), "disposals"].count(),
-    'di_over_gls_over_loc' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["location"] == input_loc) & (df["goals"] > input_gls) & (df["disposals"] > input_di), "disposals"].count(),
-    'di_over_gls_under_loc' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["location"] == input_loc) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
-    'di_under_gls_over_loc' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["location"] == input_loc) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
-    'di_under_gls_under_loc' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["location"] == input_loc) & (df["goals"] < input_gls) & (df["disposals"] < input_di), "disposals"].count(),
+    'di_over_gls_over_loc' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["locationid"] == input_loc_id) & (df["goals"] > input_gls) & (df["disposals"] > input_di), "disposals"].count(),
+    'di_over_gls_under_loc' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["locationid"] == input_loc_id) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
+    'di_under_gls_over_loc' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["locationid"] == input_loc_id) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
+    'di_under_gls_under_loc' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["locationid"] == input_loc_id) & (df["goals"] < input_gls) & (df["disposals"] < input_di), "disposals"].count(),
     'di_over_gls_over_opp' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["oppositionid"] == input_opp_id) & (df["goals"] > input_gls) & (df["disposals"] > input_di), "disposals"].count(),
     'di_over_gls_under_opp' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["oppositionid"] == input_opp_id) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
     'di_under_gls_over_opp' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["oppositionid"] == input_opp_id) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
