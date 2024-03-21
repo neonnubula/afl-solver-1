@@ -16,14 +16,14 @@ def home():
     if session.get('graph_filename_increment') == None:
         session['graph_filename_increment'] = 0
     session['anti_crf_token'] = generate_csrf(app.secret_key)
-    return render_template('layout.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0), home_away_list=[['Home', '1'], ['Away', '2']])
+    return render_template('layout.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0), home_away_list=[['-- Select Location --', 'placeholder'], ['Home', '1'], ['Away', '2']])
 
 
 @app.route('/analysisform', methods = ['POST'])
 def analysisform():
     if request.form.get('csrf_token') == session['anti_crf_token']:
         session['anti_crf_token'] = generate_csrf(app.secret_key)
-        return render_template('index.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0), home_away_list=[['Home', '1'], ['Away', '2']])
+        return render_template('index.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0), home_away_list=[['-- Select Location --', 'placeholder'], ['Home', '1'], ['Away', '2']])
     else:
         return render_template('Error.html')
 

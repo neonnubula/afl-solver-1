@@ -1,5 +1,9 @@
 {% macro data_list(df) %}
     {% for i, row in df.iterrows() %}
+        {% if row['OptionValue'] == 'placeholder' %}
+<option selected disabled>{{row['OptionText'] if 'OptionText' in df.columns}}</option>
+        {% else %}
 <option data-value="{{row['OptionId']|string if 'OptionId' in df.columns}}" value="{{row['OptionValue'] if 'OptionValue' in df.columns}}">{{row['OptionText'] if 'OptionText' in df.columns}}</option>
+        {% endif %}
     {% endfor %}
 {% endmacro %}
