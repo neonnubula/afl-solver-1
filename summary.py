@@ -1,3 +1,5 @@
+from flask import session
+from jinja2.utils import F
 import matplotlib.pyplot as plt
 import math
 
@@ -16,7 +18,7 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
   ax.set_title('Number of Games Over and Under ' + str(input_di) +
                ' Disposals')
   plt.tight_layout()
-  disposal_games_barh_path = staticPath + 'disposal_games_barh.png'
+  disposal_games_barh_path = staticPath + 'disposal_games_barh' + str(session['graph_filename_increment']) + '.png'
   plt.savefig(graphGenPath + disposal_games_barh_path)
   plt.close()
   
@@ -38,7 +40,7 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
   plt.title('Percentage of Games Over and Under ' + str(input_di) +
             ' Disposals')
   plt.tight_layout()
-  disposal_percentage_pie_path = staticPath + 'disposal_percentage_pie.png'
+  disposal_percentage_pie_path = staticPath + 'disposal_percentage_pie' + str(session['graph_filename_increment']) + '.png'
   plt.savefig(graphGenPath + disposal_percentage_pie_path)
   plt.close()
 
@@ -50,7 +52,7 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
   ax.set_xlabel('Number of Games')
   ax.set_title('Number of Games Over and Under ' + str(input_gls) + ' Goals')
   plt.tight_layout()
-  goals_games_barh_path = staticPath + 'goals_games_barh.png'
+  goals_games_barh_path = staticPath + 'goals_games_barh' + str(session['graph_filename_increment']) + '.png'
   plt.savefig(graphGenPath + goals_games_barh_path)
   plt.close()
   
@@ -70,7 +72,7 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
   ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
   plt.title('Percentage of Games Over and Under ' + str(input_gls) + ' Goals')
   plt.tight_layout()
-  goals_percentage_pie_path = staticPath + 'goals_percentage_pie.png'
+  goals_percentage_pie_path = staticPath + 'goals_percentage_pie' + str(session['graph_filename_increment']) + '.png'
   plt.savefig(graphGenPath + goals_percentage_pie_path)
   plt.close()
 
@@ -85,7 +87,7 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
   ax.set_xlabel('Number of Games')
   ax.set_title('Two Leg SGM for All Games: Disposals and Goals Over/Under')
   plt.tight_layout()
-  sgm_games_barh_path = staticPath + 'sgm_games_barh.png'
+  sgm_games_barh_path = staticPath + 'sgm_games_barh' + str(session['graph_filename_increment']) + '.png'
   plt.savefig(graphGenPath + sgm_games_barh_path)
   plt.close()
   
@@ -109,10 +111,10 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
   ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
   plt.title('Percentage Share of Two Leg SGM Results')
   plt.tight_layout()
-  sgm_percentage_pie_path = staticPath + 'sgm_percentage_pie.png'
+  sgm_percentage_pie_path = staticPath + 'sgm_percentage_pie' + str(session['graph_filename_increment']) + '.png'
   plt.savefig(graphGenPath + sgm_percentage_pie_path)
   plt.close()
-
+  session['graph_filename_increment'] += 1
 
   
   summary = [

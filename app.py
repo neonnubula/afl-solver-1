@@ -13,6 +13,7 @@ csrf.init_app(app)
 
 @app.route('/')
 def home():
+    session['graph_filename_increment'] = 0
     session['anti_crf_token'] = generate_csrf(app.secret_key)
     return render_template('layout.html', player_list=get_csv_option_list('player-list.csv'), venue_list=get_csv_option_list('venue-list.csv'), team_list=get_csv_option_list('team-list.csv'), season_list=NumericOptionArray(2024, 2006, -1), disposals_list=NumericOptionArray(0.5, 53.5, 1.0), goals_list=NumericOptionArray(0.5, 9.5, 1.0))
 
