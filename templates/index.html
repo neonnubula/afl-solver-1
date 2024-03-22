@@ -35,12 +35,12 @@
                         </div>
                         <div class="col-md-3">
                             <select class="FormPanelSelect" id="disposal_line" name="disposal_line" required>
-                                {{ select_option_list(disposals_list) }}
+                                {{ select_option_list(option_lists[0]) }}
                             </select>
                         </div>
                         <div class="col-md-3">
                             <select class="FormPanelSelect" id="goal_line" name="goal_line" required>
-                                {{ select_option_list(goals_list) }}
+                                {{ select_option_list(option_lists[1]) }}
                             </select><br><br>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="row FormControlRow">
                         <div class="col-md-6">
                             <select class="FormPanelSelect" id="opposition_id" name="opposition_id" onchange="$.GetSelectedOptionText($(this), $('#opposition'))" required>
-                                {{ data_list(team_list)  }}
+                                {{ select_option_list(option_lists[2]) }}
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-md-6">
                             <select class="FormPanelSelect" id="location_id" name="location_id" onchange="$.GetSelectedOptionText($(this), $('#location'))" required>
-                                {{ select_option_list(home_away_list) }}
+                                {{ select_option_list(option_lists[3]) }}
                             </select><br><br>
                         </div>
                     </div>
@@ -94,13 +94,13 @@
 </div>
 
 <datalist id="seasons">
-    {{ select_option_list(season_list) }}
+    {{ select_option_list(option_lists[4]) }}
 </datalist>
 
 <datalist id="venues">
-    {{ data_list(venue_list)  }}
+    {{ data_list(option_lists[5]) }}
 </datalist>
 
 <datalist id="player_names">
-    {{ data_list(player_list)  }}
+    {{ data_list(option_lists[6]) }}
 </datalist>
