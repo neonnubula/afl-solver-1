@@ -1,20 +1,61 @@
+<!--
+    The AFL Solver website is a tool that potentially give bettors a competitive edge in certain types of betting on AFL matches.
+    In particular, the site offers an analysis of historical player statics presented in a visual and tabular format that
+    is then up to a bettor to interpret and potentially get insight into what might possibly constitute a good or bad
+    bet made in AFL markets based on player stats.
+
+    This file is a HTML file which forms the main template for the entire application. It also contains
+    the framework that is used throughout the entire applicaion.
+
+    Flask Templates (such as Index.html, Results.html) get injected into this template on an as needed basis
+    when the functionality within those templates are required.
+
+    As part of the framework available to the entire application, the following libraries have been included:
+    # JQuery
+    # Bootstrap
+    # Unobtrusive AJAX
+
+    In our app, these files for these libaraies have been included below in this file - Layout.html. This ensures that the
+    functionality of the 3 libraries above is available for the entire application WITHOUT needing to include their
+    files anywhere else in the application.
+-->
+
+<!-- Bootstrap Basics -->
+<!--
+    Bootstrap is a very widely used Cascading Style Sheets (css) and JQuery library used to improve the UI experience in many
+    popular applications - among them being X (Twitter), LinkedIn, Spotify and Snapchat.
+
+    To use Bootstrap - JQuery MUST be included in your app before Bootstrap in included, as Bootstrap does depend on JQuery.
+    There are then two files to include to enable Bootstrap in your app:
+    # bootstrap.min.css
+      This file is NOT dependant on JQuery as it is a css file and not a JQuery file. As such, the order in which this file
+      is included in your app is not important.
+    # bootstrap.js
+      This file IS dependant on JQuery! It MUST be included AFTER jQuery.js.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AFL Solver</title>
+    <!-- Bootstrap css include file. Order of inclusion not important -->
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/AFLSolver.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <!-- JQuery include file. MUST be included BEFORE Bootstrap JQuery include file! -->
     <script src="/static/scripts/jQuery.js"></script>
     <script src="/static/scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!-- Bootstrap JQuery include file. MUST be included AFTER JQuery include file! -->
     <script src="/static/scripts/bootstrap.js"></script>
     <script src="/static/scripts/respond.js"></script>
 </head>
 
 <body>
+    <!-- Application heading - containg logo and application title. Always appears in the application. -->
     <header>
+        <!-- Note below the use of Bootstrap rows and columns. A more detailed insight into this concept in included in the documentation of Index.html -->
         <div class="row VAlignCentre">
             <div class="col-md-3">
                 <img src="/static/images/AFLSolver.jpg" />
@@ -25,10 +66,15 @@
         </div>
     </header>
 
+    <!-- The main sub pages of this application - Index and Results, are injected into this placeholder div -->
     <div id="MainContent">
-{% block content %}
-    {% include 'index.html' %}
-{% endblock %}
+        <!--
+            When this page - Layout.html is initally rendered, it also includes the search form in index.html
+            The following Jinja code includes index.html when this page is rendered.
+        -->
+        {% block content %}
+        {% include 'index.html' %}
+        {% endblock %}
     </div>
 </body>
 </html>

@@ -1,94 +1,191 @@
+<!--
+    This file is a Flask Template file which contains a form with a set of controls that enable the user to select search criteria
+    for a given player's stats.
+
+    This form is injected into Layout.html - which is the main template for the entire application.
+-->
+<!-- BOOTSTRAP ROW/COLUMN BASICS -->
+<!-- Bootstrap Rows -->
+<!--
+    Bootstrap Row divs take up the entire width of its parent HTML element. The simplest way to create a Bootstrap row in HTML is:
+    <div class="row">
+
+    These rows can be contained most simply inside a web page's BODY element, or other elements such as TD elements in a HTML table.
+    Or most typically - they are contained within other divs in a page.
+
+    A parent element can have any number of rows, or none at all.
+
+    Every row element MUST have a total of 12 columns. These columns can exist singularly, or can be merged
+    together - analogously to merging cells Excel.
+-->
+<!-- Bootstrap Columns -->
+<!--
+    Bootstrap Column divs MUST be contained within a Row div. An example in HTML is:
+    <div class="col-md-n">
+    Where n is an integer between 1 and 12.
+
+    There can potentially be anywhere between 1 to 12 divs with a row div, however:
+    THE SUM OF THE VALUES OF n IN THE DIVS MUST SUM UP TO EXACTLY 12!!!!
+
+    For example:
+    <div class="row">
+        <div class="col-md-n1"></div>
+        <div class="col-md-n2"></div>
+        <div class="col-md-n3"></div>
+    </div>
+
+    In this example, the sum n1+n2+n3 must be 12.
+-->
+<!-- Nested content -->
+<!--
+    All HTML content (eg: Forms, Controls and their Labels, and nested row divs) MUST be contined in Bootstrap COLUMN divs - and not
+    row divs. Row divs can only contain column divs.
+-->
+<!-- Nested Rows and Columns -->
+<!--
+    Any number Bootstrap row divs can be nested within a Bootstrap column div. Every nested row must also contain Bootstrap column
+    divs whose n values sum up to exactly 12.
+
+    Each level of indentation in the html code below represents a level of nesting in the structure of combined Row and Column divs.
+-->
+<!-- Finally - the view itself -->
+<!-- Include macro to build datalists for Predictive Text Fields -->
 {% from "DataList.html" import data_list %}
+<!-- Include macro to build option list for Select Fields -->
 {% from "SelectOptionList.html" import select_option_list %}
+<!-- Include JQuery needed to extract an ID value from a datalist once a predictive text value is selected -->
 <script src="/static/scripts/GetDatalistId.js"></script>
 <br />
+
+<!-- Bootstrap Row div 1 - contains an introduction to the site -->
 <div class="row">
+    <!-- Bootstrap Column div 1.1 - All 12 columns of div 1 merged into 1 div -->
     <div class="col-md-12 InfoPanel">
         <h2 class="HAlignCentre">More and more bettors switching to using data when betting</h2>
         <h3 class="HAlignCentre">We offer the only way to instantly get an easy-to-use and detailed report for AFL Player Bets</h3>
         <p class="HAlignCentre">While this and no other app can promise betting wins, every year more bettors are finding success with a data-driven approach. Our app aims to help you make smarter bets by being grounded in data science, probability and research. You can't imagine the potential bets you can only discover with a tool like this, give it a try!</p>
     </div>
 </div>
+<!-- Bootstrap Row div 2 - contains the main content of the view - including the form -->
 <div class="row">
+    <!-- Bootstrap Column div 2.1 - First 2 columns of div 2 merged into 1 to form spacing on the left of the form -->
     <div class="col-md-2"></div>
+    <!-- Bootstrap Column div 2.2 - Next 8 columns of div 2 merged into 1 to contain the form -->
     <div class="col-md-8">
+        <!-- Bootstrap Nested Row div 2.2.1 - containing header of the form. This row has been nested into div 2.2 and needs to contain 12 columns. -->
         <div class="row">
+            <!-- Bootstrap Column div 2.2.1.1 - All 12 columns of div 2.2.1 merged into 1 div -->
             <div class="col-md-12 FormPanelTitle HAlignCentre">
                 <h1 class="FormHeader">Player Analysis Form</h1>
             </div>
         </div>
+        <!-- Bootstrap Nested Row div 2.2.2 - containing the body of form. This row has been nested into div 2.2 and needs to contain 12 columns. -->
         <div class="row">
+            <!-- Bootstrap Column div 2.2.2.1 - All 12 columns of div 2.2.2 merged into 1 div. This div forms the border of the form, and contains all of the controls within.  -->
             <div class="col-md-12 FormPanel">
+                <!-- All HTML forms are contained in a form tag. All controls must be contained in this tag.  -->
                 <form name="AnalysisForm" id="AnalysisForm" action="/results" method="POST">
+                    <!-- Anti-forge token -->
                     {% include 'csrfTokenField.html' %}
+                    <!-- Hidden fields to contain IDs from data lists used for predictivetext fields -->
                     <input type="hidden" id="player_id" name="player_id" />
                     <input type="hidden" id="venue_id" name="venue_id" />
                     <input type="hidden" id="opposition" name="opposition" />
                     <input type="hidden" id="location" name="location" />
+                    <!-- Bootstrap Nested Row div 2.2.2.1.1 - First row of controls - Name, Disposals and Goals. This row has been nested into div 2.2.2.1 and needs to contain 12 columns -->
                     <div class="row">
+                        <!-- Bootstrap Column div 2.2.2.1.1.1 - Using first 6 columns of div 2.2.2.1.1 merged into 1. Div for Name  -->
                         <div class="col-md-6">
+                            <!-- Bootstrap Nested Row div 2.2.2.1.1.1.1 - Row for Name label. This row has been nested into div 2.2.2.1.1.1 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.1.1.1.1 - All 12 columns of div 2.2.2.1.1.1.1 merged into 1 div -->
                                 <div class="col-md-12">
                                     <label class="FormLabel" for="player_name">Player Name:</label>
                                 </div>
                             </div>
+                            <!-- Bootstrap Nested Row div 2.2.2.1.1.1.2 - Row for Name control. This row has been nested into div 2.2.2.1.1.1 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.1.1.2.1 - All 12 columns of div 2.2.2.1.1.1.2  merged into 1 div -->
                                 <div class="col-md-12">
                                     <input class="FormPanelTextBox" type="text" id="player_name" name="player_name" list="player_names" oninput="$.GetDatalistId($(this), $('#player_id'))" required placeholder="Type or select the player you want to search" />
                                 </div>
                             </div>
                         </div>
+                        <!-- Bootstrap Column div 2.2.2.1.1.2 - Using next 3 columns of div 2.2.2.1.1 merged into 1 (running total - 9 columns). Div for Disposals  -->
                         <div class="col-md-3">
+                            <!-- Bootstrap Nested Row div 2.2.2.1.1.2.1 - Row for Disposals label. This row has been nested into div 2.2.2.1.1.2 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.1.2.1.1 - All 12 columns of div 2.2.2.1.1.2.1 merged into 1 div -->
                                 <div class="col-md-12">
                                     <label class="FormLabel" for="disposal_line">Disposal Line:</label>
                                 </div>
                             </div>
+                            <!-- Bootstrap Nested Row div 2.2.2.1.1.2.2 - Row for Disposals control. This row has been nested into div 2.2.2.1.1.2 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.1.2.2.1 - All 12 columns of div 2.2.2.1.1.2.2  merged into 1 div -->
                                 <div class="col-md-12">
                                     <select class="FormPanelSelect" id="disposal_line" name="disposal_line" required>
+                                        <!-- Use Jinja to call select_option_list macro to dynamically create option tags for disposals, which is a list of numbers from 0.5 to 53.5 - incrementing by 1 -->
                                         {{ select_option_list(option_lists[0]) }}
                                     </select>
                                 </div>
                             </div>
                         </div>
+                        <!-- Bootstrap Column div 2.2.2.1.1.3 - Using last 3 columns of div 2.2.2.1.1 merged into 1 (final total - 12 columns). Div for Goals  -->
                         <div class="col-md-3">
+                            <!-- Bootstrap Nested Row div 2.2.2.1.1.3.1 - Row for Goals label. This row has been nested into div 2.2.2.1.1.3 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.1.3.1.1 - All 12 columns of div 2.2.2.1.1.3.1 merged into 1 div -->
                                 <div class="col-md-12">
                                     <label class="FormLabel" for="goal_line">Goal Line:</label>
                                 </div>
                             </div>
+                            <!-- Bootstrap Nested Row div 2.2.2.1.1.3.2 - Row for Goals control. This row has been nested into div 2.2.2.1.1.3 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.1.3.2.1 - All 12 columns of div 2.2.2.1.1.3.2  merged into 1 div -->
                                 <div class="col-md-12">
                                     <select class="FormPanelSelect" id="goal_line" name="goal_line" required>
+                                        <!-- Use Jinja to call select_option_list macro to dynamically create option tags for goals, which is a list of numbers from 0.5 to 9.5 - incrementing by 1 -->
                                         {{ select_option_list(option_lists[1]) }}
                                     </select><br><br>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Bootstrap Nested Row div 2.2.2.1.2 - Second row of controls - Opposition and Games Since Season. This row has been nested into div 2.2.2.1 and needs to contain 12 columns -->
                     <div class="row">
+                        <!-- Bootstrap Column div 2.2.2.1.2.1 - Using first 6 columns of div 2.2.2.1.2 merged into 1. Div for Name  -->
                         <div class="col-md-6">
+                            <!-- Bootstrap Nested Row div 2.2.2.1.2.1.1 - Row for Opposition label. This row has been nested into div 2.2.2.1.2.1 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.2.1.1.1 - All 12 columns of div 2.2.2.1.2.1.1 merged into 1 div -->
                                 <div class="col-md-12">
                                     <label class="FormLabel" for="opposition">Opposition:</label>
                                 </div>
                             </div>
+                            <!-- Bootstrap Nested Row div 2.2.2.1.2.1.2 - Row for Opposition control. This row has been nested into div 2.2.2.1.2.1 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.2.1.2.1 - All 12 columns of div 2.2.2.1.2.1.2  merged into 1 div -->
                                 <div class="col-md-12">
                                     <select class="FormPanelSelect" id="opposition_id" name="opposition_id" onchange="$.GetSelectedOptionText($(this), $('#opposition'))" required>
+                                        <!-- Use Jinja to call select_option_list macro to dynamically create option tags for opposition, which is a list of all the AFL teams in alphabetical order -->
                                         {{ select_option_list(option_lists[2]) }}
                                     </select>
                                 </div>
                             </div>
                         </div>
+                        <!-- Bootstrap Column div 2.2.2.1.2.2 - Using last 6 columns of div 2.2.2.1.2 merged into 1. Div for Games Since Season  -->
                         <div class="col-md-6">
+                            <!-- Bootstrap Nested Row div 2.2.2.1.2.2.1 - Row for Games Since Season label. This row has been nested into div 2.2.2.1.2.2 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.2.2.1.1 - All 12 columns of div 2.2.2.1.2.2.1 merged into 1 div -->
                                 <div class="col-md-12">
-                                    <label class="FormLabel" for="season">Games since Season:</label>
+                                    <label class="FormLabel" for="season">Games Since Season:</label>
                                 </div>
                             </div>
+                            <!-- Bootstrap Nested Row div 2.2.2.1.2.2.2 - Row for Games Since Season control. This row has been nested into div 2.2.2.1.2.2 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.2.2.2.1 - All 12 columns of div 2.2.2.1.2.2.2  merged into 1 div -->
                                 <div class="col-md-12">
                                     <input class="FormPanelTextBox" type="text" list="seasons" id="season" name="season" required placeholder="Selected the season you want to start the search from until now" />
                                     <br><br>
@@ -96,35 +193,49 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Bootstrap Nested Row div 2.2.2.1.3 - Third row of controls - Venue and Location. This row has been nested into div 2.2.2.1 and needs to contain 12 columns -->
                     <div class="row">
+                        <!-- Bootstrap Column div 2.2.2.1.3.1 - Using first 6 columns of div 2.2.2.1.3 merged into 1. Div for Venue  -->
                         <div class="col-md-6">
+                            <!-- Bootstrap Nested Row div 2.2.2.1.3.1.1 - Row for Venue label. This row has been nested into div 2.2.2.1.3.1 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.3.1.1.1 - All 12 columns of div 2.2.2.1.3.1.1 merged into 1 div -->
                                 <div class="col-md-12">
                                     <label class="FormLabel" for="venue">Venue:</label>
                                 </div>
                             </div>
+                            <!-- Bootstrap Nested Row div 2.2.2.1.3.1.2 - Row for Venue control. This row has been nested into div 2.2.2.1.3.1 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.3.1.2.1 - All 12 columns of div 2.2.2.1.3.1.2  merged into 1 div -->
                                 <div class="col-md-12">
                                     <input class="FormPanelTextBox" type="text" list="venues" id="venue" name="venue" oninput="$.GetDatalistId($(this), $('#venue_id'))" required placeholder="Select the stadium you want to search" />
                                 </div>
                             </div>
                         </div>
+                        <!-- Bootstrap Column div 2.2.2.1.3.2 - Using last 6 columns of div 2.2.2.1.3 merged into 1. Div for Location  -->
                         <div class="col-md-6">
+                            <!-- Bootstrap Nested Row div 2.2.2.1.3.2.1 - Row for Location label. This row has been nested into div 2.2.2.1.3.2 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.3.2.1.1 - All 12 columns of div 2.2.2.1.3.2.1 merged into 1 div -->
                                 <div class="col-md-12">
                                     <label class="FormLabel" for="location">Location:</label>
                                 </div>
                             </div>
+                            <!-- Bootstrap Nested Row div 2.2.2.1.3.2.2 - Row for Location control. This row has been nested into div 2.2.2.1.3.2 and needs to contain 12 columns -->
                             <div class="row">
+                                <!-- Bootstrap Column div 2.2.2.1.3.2.2.1 - All 12 columns of div 2.2.2.1.3.2.2  merged into 1 div -->
                                 <div class="col-md-12">
                                     <select class="FormPanelSelect" id="location_id" name="location_id" onchange="$.GetSelectedOptionText($(this), $('#location'))" required>
+                                        <!-- Use Jinja to call select_option_list macro to dynamically create option tags for Venue, one option for Home, and one for Away -->
                                         {{ select_option_list(option_lists[3]) }}
                                     </select><br><br>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Bootstrap Nested Row div 2.2.2.1.4 - Row for Submit button. This row has been nested into div 2.2.2.1 and needs to contain 12 columns -->
                     <div class="row FormControlRow">
+                        <!-- Bootstrap Column div 2.2.2.1.4.1 - Using first 6 columns of div 2.2.2.1.4 merged into 1. -->
                         <div class="col-md-12">
                             <button class="FormPanelSubmit" id="btnSubmit" onclick="SubmitForm(this, AnalysisForm)">Submit &raquo;</button>
                         </div>
@@ -134,9 +245,12 @@
             </div>
         </div>
     </div>
+    <!-- Bootstrap Column div 2.3 - Last 2 columns of div 2 merged into 1 to form spacing on the right of the form -->
     <div class="col-md-2"></div>
 </div>
+<!-- Bootstrap Row div 3 - content requesting users to send feedback to the site -->
 <div class="row text-center">
+    <!-- Bootstrap Column div 3.1 - All 12 columns of div 3 merged into 1 div -->
     <div class="col-md-12">
         <h2>Tell us how to make this app more helpful</h2>
         <a href="mailto:bettingsolver@gmail.com?subject=Request a Feature" class="btn btn-primary">Request a Feature</a>
@@ -147,13 +261,16 @@
 </div>
 
 <datalist id="seasons">
+    <!-- Use Jinja to call select_option_list macro to dynamically create option tags for Seasons -->
     {{ select_option_list(option_lists[4]) }}
 </datalist>
 
 <datalist id="venues">
+    <!-- Use Jinja to call data_list macro to dynamically create option tags for Venues -->
     {{ data_list(option_lists[5]) }}
 </datalist>
 
 <datalist id="player_names">
+    <!-- Use Jinja to call data_list macro to dynamically create option tags for Player Names -->
     {{ data_list(option_lists[6]) }}
 </datalist>
