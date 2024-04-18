@@ -3,11 +3,13 @@
 <script src="/static/scripts/GetDatalistId.js"></script>
 <br />
 <div class="row">
-  <div class="InfoPanel">
-      <h2 class="HAlignCentre">More and more bettors switching to using data when betting</h2>
-      <h3 class="HAlignCentre">We offer the only way to instantly get an easy-to-use and detailed report for AFL Player Bets</h3>
-      <p class="HAlignCentre">While this and no other app can promise betting wins, every year more bettors are finding success with a data-driven approach. Our app aims to help you make smarter bets by being grounded in data science, probability and research. You can't imagine the potential bets you can only discover with a tool like this, give it a try!</p>
-  </div>
+    <div class="col-md-12 InfoPanel">
+        <h2 class="HAlignCentre">More and more bettors switching to using data when betting</h2>
+        <h3 class="HAlignCentre">We offer the only way to instantly get an easy-to-use and detailed report for AFL Player Bets</h3>
+        <p class="HAlignCentre">While this and no other app can promise betting wins, every year more bettors are finding success with a data-driven approach. Our app aims to help you make smarter bets by being grounded in data science, probability and research. You can't imagine the potential bets you can only discover with a tool like this, give it a try!</p>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <div class="row">
@@ -25,64 +27,101 @@
                     <input type="hidden" id="location" name="location" />
                     <div class="row">
                         <div class="col-md-6">
-                            <label class="FormLabel" for="player_name">Player Name:</label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="FormLabel" for="player_name">Player Name:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input class="FormPanelTextBox" type="text" id="player_name" name="player_name" list="player_names" oninput="$.GetDatalistId($(this), $('#player_id'))" required placeholder="Type or select the player you want to search" />
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-3">
-                            <label class="FormLabel" for="disposal_line">Disposal Line:</label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="FormLabel" for="disposal_line">Disposal Line:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="FormPanelSelect" id="disposal_line" name="disposal_line" required>
+                                        {{ select_option_list(option_lists[0]) }}
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-3">
-                            <label class="FormLabel" for="goal_line">Goal Line:</label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="FormLabel" for="goal_line">Goal Line:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="FormPanelSelect" id="goal_line" name="goal_line" required>
+                                        {{ select_option_list(option_lists[1]) }}
+                                    </select><br><br>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <input class="FormPanelTextBox" type="text" id="player_name" name="player_name" list="player_names" oninput="$.GetDatalistId($(this), $('#player_id'))" required placeholder="Type or select the player you want to search" />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="FormLabel" for="opposition">Opposition:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="FormPanelSelect" id="opposition_id" name="opposition_id" onchange="$.GetSelectedOptionText($(this), $('#opposition'))" required>
+                                        {{ select_option_list(option_lists[2]) }}
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <select class="FormPanelSelect" id="disposal_line" name="disposal_line" required>
-                                {{ select_option_list(option_lists[0]) }}
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="FormPanelSelect" id="goal_line" name="goal_line" required>
-                                {{ select_option_list(option_lists[1]) }}
-                            </select><br><br>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="FormLabel" for="season">Games since Season:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input class="FormPanelTextBox" type="text" list="seasons" id="season" name="season" required placeholder="Selected the season you want to start the search from until now" />
+                                    <br><br>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label class="FormLabel" for="opposition">Opposition:</label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="FormLabel" for="venue">Venue:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input class="FormPanelTextBox" type="text" list="venues" id="venue" name="venue" oninput="$.GetDatalistId($(this), $('#venue_id'))" required placeholder="Select the stadium you want to search" />
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label class="FormLabel" for="season">Games since Season:</label>
-                        </div>
-                    </div>
-                    <div class="row FormControlRow">
-                        <div class="col-md-6">
-                            <select class="FormPanelSelect" id="opposition_id" name="opposition_id" onchange="$.GetSelectedOptionText($(this), $('#opposition'))" required>
-                                {{ select_option_list(option_lists[2]) }}
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <input class="FormPanelTextBox" type="text" list="seasons" id="season" name="season" required placeholder="Selected the season you want to start the search from until now" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label class="FormLabel" for="venue">Venue:</label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="FormLabel" for="location">Location:</label>
-                        </div>
-                    </div>
-                    <div class="row FormControlRow">
-                        <div class="col-md-6">
-                            <input class="FormPanelTextBox" type="text" list="venues" id="venue" name="venue" oninput="$.GetDatalistId($(this), $('#venue_id'))" required placeholder="Select the stadium you want to search" />
-                        </div>
-                        <div class="col-md-6">
-                            <select class="FormPanelSelect" id="location_id" name="location_id" onchange="$.GetSelectedOptionText($(this), $('#location'))" required>
-                                {{ select_option_list(option_lists[3]) }}
-                            </select><br><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="FormLabel" for="location">Location:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="FormPanelSelect" id="location_id" name="location_id" onchange="$.GetSelectedOptionText($(this), $('#location'))" required>
+                                        {{ select_option_list(option_lists[3]) }}
+                                    </select><br><br>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row FormControlRow">
