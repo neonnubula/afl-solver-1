@@ -13,8 +13,8 @@ def solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venu
     'di_over_opp' : df.loc[(df["oppositionid"] == input_opp_id) & (df["playerid"] == input_id) & (df["season"] >= input_ssns) & (df["disposals"] > input_di), "disposals"].count(),
     'di_under_ven' : df.loc[(df["venueid"] == input_venue_id) & (df["playerid"] == input_id) & (df["season"] >= input_ssns) & (df["disposals"] < input_di), "disposals"].count(),
     'di_over_ven' : df.loc[(df["venueid"] == input_venue_id) & (df["playerid"] == input_id) & (df["season"] >= input_ssns) & (df["disposals"] > input_di), "disposals"].count(),
-    'di_under_2023' : df.loc[(df["season"] == 2023) & (df["playerid"] == input_id) & (df["disposals"] < input_di), "disposals"].count(),
-    'di_over_2023' : df.loc[(df["season"] == 2023) & (df["playerid"] == input_id) & (df["disposals"] > input_di), "disposals"].count(),
+    'di_under_2024' : df.loc[(df["season"] == 2024) & (df["playerid"] == input_id) & (df["disposals"] < input_di), "disposals"].count(),
+    'di_over_2024' : df.loc[(df["season"] == 2024) & (df["playerid"] == input_id) & (df["disposals"] > input_di), "disposals"].count(),
     'gls_under' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
     'gls_over' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
     'gls_under_loc' : df.loc[(df["locationid"] == input_loc_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
@@ -23,8 +23,8 @@ def solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venu
     'gls_over_opp' : df.loc[(df["oppositionid"] == input_opp_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
     'gls_under_ven' : df.loc[(df["venueid"] == input_venue_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
     'gls_over_ven' : df.loc[(df["venueid"] == input_venue_id) & (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
-    'gls_under_2023' : df.loc[(df["season"] == 2023) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
-    'gls_over_2023' : df.loc[(df["season"] == 2023) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
+    'gls_under_2024' : df.loc[(df["season"] == 2024) & (df["playerid"] == input_id) & (df["goals"] < input_gls), "goals"].count(),
+    'gls_over_2024' : df.loc[(df["season"] == 2024) & (df["playerid"] == input_id) & (df["goals"] > input_gls), "goals"].count(),
     'di_over_gls_over' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls) & (df["disposals"] > input_di), "disposals"].count(),
     'di_over_gls_under' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
     'di_under_gls_over' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
@@ -41,10 +41,10 @@ def solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venu
     'di_over_gls_under_ven' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["venueid"] == input_venue_id) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
     'di_under_gls_over_ven' : df.loc[ (df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["venueid"] == input_venue_id) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
     'di_under_gls_under_ven' : df.loc[(df["season"] >= input_ssns) & (df["playerid"] == input_id) & (df["venueid"] == input_venue_id) & (df["goals"] < input_gls) & (df["disposals"] < input_di), "disposals"].count(),
-    'di_over_gls_over_2023' : df.loc[ (df["season"] == 2023) & (df["playerid"] == input_id) & (df["goals"] > input_gls) & (df["disposals"] > input_di), "disposals"].count(),
-    'di_over_gls_under_2023' : df.loc[ (df["season"] == 2023) & (df["playerid"] == input_id) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
-    'di_under_gls_over_2023' : df.loc[ (df["season"] == 2023) & (df["playerid"] == input_id) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
-    'di_under_gls_under_2023' : df.loc[(df["season"] == 2023) &(df["playerid"] == input_id) & (df["goals"] < input_gls) &(df["disposals"] < input_di),"disposals"].count()
+    'di_over_gls_over_2024' : df.loc[ (df["season"] == 2024) & (df["playerid"] == input_id) & (df["goals"] > input_gls) & (df["disposals"] > input_di), "disposals"].count(),
+    'di_over_gls_under_2024' : df.loc[ (df["season"] == 2024) & (df["playerid"] == input_id) & (df["goals"] < input_gls) & (df["disposals"] > input_di), "disposals"].count(),
+    'di_under_gls_over_2024' : df.loc[ (df["season"] == 2024) & (df["playerid"] == input_id) & (df["goals"] > input_gls) & (df["disposals"] < input_di), "disposals"].count(),
+    'di_under_gls_under_2024' : df.loc[(df["season"] == 2024) &(df["playerid"] == input_id) & (df["goals"] < input_gls) &(df["disposals"] < input_di),"disposals"].count()
   }
 
   totals = { # used to show users how many total games the gamesHit are out of and to calcuate percentages
@@ -52,7 +52,7 @@ def solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venu
     'gms_loc': gamesHit['di_over_loc'] + gamesHit['di_under_loc'],
     'gms_opp': gamesHit['di_over_opp'] + gamesHit['di_under_opp'],
     'gms_ven': gamesHit['di_over_ven'] + gamesHit['di_under_ven'],
-    'gms_2023': gamesHit['di_over_2023'] + gamesHit['di_under_2023']
+    'gms_2024': gamesHit['di_over_2024'] + gamesHit['di_under_2024']
   }
 
   percentages = { #used to show the percentage  the user input for that stat hit, as well as calculate true odds based on previous games only.
@@ -64,8 +64,8 @@ def solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venu
     'pc_di_over_opp': gamesHit['di_over_opp'] / totals['gms_opp'],
     'pc_di_under_ven': gamesHit['di_under_ven'] / totals['gms_ven'],
     'pc_di_over_ven': gamesHit['di_over_ven'] / totals['gms_ven'],
-    'pc_di_under_2023': gamesHit['di_under_2023'] / totals['gms_2023'],
-    'pc_di_over_2023': gamesHit['di_over_2023'] / totals['gms_2023'],
+    'pc_di_under_2024': gamesHit['di_under_2024'] / totals['gms_2024'],
+    'pc_di_over_2024': gamesHit['di_over_2024'] / totals['gms_2024'],
     'pc_gls_under': gamesHit['gls_under'] / totals['gms'],
     'pc_gls_over': gamesHit['gls_over'] / totals['gms'],
     'pc_gls_under_loc': gamesHit['gls_under_loc'] / totals['gms_loc'],
@@ -74,8 +74,8 @@ def solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venu
     'pc_gls_over_opp': gamesHit['gls_over_opp'] / totals['gms_opp'],
     'pc_gls_under_ven': gamesHit['gls_under_ven'] / totals['gms_ven'],
     'pc_gls_over_ven': gamesHit['gls_over_ven'] / totals['gms_ven'],
-    'pc_gls_under_2023': gamesHit['gls_under_2023'] / totals['gms_2023'],
-    'pc_gls_over_2023': gamesHit['gls_over_2023'] / totals['gms_2023'],
+    'pc_gls_under_2024': gamesHit['gls_under_2024'] / totals['gms_2024'],
+    'pc_gls_over_2024': gamesHit['gls_over_2024'] / totals['gms_2024'],
     'pc_di_over_gls_over': gamesHit['di_over_gls_over'] / totals['gms'],
     'pc_di_over_gls_under': gamesHit['di_over_gls_under'] / totals['gms'],
     'pc_di_under_gls_over': gamesHit['di_under_gls_over'] / totals['gms'],
@@ -92,9 +92,9 @@ def solver(input_id, input_di, input_gls, input_loc_id, input_opp_id, input_venu
     'pc_di_over_gls_under_ven': gamesHit['di_over_gls_under_ven'] / totals['gms_ven'],
     'pc_di_under_gls_over_ven': gamesHit['di_under_gls_over_ven'] / totals['gms_ven'],
     'pc_di_under_gls_under_ven': gamesHit['di_under_gls_under_ven'] / totals['gms_ven'],
-    'pc_di_over_gls_over_2023': gamesHit['di_over_gls_over_2023'] / totals['gms_2023'],
-    'pc_di_over_gls_under_2023': gamesHit['di_over_gls_under_2023'] / totals['gms_2023'],
-    'pc_di_under_gls_over_2023': gamesHit['di_under_gls_over_2023'] / totals['gms_2023'],
-    'pc_di_under_gls_under_2023': gamesHit['di_under_gls_under_2023'] / totals['gms_2023']
+    'pc_di_over_gls_over_2024': gamesHit['di_over_gls_over_2024'] / totals['gms_2024'],
+    'pc_di_over_gls_under_2024': gamesHit['di_over_gls_under_2024'] / totals['gms_2024'],
+    'pc_di_under_gls_over_2024': gamesHit['di_under_gls_over_2024'] / totals['gms_2024'],
+    'pc_di_under_gls_under_2024': gamesHit['di_under_gls_under_2024'] / totals['gms_2024']
   }
   return gamesHit, totals, percentages

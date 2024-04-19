@@ -147,9 +147,9 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
             [f"Over {input_di} disposals: {gamesHit['di_over_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_over_ven']*100:.2f}%"]
         ]
     ],
-    ['Disposals in 2023', 'Stats', [
-            [f"Under {input_di} disposals: {gamesHit['di_under_2023']} out of {totals['gms_2023']} games = {percentages['pc_di_under_2023']*100:.2f}%"],
-            [f"Over {input_di} disposals: {gamesHit['di_over_2023']} out of {totals['gms_2023']} games = {percentages['pc_di_over_2023']*100:.2f}%"]
+    ['Disposals in 2024', 'Stats', [
+            [f"Under {input_di} disposals: {gamesHit['di_under_2024']} out of {totals['gms_2024']} games = {percentages['pc_di_under_2024']*100:.2f}%"],
+            [f"Over {input_di} disposals: {gamesHit['di_over_2024']} out of {totals['gms_2024']} games = {percentages['pc_di_over_2024']*100:.2f}%"]
         ]
     ],
       ['Goals', 'Heading'],
@@ -179,9 +179,9 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
             [f"Over {input_gls} goals: {gamesHit['gls_over_ven']} out of {totals['gms_ven']} games = {percentages['pc_gls_over_ven']*100:.2f}%"]
         ]
     ],
-    ['Goals in 2023', 'Stats', [
-            [f"Under {input_gls} goals: {gamesHit['gls_under_2023']} out of {totals['gms_2023']} games = {percentages['pc_gls_under_2023']*100:.2f}%"],
-            [f"Over {input_gls} goals: {gamesHit['gls_over_2023']} out of {totals['gms_2023']} games = {percentages['pc_gls_over_2023']*100:.2f}%"]
+    ['Goals in 2024', 'Stats', [
+            [f"Under {input_gls} goals: {gamesHit['gls_under_2024']} out of {totals['gms_2024']} games = {percentages['pc_gls_under_2024']*100:.2f}%"],
+            [f"Over {input_gls} goals: {gamesHit['gls_over_2024']} out of {totals['gms_2024']} games = {percentages['pc_gls_over_2024']*100:.2f}%"]
         ]
     ],
       ['2-Leg SGM Disposals & Goals', 'Heading'],
@@ -219,11 +219,11 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
             [f"Under {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_under_gls_under_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_under_gls_under_ven']*100:.2f}%"]
         ]
     ],
-    ['2-Leg SGM in 2023', 'Stats', [
-            [f"Over {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_over_gls_over_2023']} out of {totals['gms_2023']} games = {percentages['pc_di_over_gls_over_2023']*100:.2f}%"],
-            [f"Over {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_over_gls_under_2023']} out of {totals['gms_2023']} games = {percentages['pc_di_over_gls_under_2023']*100:.2f}%"],
-            [f"Under {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_under_gls_over_2023']} out of {totals['gms_2023']} games = {percentages['pc_di_under_gls_over_2023']*100:.2f}%"],
-            [f"Under {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_under_gls_under_2023']} out of {totals['gms_2023']} games = {percentages['pc_di_under_gls_under_2023']*100:.2f}%"]
+    ['2-Leg SGM in 2024', 'Stats', [
+            [f"Over {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_over_gls_over_2024']} out of {totals['gms_2024']} games = {percentages['pc_di_over_gls_over_2024']*100:.2f}%"],
+            [f"Over {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_over_gls_under_2024']} out of {totals['gms_2024']} games = {percentages['pc_di_over_gls_under_2024']*100:.2f}%"],
+            [f"Under {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_under_gls_over_2024']} out of {totals['gms_2024']} games = {percentages['pc_di_under_gls_over_2024']*100:.2f}%"],
+            [f"Under {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_under_gls_under_2024']} out of {totals['gms_2024']} games = {percentages['pc_di_under_gls_under_2024']*100:.2f}%"]
         ]
     ]
     ]
