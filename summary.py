@@ -37,7 +37,7 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
          startangle=90,
          colors=['skyblue', 'orange'])
   ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-  plt.title('Percentage of Disposals Over/Under ' + str(input_di) +
+  plt.title('Percentage Over/Under ' + str(input_di) +
             ' Disposals')
   plt.tight_layout()
   disposal_percentage_pie_path = staticPath + 'disposal_percentage_pie' + str(session['graph_filename_increment']) + '.png'
@@ -70,7 +70,7 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
          startangle=90,
          colors=['lightgreen', 'red'])
   ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-  plt.title('Percentage of Goals Over/Under ' + str(input_gls) + ' Goals')
+  plt.title('Percentage of Over/Under ' + str(input_gls) + ' Goals')
   plt.tight_layout()
   goals_percentage_pie_path = staticPath + 'goals_percentage_pie' + str(session['graph_filename_increment']) + '.png'
   plt.savefig(graphGenPath + goals_percentage_pie_path)
@@ -93,8 +93,8 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
   
   # Generate pie chart for the percentage share of Two Leg SGM results
   fig, ax = plt.subplots()
-  labels = ['Over Disp & Over Gls', 'Over Disp & Under Gls',
-            'Under Disp & Over Gls', 'Under Disp & Under Gls']
+  labels = ['Ov Disp & Ov Gls', 'Ov Disp & Un Gls',
+            'Un Disp & Ov Gls', 'Un Disp & Un Gls']
   # Ensure there are no nan values passed to pie chart generator. Disposals and Goals under assumed to be 100% for sake of the graph
   # Backslash character enables splitting of if condition over two lines
   if math.isnan(percentages['pc_di_over_gls_over']) or math.isnan(percentages['pc_di_over_gls_under']) \
@@ -192,31 +192,31 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
       'Graph'
     ],
     ["2-Leg SGM for All Games Requested", 'Stats', [
-            [f"Over {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_over_gls_over']} out of {totals['gms']} games = {percentages['pc_di_over_gls_over']*100:.2f}%"],
-            [f"Over {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_over_gls_under']} out of {totals['gms']} games = {percentages['pc_di_over_gls_under']*100:.2f}%"],
-            [f"Under {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_under_gls_over']} out of {totals['gms']} games = {percentages['pc_di_under_gls_over']*100:.2f}%"],
-            [f"Under {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_under_gls_under']} out of {totals['gms']} games = {percentages['pc_di_under_gls_under']*100:.2f}%"]
+            [f"Over {input_di} disposals & Over {input_gls} goals: {gamesHit['di_over_gls_over']} out of {totals['gms']} games = {percentages['pc_di_over_gls_over']*100:.2f}%"],
+            [f"Over {input_di} disposals & Under {input_gls} goals: {gamesHit['di_over_gls_under']} out of {totals['gms']} games = {percentages['pc_di_over_gls_under']*100:.2f}%"],
+            [f"Under {input_di} disposals & Over {input_gls} goals: {gamesHit['di_under_gls_over']} out of {totals['gms']} games = {percentages['pc_di_under_gls_over']*100:.2f}%"],
+            [f"Under {input_di} disposals & Under {input_gls} goals: {gamesHit['di_under_gls_under']} out of {totals['gms']} games = {percentages['pc_di_under_gls_under']*100:.2f}%"]
         ]
     ],
     [f'2-Leg SGM for {input_loc} games', 'Stats', [
-            [f"Over {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_over_gls_over_loc']} out of {totals['gms_loc']} games = {percentages['pc_di_over_gls_over_loc']*100:.2f}%"],
-            [f"Over {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_over_gls_under_loc']} out of {totals['gms_loc']} games = {percentages['pc_di_over_gls_under_loc']*100:.2f}%"],
-            [f"Under {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_under_gls_over_loc']} out of {totals['gms_loc']} games = {percentages['pc_di_under_gls_over_loc']*100:.2f}%"],
-            [f"Under {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_under_gls_under_loc']} out of {totals['gms_loc']} games = {percentages['pc_di_under_gls_under_loc']*100:.2f}%"]
+            [f"Over {input_di} disposals & Over {input_gls} goals: {gamesHit['di_over_gls_over_loc']} out of {totals['gms_loc']} games = {percentages['pc_di_over_gls_over_loc']*100:.2f}%"],
+            [f"Over {input_di} disposals & Under {input_gls} goals: {gamesHit['di_over_gls_under_loc']} out of {totals['gms_loc']} games = {percentages['pc_di_over_gls_under_loc']*100:.2f}%"],
+            [f"Under {input_di} disposals & Over {input_gls} goals: {gamesHit['di_under_gls_over_loc']} out of {totals['gms_loc']} games = {percentages['pc_di_under_gls_over_loc']*100:.2f}%"],
+            [f"Under {input_di} disposals & Under {input_gls} goals: {gamesHit['di_under_gls_under_loc']} out of {totals['gms_loc']} games = {percentages['pc_di_under_gls_under_loc']*100:.2f}%"]
         ]
     ],
     [f'2-Leg SGM Against {input_opp}', 'Stats', [
-            [f"Over {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_over_gls_over_opp']} out of {totals['gms_opp']} games = {percentages['pc_di_over_gls_over_opp']*100:.2f}%"],
-            [f"Over {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_over_gls_under_opp']} out of {totals['gms_opp']} games = {percentages['pc_di_over_gls_under_opp']*100:.2f}%"],
-            [f"Under {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_under_gls_over_opp']} out of {totals['gms_opp']} games = {percentages['pc_di_under_gls_over_opp']*100:.2f}%"],
-            [f"Under {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_under_gls_under_opp']} out of {totals['gms_opp']} games = {percentages['pc_di_under_gls_under_opp']*100:.2f}%"]
+            [f"Over {input_di} disposals & Over {input_gls} goals: {gamesHit['di_over_gls_over_opp']} out of {totals['gms_opp']} games = {percentages['pc_di_over_gls_over_opp']*100:.2f}%"],
+            [f"Over {input_di} disposals & Under {input_gls} goals: {gamesHit['di_over_gls_under_opp']} out of {totals['gms_opp']} games = {percentages['pc_di_over_gls_under_opp']*100:.2f}%"],
+            [f"Under {input_di} disposals & Over {input_gls} goals: {gamesHit['di_under_gls_over_opp']} out of {totals['gms_opp']} games = {percentages['pc_di_under_gls_over_opp']*100:.2f}%"],
+            [f"Under {input_di} disposals & Under {input_gls} goals: {gamesHit['di_under_gls_under_opp']} out of {totals['gms_opp']} games = {percentages['pc_di_under_gls_under_opp']*100:.2f}%"]
         ]
     ],
     [f'2-Leg SGM At {input_ven}', 'Stats', [
-            [f"Over {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_over_gls_over_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_over_gls_over_ven']*100:.2f}%"],
-            [f"Over {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_over_gls_under_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_over_gls_under_ven']*100:.2f}%"],
-            [f"Under {input_di} disposals & Over {input_gls} Goals: {gamesHit['di_under_gls_over_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_under_gls_over_ven']*100:.2f}%"],
-            [f"Under {input_di} disposals & Under {input_gls} Goals: {gamesHit['di_under_gls_under_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_under_gls_under_ven']*100:.2f}%"]
+            [f"Over {input_di} disposals & Over {input_gls} goals: {gamesHit['di_over_gls_over_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_over_gls_over_ven']*100:.2f}%"],
+            [f"Over {input_di} disposals & Under {input_gls} goals: {gamesHit['di_over_gls_under_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_over_gls_under_ven']*100:.2f}%"],
+            [f"Under {input_di} disposals & Over {input_gls} goals: {gamesHit['di_under_gls_over_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_under_gls_over_ven']*100:.2f}%"],
+            [f"Under {input_di} disposals & Under {input_gls} goals: {gamesHit['di_under_gls_under_ven']} out of {totals['gms_ven']} games = {percentages['pc_di_under_gls_under_ven']*100:.2f}%"]
         ]
     ],
     ['2-Leg SGM in 2024', 'Stats', [
