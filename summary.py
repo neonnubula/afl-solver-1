@@ -118,8 +118,8 @@ def generate_summary(gamesHit, totals, percentages, input_name, input_di,
 
   
   summary = [
-      ['Summary Results', 'Heading'],
-      ['Report Requested', 'Statement', f'{input_name} results for disposal line of {input_di} and goals line of {input_gls} for games since {input_ssns}'],
+      ['Request Solved', 'Heading'],
+      [f'{input_name}', 'Statement', f'{input_di} Disposals & {input_gls} Goals, since {input_ssns}'],
     ['Disposals', 'Heading'],
       [
         [
